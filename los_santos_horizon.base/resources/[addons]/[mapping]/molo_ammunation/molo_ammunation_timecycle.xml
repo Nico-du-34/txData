@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<timecycle_modifier_data version="1.000000">
+    <modifier name="v_moloammunation" numMods="13" userFlags="0">
+        <light_directional_amb_col_r>1.000 1.000</light_directional_amb_col_r>
+        <light_directional_amb_col_g>1.000 1.000</light_directional_amb_col_g>
+        <light_directional_amb_col_b>0.140 1.000</light_directional_amb_col_b>
+        <light_artificial_int_down_col_r>2.109 1.000</light_artificial_int_down_col_r>
+        <light_artificial_int_down_col_g>1.324 1.000</light_artificial_int_down_col_g>
+        <light_artificial_int_down_col_b>1.091 1.000</light_artificial_int_down_col_b>
+        <light_artificial_int_down_intensity>0.720 0.000</light_artificial_int_down_intensity>
+        <light_artificial_int_up_col_r>5.349 1.000</light_artificial_int_up_col_r>
+        <light_artificial_int_up_col_g>2.051 1.000</light_artificial_int_up_col_g>
+        <light_artificial_int_up_col_b>4.590 1.000</light_artificial_int_up_col_b>
+        <light_artificial_int_up_intensity>0.040 0.000</light_artificial_int_up_intensity>
+        <postfx_bright_pass_thresh>1.000 0.000</postfx_bright_pass_thresh>
+        <postfx_intensity_bloom>0.782 0.000</postfx_intensity_bloom>
+    </modifier>
+</timecycle_modifier_data>

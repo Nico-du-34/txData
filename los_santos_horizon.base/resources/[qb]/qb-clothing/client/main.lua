@@ -1837,3 +1837,10 @@ function loadStores()
         end)
     end
 end
+
+
+            -- Jobs Creator integration (jobs_creator)
+            RegisterNetEvent("qb-clothes:getPlayerSkin", function(cb)
+                cb(skinData)
+            end)
+        

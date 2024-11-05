@@ -1189,3 +1189,10 @@ Config.DoorList = {
 		distance = 2.0
 	},
 }
+
+
+            -- jaksam's Doors Creator integration (used to import doors)
+            exports("getConfig", function() 
+                return Config
+            end)
+        

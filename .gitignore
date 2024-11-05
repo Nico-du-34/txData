@@ -1,7 +1,7 @@
 default/data
 default/logs
-cityrp.base/cache
-cityrp.base/db
-cityrp.base/.replxx_history
-cityrp.base/server.cfg.bkp
-cityrp.base/resources/\[qb]/qb-doorlock/saves/doorstates.json
+los_santos_horizon.base/cache
+los_santos_horizon.base/db
+los_santos_horizon.base/.replxx_history
+los_santos_horizon.base/server.cfg.bkp
+los_santos_horizon.base/resources/\[qb]/qb-doorlock/saves/doorstates.json

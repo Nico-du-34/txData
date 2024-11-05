@@ -42,3 +42,26 @@ end)
 AddEventHandler('pma-voice:settingsCallback', function(cb)
 	cb(Cfg)
 end)
+
+
+-- Addon
+local dist = 0
+
+AddEventHandler('pma-voice:setTalkingMode', function(data)
+    local ped = PlayerPedId()
+    local plyState = Player(LocalPlayer).state
+    local proximity = plyState.proximity
+    local StartMarker = 0 
+     
+    dist = proximity.distance
+    StartMarker = 0
+    while StartMarker < 200 do
+        if dist ~= proximity.distance then
+            break
+        else
+        StartMarker = StartMarker + 1
+        DrawMarker(1, GetEntityCoords(ped).x, GetEntityCoords(ped).y, GetEntityCoords(ped).z - 1, 0, 0, 0, 0, 0, 0, proximity.distance, proximity.distance, 0.2, 0, 155, 255, 255, 0, 0, 0, 0)
+        Wait(1)
+        end
+    end
+end)

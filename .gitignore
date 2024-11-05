@@ -1,0 +1,7 @@
+default/data
+default/logs
+cityrp.base/cache
+cityrp.base/db
+cityrp.base/.replxx_history
+cityrp.base/server.cfg.bkp
+cityrp.base/resources/\[qb]/qb-doorlock/saves/doorstates.json

@@ -1,41 +1,50 @@
 {
   "global": {
     "serverName": "Los Santos Horizon",
-    "language": "en",
-    "menuEnabled": true,
+    "language": "fr",
+    "menuEnabled": false,
     "menuAlignRight": false,
-    "menuPageKey": "Tab",
-    "hideDefaultAnnouncement": false,
-    "hideDefaultDirectMessage": false,
-    "hideDefaultWarning": false,
-    "hideDefaultScheduledRestartWarning": false,
+    "menuPageKey": "CapsLock",
+    "hideDefaultAnnouncement": true,
+    "hideDefaultDirectMessage": true,
+    "hideDefaultWarning": true,
+    "hideDefaultScheduledRestartWarning": true,
     "hideAdminInPunishments": true,
-    "hideAdminInMessages": false
+    "hideAdminInMessages": true
   },
   "logger": {},
   "monitor": {
-    "restarterSchedule": [],
-    "resourceStartingTolerance": 120
+    "restarterSchedule": [
+      "05:00"
+    ],
+    "resourceStartingTolerance": 90
   },
   "playerDatabase": {
     "onJoinCheckBan": true,
-    "whitelistMode": "disabled",
-    "whitelistedDiscordRoles": [],
-    "whitelistRejectionMessage": "Please join http://discord.gg/example and request to be whitelisted.",
+    "whitelistMode": "guildRoles",
+    "whitelistedDiscordRoles": [
+      "1301291796210520146"
+    ],
+    "whitelistRejectionMessage": "Merci de rejoindre le discord : https://discord.gg/Q8xs5tpCJH\nPour pouvoir vous connecté !",
     "requiredBanHwidMatches": 1,
-    "banRejectionMessage": "You can join http://discord.gg/example to appeal this ban."
+    "banRejectionMessage": "Rejoint le discord et crée un ticket pour te faire deban\nDiscord: https://discord.gg/Q8xs5tpCJH"
   },
   "webServer": {
     "disableNuiSourceCheck": false
   },
   "discordBot": {
-    "enabled": false,
-    "embedJson": "{\n  \"title\": \"{{serverName}}\",\n  \"url\": \"{{serverBrowserUrl}}\",\n  \"description\": \"You can configure this embed in `txAdmin > Settings > Discord Bot`, and edit everything from it (except footer).\",\n  \"fields\": [\n    {\n      \"name\": \"> STATUS\",\n      \"value\": \"```\\n{{statusString}}\\n```\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"> PLAYERS\",\n      \"value\": \"```\\n{{serverClients}}/{{serverMaxClients}}\\n```\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"> F8 CONNECT COMMAND\",\n      \"value\": \"```\\nconnect 123.123.123.123\\n```\"\n    },\n    {\n      \"name\": \"> NEXT RESTART\",\n      \"value\": \"```\\n{{nextScheduledRestart}}\\n```\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"> UPTIME\",\n      \"value\": \"```\\n{{uptime}}\\n```\",\n      \"inline\": true\n    }\n  ],\n  \"image\": {\n    \"url\": \"https://forum-cfx-re.akamaized.net/original/5X/e/e/c/b/eecb4664ee03d39e34fcd82a075a18c24add91ed.png\"\n  },\n  \"thumbnail\": {\n    \"url\": \"https://forum-cfx-re.akamaized.net/original/5X/9/b/d/7/9bd744dc2b21804e18c3bb331e8902c930624e44.png\"\n  }\n}",
-    "embedConfigJson": "{\n  \"onlineString\": \"🟢 Online\",\n  \"onlineColor\": \"#0BA70B\",\n  \"partialString\": \"🟡 Partial\",\n  \"partialColor\": \"#FFF100\",\n  \"offlineString\": \"🔴 Offline\",\n  \"offlineColor\": \"#A70B28\",\n  \"buttons\": [\n    {\n      \"emoji\": \"1062338355909640233\",\n      \"label\": \"Connect\",\n      \"url\": \"{{serverJoinUrl}}\"\n    },\n    {\n      \"emoji\": \"1062339910654246964\",\n      \"label\": \"txAdmin Discord\",\n      \"url\": \"https://discord.gg/txAdmin\"\n    },\n    {\n      \"emoji\": \"😏\",\n      \"label\": \"ZAP-Hosting\",\n      \"url\": \"https://zap-hosting.com/txadmin6\"\n    }\n  ]\n}"
+    "enabled": true,
+    "token": "MTIyMTEwOTIyNzA2MjMwMDY5Mg.GEwX4v.7GVYGo_gSnZktNVCpEbQxDDNtHOCt08O3v5gxQ",
+    "guild": "1301124504348524594",
+    "announceChannel": "1301298526457827420",
+    "embedJson": "{\n  \"title\": \"{{serverName}}\",\n  \"url\": \"{{serverBrowserUrl}}\",\n  \"fields\": [\n    {\n      \"name\": \"> STATUS\",\n      \"value\": \"```\\n{{statusString}}\\n```\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"> JOUEURS\",\n      \"value\": \"```\\n{{serverClients}}/{{serverMaxClients}}\\n```\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"> F8 CONNECT\",\n      \"value\": \"```\\nconnect a venir\\n```\"\n    },\n    {\n      \"name\": \"> REBOOT\",\n      \"value\": \"```\\n{{nextScheduledRestart}}\\n```\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"> UPTIME\",\n      \"value\": \"```\\n{{uptime}}\\n```\",\n      \"inline\": true\n    }\n  ],\n  \"image\": {\n    \"url\": \"https://media.discordapp.net/attachments/1084276130804150352/1220785814355837078/4ntPn12_-_Imgur.gif?ex=66103463&is=65fdbf63&hm=dea71b4fba97af8dfed7f285ee01cd7ed6d2a3d644f64c4a41c43e3c2ce25401&=&width=1041&height=60\"\n  },\n  \"thumbnail\": {\n    \"url\": \"https://media.discordapp.net/attachments/1084276130804150352/1221105454982369340/city1024tr.png?ex=66115e13&is=65fee913&hm=4818e96b00427a6ad22949f94281c623354edaf4f6f4dc9cc71c474d9c18c82a&=&format=webp&quality=lossless&width=676&height=676\"\n  }\n}",
+    "embedConfigJson": "{\n  \"onlineString\": \"🟢 En ligne\",\n  \"onlineColor\": \"#0BA70B\",\n  \"partialString\": \"🟡 Démarre\",\n  \"partialColor\": \"#FFF100\",\n  \"offlineString\": \"🔴 Hors ligne\",\n  \"offlineColor\": \"#A70B28\"\n}"
   },
   "fxRunner": {
+    "commandLine": "",
     "onesync": "on",
     "autostart": true,
+    "quiet": true,
     "serverDataPath": "/root/fivem/txData/los_santos_horizon.base/",
     "cfgPath": "/root/fivem/txData/los_santos_horizon.base/server.cfg"
   },

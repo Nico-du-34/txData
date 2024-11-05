@@ -1,0 +1,64 @@
+{
+    "server": {
+        "acePermission": "races_creator",
+        "areDiscordLogsActive": false,
+        "specificWebhooks": [],
+        "mainDiscordWebhook": "",
+        "entranceFeeAccount": "bank",
+        "discordLeaderboards": {},
+        "useCharacterNameInsteadOfNickname": false
+    },
+
+    "shared": {
+        "locale": "en",
+        "maxSecondsAfterFleeingChase": 10
+    },
+
+    "client": {
+        "checkpointBlipCustomization": {
+            "isEnabled": true,
+            "sprite": 1,
+            "label": "Checkpoint",
+            "scale": 0.8,
+            "color": 47,
+            "display": 2
+        },
+
+        "defaultMarkerCustomizationForStartingZone": {
+            "type": 1,
+            "scale": {
+                "x": 0.7,
+                "y": 0.7,
+                "z": 0.9
+            },
+            "color": {
+                "red": 230,
+                "green": 126,
+                "blue": 34,
+                "opacity": 200
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "followCamera": false,
+            "bounce": true,
+            "rotate": false
+        },
+
+        "enableBoostOnStart": true,
+
+        "enablePlayersRaceCommand": true,
+        "playersRaceCommand": "race",
+        "playersRaceAllowedJobs": false,
+
+        "checkpointEffects": {
+            "sound": true,
+            "visual": true
+        },
+
+        "secondsBeforeKickFromRace": 10,
+        "canRestartFromCheckpoint": false
+    }
+}

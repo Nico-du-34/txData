@@ -1,0 +1,18 @@
+{
+    "server": {
+        "canAlwaysCarryItem": false,
+        "acePermission": "dealerships_creator",
+        "areDiscordLogsActive": false,
+        "specificWebhooks": [],
+        "mainDiscordWebhook": "",
+        "minutesToReceiveVehicleAfterOrder": 0
+    },
+
+    "shared": {
+        "locale": "en"
+    },
+
+    "client": {
+        "helpNotification": "none"
+    }
+}

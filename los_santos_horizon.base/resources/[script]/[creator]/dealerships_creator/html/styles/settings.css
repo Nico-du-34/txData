@@ -1,0 +1,30 @@
+.main-container * {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* background: url(../assets/img/Background.png);
+  background-size: cover; */
+}
+
+.main-container {
+  p {
+    font-family: 'Akrobat Regular';
+    font-weight: 500;
+  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(../assets/img/BackgroundOverlay.png);
+  background-size: cover;
+}

@@ -1,0 +1,5 @@
+This folder will be used to store audio files for "talk to ped" task
+
+Prefer short audio files instead of 1 long file
+
+When you add a new file, you MUST use 'refresh' command in server console AND restart the script

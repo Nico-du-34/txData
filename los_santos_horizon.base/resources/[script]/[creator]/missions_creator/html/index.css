@@ -1,0 +1,90 @@
+.clickable {
+	cursor: pointer;
+}
+
+.thick-hr {
+	height: 3px !important;
+	color: black;
+	opacity: 1;
+}
+
+.script-name {
+	color: #00ffea;
+
+	font-family: 'Work Sans', sans-serif;
+	font-size: 2.5rem !important;
+
+	line-height: 10vh
+}
+
+.swal-overlay--show-modal .swal-modal {
+	will-change: unset !important;
+}
+
+:root {
+	--todo-info-width: 32vw;
+
+	/* The value to offset the 'skew' segment - Increase this until the text doesn't overflow when on mulitple lines and/or the top left corner isn't cut off */
+	--skew-width: 8vw;
+}
+
+* {
+	/* 
+    A reset style so when you say 'width: 400px' it takes account of padding 
+    Without this, the todo-info width would actually be 420px (i.e. 10px padding each side = 20px)
+    */
+	box-sizing: border-box;
+}
+
+.todo-info {
+	color: white;
+	padding: 4px;
+
+	/* Relative position means it 'captures' the absolute position of the .background */
+	position: relative;
+
+	/* Hide the left side of the skewed background */
+	overflow: hidden;
+
+	/* Set the width of the element, by default it would be 100% of the available space */
+	width: var(--todo-info-width);
+
+}
+
+.content {
+	/* Stop the content overflowing outside the skewed area */
+	max-width: calc(var(--todo-info-width) - var(--skew-width));
+}
+
+.background {
+	/* Existing styles */
+	background: rgba(0, 0, 0, 0.9);
+	border: 1px solid white;
+	transform: skew(-45deg);
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: calc(-1 * var(--skew-width));
+	right: var(--skew-width);
+
+	/* Updated box shadow for a subtler glow effect */
+	box-shadow:
+		0 0 3px rgba(255, 255, 255, 0.3),
+		0 0 5px rgba(255, 255, 255, 0.2),
+		0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.tasks-list {
+	border-left: 2px solid white;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0));
+	text-shadow: 0 0 3px #000;
+}
+
+.elements-list:not(:empty) + .no-elements-message {
+    display: none;
+}
+
+.elements-list:empty + .no-elements-message {
+    display: block;
+}

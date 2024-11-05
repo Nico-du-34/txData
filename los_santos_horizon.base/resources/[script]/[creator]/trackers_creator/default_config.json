@@ -1,0 +1,40 @@
+{
+    "server": {
+        "acePermission": "trackers_creator",
+        "areDiscordLogsActive": false,
+        "specificWebhooks": [],
+        "mainDiscordWebhook": "",
+        "privateTrackerOptions": {
+            "isEnabled": true,
+            "refreshTime": 5,
+            "useRoleplayNameAsBlipName": true,
+            "blipData": {
+                "isEnabled": true,
+                "sprite": 1,
+                "label": "Player",
+                "scale": 0.8,
+                "color": 3,
+                "display": 2
+            },
+            "itemName": "private_tracker",
+            "maxFrequency": 9999
+        }
+    },
+
+    "shared": {
+        "locale": "en",
+        "enableDetailedBlipSprite": true
+    },
+
+    "client": {
+        "enablePanicButtonHotkey": true,
+        "defaultPanicButton": "j",
+        "panicButtonBlip": {
+            "sprite": 161,
+            "duration": 60,
+            "scale": 1.0,
+            "color": 28
+        },
+        "doesPanicButtonEmitsSound": true
+    }
+}

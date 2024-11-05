@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Races Creator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<!-- Script CSS -->
+	<link href="index.css" rel="stylesheet" type="text/css" />
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<!-- jQuery, then Bootstrap, then popper -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+		integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+		integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+		crossorigin="anonymous"></script>
+
+	<!-- Bootstrap icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+	<!-- Datatables -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.css"/>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.js"></script>
+
+	<!-- Leaderboard -->
+	<link rel="stylesheet" media="screen and (min-width: 2px)" href="./assets/css/screen.css">
+</head>
+
+<body style="background-color: transparent !important; margin: 0; padding: 0;">
+
+	<div id="races-creator" class="container-lg bg-dark text-white position-absolute top-50 start-50 translate-middle rounded" style="display: none; font-family: 'Roboto', sans-serif;">
+        <div id="main-bar" class="d-inline-block col-12 text-center mt-2">
+			<p id="races-creator-label" class="d-inline fw-bold fs-1">Races Creator - <span id="races-creator-version" class="d-inline fw-bold fs-1"></span></p>
+			
+			<button id="close-main-btn" type="button" class="btn-close btn-close-white float-end mt-2"></button>
+		</div>
+
+		<div class="d-flex align-items-start my-2">
+			<div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
+				<button class="nav-link text-white active" data-is-default="1" data-translation-id="menu:races" id="races-tab" data-bs-toggle="pill" data-bs-target="#races" type="button" role="tab"><i class="bi bi-car-front-fill"></i> Races</button>
+				<button class="nav-link text-white" data-translation-id="menu:settings" id="settings-tab" data-bs-toggle="pill" data-bs-target="#settings" type="button" role="tab"><i class="bi bi-gear-fill"></i> Settings</button>
+			</div>
+
+			<div class="tab-content container">
+				<div class="tab-pane fade show active" data-is-default="1" id="races" role="tabpanel">
+					<div class="d-inline-block col-12 my-2">
+						<button id="new-race-btn" type="button" class="btn btn-success float-end" data-translation-id="menu:new_race">New race</button>
+					</div>
+
+					<table id="races-container" class="table table-dark table-hover text-white fs-4 mb-2">
+						<thead>
+							<tr>
+                                <th scope="col" data-translation-id="menu:id">ID</th>
+                                <th scope="col" data-translation-id="menu:label">Label</th>
+							</tr>
+						</thead>
+
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+
+				<form class="tab-pane fade needs-validation" id="settings" role="tabpanel" novalidate>
+					<div class="container my-2" style="max-height: 60vh; overflow-y: auto">
+
+						<div>
+							<p class="text-center fs-3" data-translation-id="menu:settings:language">Language</p>
+	
+							<select class="form-select" id="settings-locale">
+								<option value="en">English</option>
+								<option value="de">Deutsch</option>
+								<option value="fr">Français</option>
+								<option value="it">Italiano</option>
+								<option value="hu">Magyar</option>
+								<option value="pl">Polski</option>
+								<option value="cs">Česky</option>
+							</select>
+						</div>
+
+						<hr>
+
+						<div>
+							<p class="text-center fs-3" data-translation-id="menu:settings:generic">Generic</p>
+
+							<div class="row my-4">
+								<div class="input-group fs-4 col">
+									<span class="input-group-text">ACE permission</span>
+									<input id="settings-ace-permission" type="text" class="form-control" required>
+								</div>
+	
+								<div class="input-group fs-4" style="width:auto" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:seconds_before_race_kick:description">
+									<span class="input-group-text" data-translation-id="menu:seconds_before_race_kick">Seconds before race kick</span>
+									<input id="settings-seconds-before-kick-from-race" type="number" class="form-control" required>
+								</div>
+
+								<button id="settings-customize-checkpoint-blip-btn" type="button" class="btn btn-secondary col" data-translation-id="menu:customize_checkpoint_blip">Customize checkpoint blip</button>
+							</div>
+
+							<div class="row row-cols-auto align-items-center justify-content-center my-4">
+								<div class="form-check fs-3">
+									<input class="form-check-input" type="checkbox" value="" id="settings-enable-players-race-command">
+									<label class="form-check-label" for="settings-enable-players-race-command" data-translation-id="menu:enable_players_race_command">Enable players race command</label>
+								</div>
+
+								<div class="input-group fs-4" style="width:auto">
+									<span class="input-group-text" data-translation-id="menu:players_race_command">Players race command</span>
+									<input id="settings-players-race-command" type="text" class="form-control" required>
+								</div>
+
+								<button id="settings-players-race-allowed-jobs-btn" type="button" class="btn btn-secondary mx-1" data-translation-id="menu:allowed_jobs">Allowed jobs</button>
+							</div>
+
+							<div class="row row-cols-1 align-items-center justify-content-center my-4">
+								<div class="form-check fs-3">
+									<input class="form-check-input" type="checkbox" value="" id="settings-enable-checkpoint-visual-effect">
+									<label class="form-check-label" for="settings-enable-checkpoint-visual-effect" data-translation-id="menu:enable_checkpoint_visual_effect">Enable checkpoint visual effect</label>
+								</div>
+
+								<div class="form-check fs-3">
+									<input class="form-check-input" type="checkbox" value="" id="settings-enable-checkpoint-sound-effect">
+									<label class="form-check-label" for="settings-enable-checkpoint-sound-effect" data-translation-id="menu:enable_checkpoint_sound_effect">Enable checkpoint sound effect</label>
+								</div>
+
+								<div class="form-check fs-3">
+									<input class="form-check-input" type="checkbox" value="" id="settings-enable-boost-on-start">
+									<label class="form-check-label" for="settings-enable-boost-on-start" data-translation-id="menu:enable_boost_on_start">Enable boost on start</label>
+								</div>
+								
+								<div class="form-check fs-3">
+									<input class="form-check-input" type="checkbox" value="" id="settings-use-character-name-instead-of-nickname">
+									<label class="form-check-label" for="settings-use-character-name-instead-of-nickname" data-translation-id="menu:use_character_name_instead_of_nickname">Use character name instead of nickname</label>
+								</div>
+
+								<div class="form-check fs-3">
+									<input class="form-check-input" type="checkbox" value="" id="settings-can-restart-from-checkpoint">
+									<label class="form-check-label" for="settings-can-restart-from-checkpoint" data-translation-id="menu:can_restart_from_checkpoint"></label>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+						<div>
+							<p class="text-center fs-3" data-translation-id="menu:settings:leaderboard">Leaderboard</p>
+
+							<div id="settings-leaderboard-list">
+
+							</div>
+							
+							<div class="col-12 d-inline-block">
+								<button id="settings-add-race-leaderboard-btn" type="button" class="btn btn-primary float-end" data-translation-id="menu:settings:add_race_leaderboard">Add race leaderboard</button>
+							</div>
+						</div>
+
+						<hr>
+
+						<div>
+							<p class="text-center fs-3" data-translation-id="menu:settings:discord">Discord</p>
+
+							<div class="form-check form-switch fs-4 mt-4">
+								<input class="form-check-input" type="checkbox" role="switch" id="settings-areDiscordLogsActive">
+								<label class="form-check-label" data-translation-id="menu:settings:enable_discord_logs" for="settings-areDiscordLogsActive">Enable discord logs</label>
+							</div>
+		
+							<div>
+								<p class="fs-5" data-translation-id="menu:settings:discord_webhooks">Discord webhooks</p>
+		
+								<div class="input-group mt-1 mb-3 fs-5" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:main_webhook_description">
+									<span class="input-group-text col-3" data-translation-id="menu:settings:main_webhook">Main webhook</span>
+									<input id="settings-mainDiscordWebhook" type="text" class="form-control" placeholder="https://discord.com/api/webhooks/USE_YOUR_WEBHOOK/YOUR_WEBHOOK">
+								</div>
+		
+								<p class="fs-5" data-translation-id="menu:settings:separated_webhooks">Separated webhooks</p>
+	
+								<div id="settings-specific-webooks-div">
+									<div class="input-group my-1 fs-5">
+										<span class="input-group-text col-3" data-translation-id="menu:discord_logs:race_started">Race started</span>
+										<input type="text" class="form-control" data-log-type="race_started" placeholder="https://discord.com/api/webhooks/USE_YOUR_WEBHOOK/YOUR_WEBHOOK">
+									</div>
+									
+									<div class="input-group my-1 fs-5">
+										<span class="input-group-text col-3" data-translation-id="menu:discord_logs:race_finished">Race finished</span>
+										<input type="text" class="form-control" data-log-type="race_finished" placeholder="https://discord.com/api/webhooks/USE_YOUR_WEBHOOK/YOUR_WEBHOOK">
+									</div>
+								</div>
+							</div>	
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-success float-end" data-translation-id="menu:apply_changes">Apply changes</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Race modal -->
+	<div id="race-modal" class="modal fade" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+			<form id="race-form" class="modal-content needs-validation" novalidate>
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:race">Race</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+
+				<div class="modal-body">
+					<p class="text-center fs-3" data-translation-id="menu:generic">Generic</p>
+
+					<div class="row g-2 row-cols-auto align-items-center justify-content-center">
+						<div class="form-floating text-body col-2">
+							<input type="text" class="form-control" id="race-label" placeholder="Label" required>
+							<label for="race-label" data-translation-id="menu:label">Label</label>
+						</div>
+
+						<div class="form-floating text-body col-2">
+							<input type="number" class="form-control" min="0" id="race-minimum-police" placeholder="Minimum police" required>
+							<label for="race-minimum-police" data-translation-id="menu:minimum_police">Minimum police</label>
+						</div>
+						
+						<div class="form-floating text-body col-2">
+							<input type="number" class="form-control" min="1" id="race-minimum-players" placeholder="Minimum players" required>
+							<label for="race-minimum-players" data-translation-id="menu:minimum_players">Minimum players</label>
+						</div>
+						
+						<div class="form-floating text-body col-2" data-translation-id="menu:time_limit:description" data-bs-toggle="tooltip" data-bs-placement="top">
+							<input type="number" class="form-control" min="1" id="race-time-limit" placeholder="Time limit" required>
+							<label for="race-time-limit" data-translation-id="menu:time_limit">Time limit</label>
+						</div>
+
+						<div class="form-floating text-body col-2">
+							<input type="number" class="form-control" min="1" id="race-laps" placeholder="Laps" required>
+							<label for="race-laps" data-translation-id="menu:laps">Laps</label>
+						</div>
+					</div>
+
+					<div class="row g-2 row-cols-auto align-items-center justify-content-center mt-3">
+						<div class="form-check fs-3">
+							<input class="form-check-input" type="checkbox" value="" id="race-alert-police-on-start">
+							<label class="form-check-label" for="race-alert-police-on-start" data-translation-id="menu:alert_police_on_race_start">Alert police on race start</label>
+						</div>
+
+						<div class="form-check fs-3 ms-3">
+							<input class="form-check-input" type="checkbox" value="" id="race-show-map-path">
+							<label class="form-check-label" for="race-show-map-path" data-translation-id="menu:show_map_path">Show map path</label>
+						</div>
+
+						<div class="form-check fs-3 ms-3" data-translation-id="menu:is_arcade:description" data-bs-toggle="tooltip" data-bs-placement="top">
+							<input class="form-check-input" type="checkbox" value="" id="race-is-arcade">
+							<label class="form-check-label" for="race-is-arcade" data-translation-id="menu:is_arcade">Is arcade</label>
+						</div>
+					</div>	
+
+					<div id="race-arcade-probabilities-div" class="my-4">
+						<p class="text-center fs-3" data-translation-id="menu:arcade_probabilities">Arcade probabilities</p>
+						
+						<div class="container row">
+							<div class="col">
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="Temporary speed boost" data-effect-name="speed_boost">
+									<label data-translation-id="menu:temporary_speed_boost">Temporary speed boost</label>
+								</div>
+
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="No collisions" data-effect-name="no_collisions">
+									<label data-translation-id="menu:no_collisions">No collisions</label>
+								</div>
+
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="Inverted controls" data-effect-name="inverted_controls">
+									<label data-translation-id="menu:inverted_controls">Inverted controls</label>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="Slow other partecipants" data-effect-name="slow_other_partecipants">
+									<label data-translation-id="menu:slow_other_partecipants">Slow other partecipants</label>
+								</div>
+								
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="Low gravity for partecipants" data-effect-name="low_gravity_for_other_partecipants">
+									<label data-translation-id="menu:low_gravity_for_other_partecipants">Low gravity for partecipants</label>
+								</div>
+								
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="Disable brakes" data-effect-name="disable_brakes">
+									<label data-translation-id="menu:disable_brakes">Disable brakes</label>
+								</div>
+
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="Vehicle jump" data-effect-name="vehicle_jump">
+									<label data-translation-id="menu:vehicle_jump">Vehicle jump</label>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="Temporary tyre burst" data-effect-name="tyre_burst">
+									<label data-translation-id="menu:temporary_tyre_burst">Temporary tyre burst</label>
+								</div>
+								
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="Random steerings" data-effect-name="random_steerings">
+									<label data-translation-id="menu:random_steerings">Random steerings</label>
+								</div>
+
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="Blindness" data-effect-name="blindness">
+									<label data-translation-id="menu:blindness">Blindness</label>
+								</div>
+
+								<div class="form-floating text-body my-2">
+									<input type="number" class="form-control" min="0" max="100" placeholder="Visual shaking" data-effect-name="visual_shaking">
+									<label data-translation-id="menu:visual_shaking">Visual shaking</label>
+								</div>
+							</div>
+						</div>
+						
+						<hr>
+					</div>
+
+					<div class="row g-2 row-cols-auto align-items-center justify-content-center mt-3">
+						<button id="race-customize-blip-btn" type="button" class="btn btn-secondary mx-1" data-translation-id="menu:customize_blip">Customize blip</button>
+						<button id="race-customize-marker-btn" type="button" class="btn btn-secondary mx-1" data-translation-id="menu:customize_marker">Customize marker</button>
+						<button id="race-allowed-jobs-btn" type="button" class="btn btn-secondary mx-1" data-translation-id="menu:allowed_jobs">Allowed jobs</button>
+						<button id="race-allowed-vehicle-classes-btn" type="button" class="btn btn-secondary mx-1" data-translation-id="menu:allowed_vehicle_classes">Allowed vehicle classes</button>
+					</div>
+
+					<p class="text-center fs-3 mt-3" data-translation-id="menu:prize">Prize</p>
+
+					<div class="row g-2 row-cols-auto align-items-center justify-content-center">
+						<div class="form-floating text-body col-2" data-translation-id="menu:entrance_fee:description" data-bs-toggle="tooltip" data-bs-placement="top">
+							<input type="number" min="0" class="form-control" id="race-entrance-fee" placeholder="Entrance fee" required>
+							<label for="race-entrance-fee" data-translation-id="menu:entrance_fee">Entrance fee</label>
+						</div>
+						
+						<div class="form-floating text-body col-2">
+							<input type="text" class="form-control" id="race-entrance-fee-account" placeholder="Account" required>
+							<label for="race-entrance-fee-account" data-translation-id="menu:account">Account</label>
+						</div>
+
+						<button id="race-choose-entrance-fee-account-btn" type="button" class="btn btn-secondary col-auto" data-translation-id="menu:choose_account" data-bs-toggle="tooltip" data-bs-placement="top"><i class="bi bi-list-ul"></i></button>
+
+						<div class="ms-3 fs-4">
+							<div class="form-check form-check-inline" data-translation-id="menu:winner_takes_all:description" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true">
+								<input class="form-check-input" type="radio" name="prize-distribution" value="winner-takes-all">
+								<label class="form-check-label" data-translation-id="menu:winner_takes_all">Winner takes all</label>
+							</div>
+
+							<div class="form-check form-check-inline" data-translation-id="menu:50_rule:description" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true">
+								<input class="form-check-input" type="radio" name="prize-distribution" value="50-rule">
+								<label class="form-check-label" data-translation-id="menu:50_rule">50% rule</label>
+							</div>
+						</div>
+					</div>
+
+
+					<p class="text-center fs-3 mt-3" data-translation-id="menu:starting_zone">Starting zone</p>
+
+					<div class="row g-2 row-cols-auto align-items-center justify-content-center">
+						<div class="form-floating text-body col">
+							<input type="number" step="0.01" class="form-control" id="race-starting-zone-x" placeholder="X" required>
+							<label for="race-starting-zone-x" data-translation-id="menu:x">X</label>
+						</div>
+
+						<div class="form-floating text-body col">
+							<input type="number" step="0.01" class="form-control" id="race-starting-zone-y" placeholder="Y" required>
+							<label for="race-starting-zone-y" data-translation-id="menu:y">Y</label>
+						</div>
+
+						<div class="form-floating text-body col">
+							<input type="number" step="0.01" class="form-control" id="race-starting-zone-z" placeholder="Z" required>
+							<label for="race-starting-zone-z" data-translation-id="menu:z">Z</label>
+						</div>
+
+						<div class="form-floating text-body col-1" data-translation-id="menu:all_players_must_be_inside_the_radius_to_start_the_race" data-bs-toggle="tooltip" data-bs-placement="top">
+							<input type="number" step="0.01" class="form-control" id="race-starting-zone-size" placeholder="Radius" required>
+							<label for="race-starting-zone-size" data-translation-id="menu:radius">Radius</label>
+						</div>
+
+						<button id="race-choose-starting-zone-btn" type="button" class="btn btn-secondary col-auto" data-translation-id="menu:choose_starting_zone" data-bs-toggle="tooltip" data-bs-placement="top"><i class="bi bi-arrow-down-square"></i></button>
+					</div>
+
+					<p class="text-center fs-3 mt-3" data-translation-id="menu:checkpoints">Checkpoints</p>
+
+					<div id="race-checkpoints-list" class="container my-2" style="overflow-y: auto; max-height: 20vh;">
+						
+					</div>
+
+					<div class="d-flex">
+						<button id="race-setup-all-checkpoints" type="button" class="btn btn-info me-auto" data-translation-id="menu:setup_all_checkpoints">Setup all checkpoints</button>
+						<button id="race-add-checkpoint" type="button" class="btn btn-primary" data-translation-id="menu:add_checkpoint">Add checkpoint</button>
+					</div>
+
+				</div>
+
+				<div class="modal-footer">
+					<button id="delete-race-btn" type="button" class="btn btn-danger me-auto" data-translation-id="menu:delete">Delete</button>
+					<button type="button" class="btn btn-secondary" data-translation-id="menu:close" data-bs-dismiss="modal">Close</button>
+					<button id="save-race-btn" type="submit" class="btn btn-success" data-translation-id="menu:create">Create</button>
+				</div>
+			</form>
+		</div>
+	</div>	
+
+	<!-- Vehicle class dialog -->
+	<div id="vehicle-classes-dialog-modal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" style="z-index: 1070;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<form id="vehicle-classes-form" class="modal-content needs-validation" novalidate>
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:vehicle_classes:title">Vehicle Classes</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+
+				<div class="modal-body" style="max-height: 60vh; overflow-y: auto">
+					
+					<p class="text-center fs-3" data-translation-id="menu:standard_classes">Standard classes</p>
+
+					<div id="vehicle-classes-list" class="mt-2 row">
+						<div class="col">
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="0">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:compacts">Compacts</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="1">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:sedans">Sedans</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="2">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:suvs">SUVs</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="3">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:coupes">Coupes</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="4">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:muscle">Muscle</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="5">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:sports_classics">Sports Classics</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="6">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:sports">Sports</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="7">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:super">Super</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="8">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:motorcycles">Motorcycles</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="9">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:off_road">Off-road</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="10">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:industrial">Industrial</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="11">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:utility">Utility</label>
+							</div>
+						</div>
+
+						<div class="col">
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="12">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:vans">Vans</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="13">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:cycles">Cycles</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="14">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:boats">Boats</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="15">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:helicopters">Helicopters</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="16">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:planes">Planes</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="17">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:service">Service</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="18">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:emergency">Emergency</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="19">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:military">Military</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="20">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:commercial">Commercial</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="21">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:trains">Trains</label>
+							</div>
+							<div class="form-check fs-5">
+								<input class="form-check-input" type="checkbox" value="22">
+								<label class="form-check-label" data-translation-id="menu:vehicle_class:open_wheel">Open Wheel</label>
+							</div>
+						</div>
+					</div>
+
+					<p class="text-center fs-3" data-translation-id="menu:custom_classes">Custom classes</p>
+
+					<div id="custom-vehicle-classes-list" class="mt-2 row">
+						<div id="custom-vehicle-classes-col-1" class="col">
+						</div>
+
+						<div id="custom-vehicle-classes-col-2" class="col">
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-translation-id="menu:close" data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-success" data-translation-id="menu:confirm">Confirm</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- Input dialog -->
+	<div class="modal fade" id="input-dialog-modal" data-bs-backdrop="static" tabindex="-1" role="dialog" style="z-index: 1070;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<form id="input-dialog-modal-form" class="modal-content needs-validation" novalidate>
+				<div class="modal-header">
+					<h5 class="modal-title" id="input-dialog-modal-title">Title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				
+				<div class="modal-body">
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="input-dialog-modal-label">Label</span>
+						<input type="text" class="form-control" id="input-dialog-modal-value" required>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-translation-id="menu:close" data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-success" data-translation-id="menu:confirm">Confirm</button>
+				</div>    
+			</form>
+		</div>
+	</div>
+
+	<!-- Marker customization dialog -->
+	<div class="modal fade" id="marker-customization-dialog-modal"data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" style="z-index: 1070;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<form id="marker-customization-form" class="modal-content needs-validation" novalidate>
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:marker_customization">Marker customization</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-floating text-body">
+						<input type="number" class="form-control" id="marker-type" placeholder="Marker type" required>
+						<label for="marker-type" data-translation-id="menu:marker_type">Marker type</label>
+					</div>
+
+					<a class="fst-italic text-center" href="https://docs.fivem.net/docs/game-references/markers/" target="_blank"  onclick='window.invokeNative("openUrl", "https://docs.fivem.net/docs/game-references/markers/")'>https://docs.fivem.net/docs/game-references/markers/</a>
+
+					<div class="mt-3">
+						<p class="text-center fs-4" data-translation-id="menu:marker_size">Marker size</p>
+
+						<div class="row g-2 row-cols-auto align-items-center">
+							<div class="form-floating text-body col-4">
+								<input type="number" step="0.1" class="form-control" id="marker-size-x" placeholder="X" required>
+								<label for="marker-size-x" data-translation-id="menu:x">X</label>
+							</div>
+
+							<div class="form-floating text-body col-4">
+								<input type="number" step="0.1" class="form-control" id="marker-size-y" placeholder="Y" required>
+								<label for="marker-size-y" data-translation-id="menu:y">Y</label>
+							</div>
+
+							<div class="form-floating text-body col-4">
+								<input type="number" step="0.1" class="form-control" id="marker-size-z" placeholder="Z" required>
+								<label for="marker-size-z" data-translation-id="menu:z">Z</label>
+							</div>		
+						</div>
+					</div>
+
+					<div class="mt-3">
+						<p class="text-center fs-4" data-translation-id="menu:marker_rotation">Marker rotation</p>
+
+						<div class="row g-2 row-cols-auto align-items-center">
+							<div class="form-floating text-body col-4">
+								<input type="number" step="0.1" class="form-control" id="marker-rotation-x" placeholder="X" required>
+								<label for="marker-rotation-x" data-translation-id="menu:x">X</label>
+							</div>
+
+							<div class="form-floating text-body col-4">
+								<input type="number" step="0.1" class="form-control" id="marker-rotation-y" placeholder="Y" required>
+								<label for="marker-rotation-y" data-translation-id="menu:y">Y</label>
+							</div>
+
+							<div class="form-floating text-body col-4">
+								<input type="number" step="0.1" class="form-control" id="marker-rotation-z" placeholder="Z" required>
+								<label for="marker-rotation-z" data-translation-id="menu:z">Z</label>
+							</div>		
+						</div>
+					</div>
+
+					<div class="mt-3">
+						<p class="text-center fs-4" data-translation-id="menu:marker_color">Color</p>
+
+						<div class="row g-2 row-cols-auto align-items-center">
+							<div class="form-floating text-body col-3">
+								<input type="number" min="0" max="255" class="form-control" id="marker-color-red" placeholder="Red" required>
+								<label for="marker-color-red" data-translation-id="menu:red">Red</label>
+							</div>
+
+							<div class="form-floating text-body col-3">
+								<input type="number" min="0" max="255" class="form-control" id="marker-color-green" placeholder="Green" required>
+								<label for="marker-color-green" data-translation-id="menu:green">Green</label>
+							</div>
+
+							<div class="form-floating text-body col-3">
+								<input type="number" min="0" max="255" class="form-control" id="marker-color-blue" placeholder="Blue" required>
+								<label for="marker-color-blue" data-translation-id="menu:blue">Blue</label>
+							</div>
+
+							<div class="form-floating text-body col-3">
+								<input type="number" min="0" max="255" class="form-control" id="marker-color-opacity" placeholder="0-255" required>
+								<label for="marker-color-opacity" data-translation-id="menu:opacity">Opacity</label>
+							</div>		
+						</div>
+					</div>
+
+					<div class="mt-3">
+						<p class="text-center fs-4" data-translation-id="menu:other">Other</p>
+
+						<div class="row g-2 row-cols-auto">
+                            <div class="form-check form-switch col-4 fs-4">
+                                <input class="form-check-input" type="checkbox" role="switch" id="marker-bounce">
+                                <label class="form-check-label" data-translation-id="menu:bounce" for="marker-bounce">Bounce</label>
+                            </div>
+                            <div class="form-check form-switch col-4 fs-4">
+                                <input class="form-check-input" type="checkbox" role="switch" id="marker-follow-camera">
+                                <label class="form-check-label" data-translation-id="menu:follow_camera" for="marker-follow-camera">Follow camera</label>
+                            </div>
+                            <div class="form-check form-switch col-4 fs-4">
+                                <input class="form-check-input" type="checkbox" role="switch" id="marker-rotate">
+                                <label class="form-check-label" data-translation-id="menu:rotate" for="marker-rotate">Rotate</label>
+                            </div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-translation-id="menu:close" data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-success" data-translation-id="menu:confirm">Confirm</button>
+				</div>    
+			</form>
+		</div>
+	</div>
+
+	<!-- Blip customization dialog -->
+	<div class="modal fade" id="blip-customization-dialog-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" style="z-index: 1070;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<form id="blip-customization-form" class="modal-content needs-validation" novalidate>
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:blip_customization">Blip customization</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-check form-switch fs-4 mb-3">
+						<input class="form-check-input" type="checkbox" role="switch" id="blip-enabled">
+						<label class="form-check-label" data-translation-id="menu:blip_enabled" for="blip-enabled">Blip enabled</label>
+					</div>
+
+					<div class="form-floating text-body">
+						<input type="number" class="form-control" id="blip-sprite" placeholder="Blip sprite" required>
+						<label for="blip-sprite" data-translation-id="menu:blip_sprite">Blip sprite</label>
+					</div>
+
+					<a class="fst-italic text-center" href="https://docs.fivem.net/docs/game-references/blips/" target="_blank"  onclick='window.invokeNative("openUrl", "https://docs.fivem.net/docs/game-references/blips/")'>https://docs.fivem.net/docs/game-references/blips/</a>
+
+					<div class="form-floating text-body mt-4">
+						<input type="text" class="form-control" id="blip-name" placeholder="Blip name" required>
+						<label for="blip-name" data-translation-id="menu:blip_name">Blip name</label>
+					</div>
+
+					<div class="mt-3">
+						<p class="text-center fs-4" data-translation-id="menu:other">Other</p>
+
+						<div class="row g-2 row-cols-auto align-items-center">
+							<div class="form-floating text-body col-6">
+								<input type="number" step="0.1" class="form-control" id="blip-scale" placeholder="Blip scale" required>
+								<label for="blip-scale" data-translation-id="menu:blip_scale">Blip scale</label>
+							</div>
+
+							<div class="form-floating text-body col-6">
+								<input type="number" class="form-control" id="blip-color" placeholder="Blip color" required>
+								<label for="blip-color" data-translation-id="menu:blip_color">Blip color</label>
+							</div>
+						</div>
+
+						<select id="blip-display" class="form-select col-12 mt-3">
+							<option data-translation-id="menu:blip_minimap_only" value="5" selected>Minimap only</option>
+							<option data-translation-id="menu:blip_mainmap_only" value="3">Main map only</option>
+							<option data-translation-id="menu:blip_main_and_minimap" value="2">Main map + minimap</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-translation-id="menu:close" data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-success" data-translation-id="menu:confirm">Confirm</button>
+				</div>    
+			</form>
+		</div>
+	</div>	
+
+	<!-- Single job input dialog -->
+	<div class="modal fade" id="input-single-job-dialog-modal" tabindex="-1" role="dialog" style="z-index: 1070;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:jobs_dialog:title">Jobs List</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-text" data-translation-id="menu:jobs_dialog:search_job">Search job</span>
+						<input id="input-single-job-search" type="text" class="form-control">
+					</div>
+
+					<ul id="single-jobs-list" class="list-group mt-2" style="overflow: auto; max-height: 70vh">
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Jobs input dialog -->
+	<div class="modal fade" id="input-jobs-dialog-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" style="z-index: 1070;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:jobs_dialog:title">Jobs List</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" style="max-height: 60vh; overflow-y: auto">
+
+					<p class="text-center fs-4 fw-bold" data-translation-id="menu:no_jobs_means_all_allowed">No jobs means all allowed</p>
+
+					<div class="input-group">
+						<span class="input-group-text" data-translation-id="menu:jobs_dialog:search_job">Search job</span>
+						<input id="input-job-search" type="text" class="form-control">
+					</div>
+
+					<div id="jobs-list" class="mt-2">
+
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-translation-id="menu:close" data-bs-dismiss="modal">Close</button>
+					<button id="input-jobs-confirm-btn" type="button" class="btn btn-success" data-translation-id="menu:confirm">Confirm</button>
+				</div>    
+			</div>
+		</div>
+	</div>
+
+	<!-- Items input dialog -->
+	<div class="modal fade" id="input-items-dialog-modal" tabindex="-1" role="dialog" style="z-index: 1072;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:items_dialog:title">Items List</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-text" data-translation-id="menu:items_dialog:search_item">Search item</span>
+						<input id="input-item-search" type="text" class="form-control">
+					</div>
+
+					<ul id="items-list" class="list-group mt-2" style="overflow: auto; max-height: 70vh">
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Races input dialog -->
+	<div class="modal fade" id="races-dialog-modal" tabindex="-1" role="dialog" style="z-index: 1072;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:races_dialog:title">Races List</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-text" data-translation-id="menu:races_dialog:search_race">Search race</span>
+						<input id="input-race-search" type="text" class="form-control">
+					</div>
+
+					<ul id="races-list" class="list-group mt-2" style="overflow: auto; max-height: 70vh">
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Weapons input dialog -->
+	<div class="modal fade" id="input-weapons-dialog-modal" tabindex="-1" role="dialog" style="z-index: 1072;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:weapons_dialog:title">Weapons List</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-text" data-translation-id="menu:weapons_dialog:search_weapon">Search weapon</span>
+						<input id="input-weapon-search" type="text" class="form-control">
+					</div>
+
+					<ul id="weapons-list" class="list-group mt-2" style="overflow: auto; max-height: 70vh">
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Accounts dialog modal -->
+	<div class="modal fade" id="input-accounts-dialog-modal" tabindex="-1" role="dialog" style="z-index: 1072; max-height: 70vh;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:accounts_dialog:title">Accounts List</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<ul id="accounts-list" class="list-group mt-2">
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Race HUD -->
+	<div id="race-hud" style="position: absolute; bottom: 30px; right: 10px; display: none;">
+		<div class="race-hud-background" style="display: flex; flex-direction: column; align-items: flex-end; padding: 10px;">
+			<p class="race-hud-text" id="race-hud-time">Time: 00 00 00</p>
+			<p class="race-hud-text" id="race-hud-lap">Lap: 0/0</p>
+			<p class="race-hud-text" id="race-hud-checkpoint">Checkpoint: 0/0</p>
+			<p class="race-hud-text" id="race-hud-position">Position: 0/0</p>
+		</div>
+	</div>
+
+	<article id="app" style="display:none">
+        <header>
+            <p class="p-lightgreen" data-translation-id="menu:leaderboard">LEADERBOARD</p>
+            <p class="p-boldgray" data-translation-id="menu:its_time_to_win">It's time to win</p>
+        </header>
+
+        <content>
+            <ul id="leaderCont">
+                <transition-group name="fade">
+                        <li :key="item.id" v-for="item in leaderboard" :data-id="item.id" :class="item.pos >= 5 ? `hidden` : `` && item.id == -1 ? `hidden` : ``">
+                            <div class="number">
+                                <p class="p-gray">#{{item.pos}}</p>
+                            </div>
+                            <div class="liContent">
+                                <p class="p-lightgreen" :class="item.id == -1 ? `p-white` : ``">{{item.name}}</p>
+                            </div>
+                        </li>
+                </transition-group>
+            </ul>
+            <div class="player_show" v-if="playerLoc">
+
+            </div>
+            <ul class="playerUl" v-if="playerLoc">
+                <li v-for="item in leaderboard" v-if="item.id == -1">
+                    <div class="number">
+                        <p class="p-gray">#{{item.pos}}</p>
+                    </div>
+                    <div class="liContent">
+                        <p class="p-lightgreen" :class="item.id == -1 ? `p-white` : ``">{{item.name}}</p>
+                    </div>
+                </li>
+            </ul>
+        </content>
+
+        <div class="footer_images">
+            <img class="left" src="./assets/images/icons/flag_left.png">
+            <img class="right" src="./assets/images/icons/flag_right.png">
+        </div>
+    </article>
+
+	<script src="index.js"></script>
+	<script src="../utils/dialogs/dialogs.js"></script>
+
+	<!-- Leaderboard -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+	<script src="./assets/js/script.js"></script>
+</body>
+
+</html>

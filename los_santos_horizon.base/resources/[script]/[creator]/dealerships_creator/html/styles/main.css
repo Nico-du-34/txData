@@ -1,0 +1,1130 @@
+.main-container {
+    background: rgba(8, 11, 16, .92);
+    font-family: Akrobat !important;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh
+}
+
+.main-container ::-webkit-scrollbar {
+    display: none;
+    margin: 0;
+    padding: 0
+}
+
+.main-container .permissions-page {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    max-height: 61vh;
+    width: 42vh;
+    padding-top: 5vh;
+    padding-bottom: 2.5vh;
+    gap: 2.5vh;
+    position: absolute;
+    margin-top: 10vh;
+    border-radius: 1.5vh;
+    background: var(--Linear-Clean-White, linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%))
+}
+
+.main-container .permissions-page .permissions-title {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    font-family: Akrobat
+}
+
+.main-container .permissions-page .permissions-title p {
+    font-size: 2.45vh;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal
+}
+
+.main-container .permissions-page .permissions-list {
+    width: 90%;
+    max-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    gap: 1vh
+}
+
+.main-container .permissions-page .permissions-list .permissions-element {
+    width: 100%;
+    height: 6vh;
+    border-radius: 1vh;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2.5vh;
+    padding-right: 2.5vh
+}
+
+.main-container .permissions-page .permissions-list .permissions-element p {
+    color: #fff;
+    font-family: Akrobat;
+    font-size: 1.6vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal
+}
+
+.main-container .permissions-page .permissions-list .permissions-element .permission-switches {
+    display: flex;
+    padding: 1vh 1.5vh;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    border-radius: 2.5vh;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%)
+}
+
+.main-container .permissions-page .permissions-list .permissions-element .permission-switches .permission-switch {
+    border-radius: 2.5vh;
+    width: 1vh;
+    height: 1vh;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(60, 60, 60, 0.35) 0%, #3c3c3c 100%)
+}
+
+.main-container .permissions-page .permissions-list .permissions-element .permission-switches .permission-switch.switch-on.active {
+    background: var(--Diamond-Green-Radial, radial-gradient(1396.47% 141.42% at 100% 100%, #00923A 0%, #34E97C 100%))
+}
+
+.main-container .permissions-page .permissions-list .permissions-element .permission-switches .permission-switch.switch-off.active {
+    background: var(--Diamond-Red-Radial, radial-gradient(1396.47% 141.42% at 100% 100%, #B20222 0%, #FF2C52 100%))
+}
+
+.main-container .permissions-page .permissions-list .permissions-element .permission-switches .permission-seperator {
+    width: .1vh;
+    height: 1.2vh;
+    background: rgba(255, 255, 255, .15)
+}
+
+.main-container .permissions-page .submit-btn {
+    width: 90%;
+    border-radius: 1vh;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(100% 1392.89% at 100% 100%, #00923a 0%, #34e97c 100%)
+}
+
+.main-container .permissions-page .submit-btn p {
+    color: #fff;
+    font-family: Akrobat;
+    font-size: 1.6vh;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal
+}
+
+.main-container .management-page {
+    width: 78.6vh;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    margin-top: 10vh;
+    height: 58.3vh;
+    border-radius: 1.5vh;
+    background: linear-gradient(92deg, rgba(40, 40, 40, 0.9) 0%, rgba(40, 40, 40, 0.85) 100%);
+    display: flex;
+    align-items: center
+}
+
+.main-container .management-page .inner-container {
+    gap: 2.5vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 80%;
+    height: 80%;
+    position: relative
+}
+
+.main-container .management-page .inner-container .employee-management-actions {
+    width: 100%;
+    height: 40.8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column
+}
+
+.main-container .management-page .inner-container .employee-management-actions .employee-amount-box p, .main-container .management-page .inner-container .employee-management-actions .employee-action:not(.employee-selected) p {
+    color: rgba(255, 255, 255, .45);
+    font-family: Akrobat;
+    font-size: 1.6vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal
+}
+
+.main-container .management-page .inner-container .employee-management-actions .employee-selected:hover {
+    background: var(--Linear-Clean-White, linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%)) !important
+}
+
+.main-container .management-page .inner-container .employee-management-actions .employee-selected p {
+    color: #fff;
+    font-family: Akrobat;
+    font-size: 1.6vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal
+}
+
+.main-container .management-page .inner-container .employee-management-actions .submit-btn {
+    display: flex;
+    justify-content: center !important;
+    background: var(--Diamond-Green-Radial, radial-gradient(1396.47% 141.42% at 100% 100%, #00923a 0%, #34e97c 100%)) !important
+}
+
+.main-container .management-page .inner-container .employee-management-actions .submit-btn p {
+    color: #fff !important
+}
+
+.main-container .management-page .inner-container .employee-management-actions .employee-amount-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 13vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2vh;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 1vh
+}
+
+.main-container .management-page .inner-container .employee-management-actions .employee-amount-box .title-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative
+}
+
+.main-container .management-page .inner-container .employee-management-actions .employee-amount-box .employee-count-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%
+}
+
+.main-container .management-page .inner-container .employee-management-actions .employee-amount-box .employee-count-box .employee-count {
+    color: #fff;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Akrobat;
+    font-size: 3.4vh;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal
+}
+
+.main-container .management-page .inner-container .employee-management-actions .employee-amount-box .employee-count-box img {
+    width: 4.1vh;
+    height: 3vh
+}
+
+.main-container .management-page .inner-container .employee-management-actions .employee-action {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 1vh
+}
+
+.main-container .management-page .inner-container .employee-management-actions .employee-action:hover {
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.25) 100%)
+}
+
+.main-container .management-page .inner-container .employee-management-list {
+    padding-right: .5vh;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    width: 100%;
+    max-height: 41vh;
+    gap: 1vh
+}
+
+.main-container .management-page .inner-container .employee-management-list::-webkit-scrollbar {
+    display: block !important;
+    width: .5vh
+}
+
+.main-container .management-page .inner-container .employee-management-list::-webkit-scrollbar-thumb {
+    display: block !important;
+    background: #fff;
+    border-radius: 5vh
+}
+
+.main-container .management-page .inner-container .employee-management-list li {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 1vh
+}
+
+.main-container .management-page .inner-container .employee-management-list li:hover {
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.25) 100%)
+}
+
+.main-container .management-page .inner-container .employee-management-list li:hover {
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.25) 100%)
+}
+
+.main-container .management-page .inner-container .employee-management-list li p#employee-name {
+    color: rgba(255, 255, 255, .75);
+    font-family: Akrobat;
+    font-size: 1.6vh;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal
+}
+
+.main-container .management-page .inner-container .employee-management-list li.selected {
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.25) 100%)
+}
+
+.main-container .management-page .inner-container .employee-management-list li p.employee-details {
+    color: rgba(255, 255, 255, .35);
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Akrobat;
+    font-size: 1.4vh;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal
+}
+
+.main-container .management-page .management-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    position: relative;
+    top: 4.5vh;
+    color: #fff;
+    text-align: center;
+    font-family: Akrobat
+}
+
+.main-container .management-page .management-title p {
+    font-size: 2.45vh;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal
+}
+
+.main-container .buy-container {
+    position: absolute;
+    margin-top: 5vh;
+    width: 100.1vh;
+    height: 50.4vh;
+    background: var(--Linear-Clean-White, linear-gradient(92deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.04) 100%));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1.5vh
+}
+
+.main-container .buy-container .buy-information-container {
+    gap: .5vh;
+    position: absolute;
+    width: 25%;
+    height: 90%;
+    right: 3vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column
+}
+
+.main-container .buy-container .buy-information-container .buy-info-element {
+    display: flex;
+    flex-direction: column;
+    gap: .5vh
+}
+
+.main-container .buy-container .buy-information-container .buy-info-element p.description-text {
+    margin-top: .5vh;
+    color: rgba(255, 255, 255, .45);
+    font-family: Akrobat;
+    font-size: 1.6vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal
+}
+
+.main-container .buy-container .buy-information-container .buy-info-element .resell-element, .main-container .buy-container .buy-information-container .buy-info-element .salary-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 4vh;
+    background: linear-gradient(92.27deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 2.4vh
+}
+
+.main-container .buy-container .buy-information-container .buy-info-element .resell-element p, .main-container .buy-container .buy-information-container .buy-info-element .salary-element p {
+    position: absolute;
+    left: 2vh;
+    font-weight: 600;
+    font-size: 1.25vh;
+    color: rgba(255, 255, 255, .75)
+}
+
+.main-container .buy-container .buy-information-container .buy-info-element .resell-element span, .main-container .buy-container .buy-information-container .buy-info-element .salary-element span {
+    position: absolute;
+    right: 2vh;
+    font-weight: 600;
+    font-size: 1.25vh;
+    background: radial-gradient(100% 1392.89% at 100% 100%, #00923a 0%, #34e97c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(0, 0, 0, 0);
+    background-clip: text;
+    text-fill-color: rgba(0, 0, 0, 0)
+}
+
+.main-container .buy-container .buy-information-container .purchase-btn {
+    background: radial-gradient(100% 1392.89% at 100% 100%, #00923a 0%, #34e97c 100%);
+    height: 6.5vh;
+    border-radius: 2.4vh;
+    align-items: center;
+    justify-content: center;
+    display: flex
+}
+
+.main-container .buy-container .buy-information-container .purchase-btn p {
+    font-weight: 600;
+    font-size: 2vh;
+    color: #fff
+}
+
+.main-container .buy-container .buy-information-container .information-header {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    position: relative
+}
+
+.main-container .buy-container .buy-information-container .information-header p {
+    font-weight: 700;
+    font-size: 1.35vh;
+    color: #fff
+}
+
+.main-container .buy-container .buy-information-container .information-header img {
+    width: 2vh;
+    height: 2vh
+}
+
+.main-container .buy-container .buy-preview {
+    flex-shrink: 0;
+    border-radius: 1.5vh;
+    position: relative;
+    width: 69.3vh;
+    height: 100%;
+    border: .1vh solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.main-container .buy-container .buy-preview .buy-preview-img {
+    height: 100%;
+    position: absolute;
+    z-index: -1
+}
+
+.main-container .buy-container .buy-preview .img-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(23, 29, 50, 0) 50%, rgba(23, 29, 50, 0.9) 99.86%);
+    border-radius: 1.5vh
+}
+
+.main-container .buy-container .buy-preview .preview-btn {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2vh 2.5vh;
+    border-radius: 50vh;
+    right: 4.5vh;
+    bottom: 3.5vh;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.main-container .buy-container .buy-preview .preview-btn p {
+    color: #fff;
+    font-family: Akrobat;
+    font-size: 1.45vh;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: right
+}
+
+.main-container .buy-container .buy-preview .information {
+    position: absolute;
+    bottom: 3.5vh;
+    left: 4.5vh
+}
+
+.main-container .buy-container .buy-preview .information .dealership-label {
+    color: #fff;
+    font-family: Akrobat;
+    font-size: 2.8vh;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal
+}
+
+.main-container .buy-container .buy-preview .information .dealership-street {
+    color: #fff;
+    font-family: Akrobat;
+    font-size: 2.4vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal
+}
+
+.main-container .selection-page {
+    position: relative;
+    width: 90%;
+    height: 100%;
+    margin: 15vh;
+    margin-bottom: 5vh;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    overflow: auto;
+}
+
+.main-container .selection-page ul.vehicle-list {
+    width: 100%;
+    max-height: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vh
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 22.285vh;
+    height: 20vh;
+    border-radius: 1.5vh;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    gap: .5vh;
+    width: 100%;
+    height: 5vh;
+    top: 0
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-head .vehicle-category {
+    padding: .25vh .65vh;
+    border-radius: 50vh;
+    margin-left: 1.5vh;
+    border: .1vh solid rgba(255, 255, 255, .15)
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-head .vehicle-category p {
+    color: #fff;
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 1.4vh;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-preview-btn {
+    border-radius: 0vh 1.5vh
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-preview-btn img {
+    transition: transform 350ms ease;
+    transition-duration: 350ms
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-preview-btn img:hover {
+    transform: rotateY(180deg)
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-preview-btn, .main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-info-btn {
+    position: relative;
+    width: 5vh;
+    height: 5vh;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-preview-btn:hover, .main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-info-btn:hover {
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.04) 100%)
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-preview-btn img, .main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-info-btn img {
+    width: 100%;
+    height: 100%
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-info-btn {
+    border-radius: 1.5vh 0vh
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-img {
+    width: 15vh;
+    transition: transform 150ms ease
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-img:hover {
+    transform: scale(1.15) rotate(5deg)
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    gap: .5vh;
+    width: 100%;
+    height: 5vh;
+    bottom: 0
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-bottom .vehicle-info {
+    display: flex;
+    gap: .5vh;
+    align-items: center;
+    margin-left: 1.5vh;
+    justify-content: center
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-bottom .vehicle-info .vehicle-name {
+    font-weight: 600;
+    font-size: 1.8vh;
+    color: #fff
+}
+
+.main-container .selection-page ul.vehicle-list li.vehicle-element .vehicle-bottom .vehicle-info .vehicle-price {
+    padding: .25vh .65vh;
+    border-radius: .5vh;
+    background: var(--Diamond-Green-Radial, radial-gradient(1396.47% 141.42% at 100% 100%, #00923a 0%, #34e97c 100%));
+    color: #fff;
+    font-size: 1.35vh;
+    font-weight: 600 !important;
+    letter-spacing: .05vh
+}
+
+.main-container .rotate-vehicle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 8vh;
+    gap: 1.25vh
+}
+
+.main-container .rotate-vehicle .rotate-img {
+    position: absolute;
+    width: 3vh;
+    height: 3.1vh;
+    transition: transform 1500ms ease-in-out
+}
+
+.main-container .rotate-vehicle .rotate-btn {
+    width: 2vh;
+    height: 2vh;
+    background: linear-gradient(92.27deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: .2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 100ms ease
+}
+
+.main-container .rotate-vehicle .rotate-btn img {
+    width: .485vh;
+    height: .7vh
+}
+
+.main-container .rotate-vehicle .rotate-btn:hover {
+    transform: scale(1.125)
+}
+
+.main-container .rotate-vehicle p {
+    font-weight: 600;
+    font-size: 1.35vh;
+    color: rgba(255, 255, 255, .65)
+}
+
+.main-container .rotate-vehicle .rotate-btn#right img {
+    transform: rotate(180deg)
+}
+
+.main-container .rotate-vehicle:hover .rotate-img {
+    transform: rotate(180deg)
+}
+
+.main-container .dealership-notification {
+    max-width: 27.6vh;
+    height: auto;
+    gap: 2.5vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 10000
+}
+
+.main-container .dealership-notification .notification-bg {
+    width: 100%;
+    height: 100%;
+    filter: blur(7.5vh);
+    background: #232a43;
+    position: absolute;
+    z-index: -1
+}
+
+.main-container .dealership-notification h2.dollar-sign {
+    font-weight: 900;
+    font-size: 35vh;
+    leading-trim: both;
+    text-edge: cap;
+    color: #fff;
+    opacity: .25;
+    position: absolute
+}
+
+.main-container .dealership-notification p.close-notification {
+    font-weight: 600;
+    font-size: 1.15vh;
+    text-align: center;
+    color: #fff;
+    opacity: .35;
+    position: absolute;
+    bottom: -12vh
+}
+
+.main-container .dealership-notification p.notify-text {
+    font-weight: 600;
+    font-size: 1.85vh;
+    leading-trim: both;
+    text-edge: cap;
+    text-align: center;
+    color: #fff
+}
+
+.main-container .dealership-notification .notify-confirm-btn {
+    transition: transform 150ms ease;
+    background: radial-gradient(100% 1392.89% at 100% 100%, #00923a 0%, #34e97c 100%);
+    border-radius: 2.4vh;
+    min-width: 15vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh;
+    z-index: 10000;
+}
+
+.main-container .dealership-notification .notify-confirm-btn p {
+    font-weight: 700;
+    font-size: 1.45vh;
+    leading-trim: both;
+    text-edge: cap;
+    color: #fff
+}
+
+.main-container .dealership-notification .notify-confirm-btn:hover {
+    transform: scale(1.05)
+}
+
+.main-container ul.left-side-wrap {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 7vh;
+    gap: 1.5vh
+}
+
+.main-container ul.left-side-wrap .left-side-element-header {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    position: relative
+}
+
+.main-container ul.left-side-wrap .left-side-element-header p {
+    font-weight: 700;
+    font-size: 1.35vh;
+    color: #fff
+}
+
+.main-container ul.left-side-wrap .left-side-element-header img {
+    width: 2vh;
+    height: 2vh
+}
+
+.main-container ul.left-side-wrap ul.left-side-element {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    width: 22.8vh;
+    height: auto;
+    gap: .5vh
+}
+
+.main-container ul.left-side-wrap ul.left-side-element li.price-btn {
+    background: radial-gradient(100% 1392.89% at 100% 100%, #00923a 0%, #34e97c 100%);
+    height: 6.5vh;
+    border-radius: 2.4vh;
+    align-items: center;
+    justify-content: center;
+    display: flex
+}
+
+.main-container ul.left-side-wrap ul.left-side-element li.price-btn p {
+    font-weight: 600;
+    font-size: 2vh;
+    color: #fff
+}
+
+.main-container ul.left-side-wrap ul.left-side-element li {
+    background: linear-gradient(92.27deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 2.4vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center
+}
+
+.main-container ul.left-side-wrap ul.left-side-element ul.vehicle-color-list {
+    display: flex;
+    background: linear-gradient(92.27deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 2.4vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    max-width: 100%;
+    height: auto;
+    padding: 2.5vh
+}
+
+.main-container ul.left-side-wrap ul.left-side-element ul.vehicle-color-list li {
+    display: block;
+    width: 1.5vh;
+    height: 1.5vh;
+    border-radius: .3vh
+}
+
+.centralized-flex-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 4vh;
+    background: linear-gradient(92.27deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 2.4vh
+}
+
+.main-container ul.left-side-wrap ul.left-side-element li.vehicle-stat-element p, .main-container ul.left-side-wrap ul.left-side-element .test-drive-btn p, .main-container ul.left-side-wrap ul.left-side-element .loan-btn p {
+    position: absolute;
+    left: 2vh;
+    font-weight: 600;
+    font-size: 1.25vh;
+    color: rgba(255, 255, 255, .75)
+}
+
+.main-container ul.left-side-wrap ul.left-side-element li.vehicle-stat-element span, .main-container ul.left-side-wrap ul.left-side-element .test-drive-btn span, .main-container ul.left-side-wrap ul.left-side-element .loan-btn span {
+    position: absolute;
+    right: 2vh;
+    font-weight: 600;
+    font-size: 1.25vh;
+    background: radial-gradient(100% 1392.89% at 100% 100%, #00923a 0%, #34e97c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(0, 0, 0, 0);
+    background-clip: text;
+    text-fill-color: rgba(0, 0, 0, 0)
+}
+
+.main-container ul.left-side-wrap ul.left-side-element li.vehicle-stat-element ul.rating, .main-container ul.left-side-wrap ul.left-side-element .test-drive-btn ul.rating, .main-container ul.left-side-wrap ul.left-side-element .loan-btn ul.rating {
+    position: absolute;
+    right: 2vh;
+    display: flex;
+    gap: 1vh
+}
+
+.main-container ul.left-side-wrap ul.left-side-element li.vehicle-stat-element ul.rating .rating-point.active, .main-container ul.left-side-wrap ul.left-side-element .test-drive-btn ul.rating .rating-point.active, .main-container ul.left-side-wrap ul.left-side-element .loan-btn ul.rating .rating-point.active {
+    background: radial-gradient(50% 50% at 50% 50%, #bdff69 0%, #bdff69 100%)
+}
+
+.main-container ul.left-side-wrap ul.left-side-element li.vehicle-stat-element ul.rating li.rating-point, .main-container ul.left-side-wrap ul.left-side-element .test-drive-btn ul.rating li.rating-point, .main-container ul.left-side-wrap ul.left-side-element .loan-btn ul.rating li.rating-point {
+    display: block;
+    width: .8vh;
+    height: .8vh;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(60, 60, 60, 0.35) 0%, #3c3c3c 100%)
+}
+
+.main-container ul.vehicle-stats {
+    max-height: 31vh;
+    overflow-y: scroll
+}
+
+.main-container .hrec {
+    height: .1vh;
+    width: 100%;
+    margin: 1vh;
+    position: relative;
+    background: rgba(255, 255, 255, .15);
+    flex: 1
+}
+
+.main-container .hrec-s {
+    flex: 1;
+    height: .1vh;
+    max-width: 3%;
+    width: 100%;
+    position: relative;
+    background: rgba(255, 255, 255, .15)
+}
+
+.main-container .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 6.5vh;
+    width: 100%;
+    gap: 1.5vh
+}
+
+.main-container .header ul.categories, .main-container .header .selected-vehicle, .main-container .header .exit-btn {
+    width: auto;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 2.5vh;
+    height: 5.1vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 2vh;
+    padding-right: 2vh
+}
+
+.main-container .header .exit-btn:hover p {
+    opacity: 1
+}
+
+.main-container .header .exit-btn p {
+    font-weight: 500;
+    font-size: 1.25vh;
+    color: #fff;
+    opacity: .25
+}
+
+.main-container .header .active {
+    opacity: 1 !important
+}
+
+.main-container .header .selected-vehicle p {
+    font-weight: 600;
+    font-size: 1.5vh;
+    color: rgba(255, 255, 255, .75)
+}
+
+.main-container .header ul.categories {
+    display: flex;
+    gap: .5vh;
+    align-items: center;
+    justify-content: center
+}
+
+.main-container .header ul.categories li {
+    position: relative;
+    display: block
+}
+
+.main-container .header ul.categories li.category {
+    font-weight: 500;
+    font-size: 1.25vh;
+    color: #fff;
+    opacity: .25
+}
+
+.main-container .header ul.categories li.category:hover {
+    opacity: 1
+}
+
+.main-container .header ul.categories li.category-switch {
+    color: #fff
+}
+
+.main-container .input-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(8, 11, 16, .95);
+    position: absolute;
+    z-index: 100000
+}
+
+.main-container .input-overlay .input-box {
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    z-index: 19999999;
+    display: inline-flex;
+    padding: 4vh;
+    border-radius: 2.5vh;
+    width: 35vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vh;
+    text-align: center
+}
+
+.main-container .input-overlay .input-box p {
+    color: #fff
+}
+
+.main-container .input-overlay .input-box p.input-box-title {
+    font-weight: 700;
+    font-size: 1.75vh
+}
+
+.main-container .input-overlay .input-box p.input-box-description {
+    font-size: 1.45vh;
+    font-weight: 500
+}
+
+.main-container .input-overlay .input-box input.input-field {
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 1vh;
+    box-sizing: border-box;
+    text-align: center;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 8vh;
+    color: #fff;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Akrobat;
+    font-size: 1.45vh;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal
+}
+
+.main-container .input-overlay .input-box input.input-field::-moz-placeholder {
+    color: rgba(255, 255, 255, .45);
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Akrobat;
+    font-size: 1.45vh;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal
+}
+
+.main-container .input-overlay .input-box input.input-field::placeholder {
+    color: rgba(255, 255, 255, .45);
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Akrobat;
+    font-size: 1.45vh;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal
+}
+
+.main-container .input-overlay .input-box input.input-field::-moz-selection {
+    background-color: rgba(255, 255, 255, .25)
+}
+
+.main-container .input-overlay .input-box input.input-field::selection {
+    background-color: rgba(255, 255, 255, .25)
+}
+
+.main-container .input-overlay .input-box .input-btn {
+    position: relative;
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 1vh
+}
+
+.main-container .input-overlay .input-box .input-btn p {
+    color: #fff;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Akrobat;
+    font-size: 1.45vh;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal
+}
+
+.main-container .input-overlay .input-box .input-btn#cancel:hover {
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%)
+}
+
+.main-container .input-overlay .input-box .input-btn#submit {
+    background: radial-gradient(100% 1392.89% at 100% 100%, #00923a 0%, #34e97c 100%)
+}
+
+.main-container input[type=number]::-webkit-inner-spin-button,
+.main-container input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}

@@ -15,8 +15,9 @@ const openMenu = (data = null) => {
     });
 
     $("#buttons").html(html);
+    $('.background').css('display', "block");
 
-    $('.button').click(function() {
+    $('.button').click(function() { 
         const target = $(this)
         if (!target.hasClass('title') && !target.hasClass('disabled')) {
             postData(target.attr('id'));
@@ -38,6 +39,7 @@ const getButtonRender = (header, message = null, id, isMenuHeader, isDisabled, i
 
 const closeMenu = () => {
     $("#buttons").html(" ");
+    $('.background').css('display', "none");
     buttonParams = [];
 };
 

@@ -114,7 +114,7 @@ RegisterNetEvent('QBCore:Client:EnteredVehicle', function()
                 if lastFrameVehSpeed > 110 and thisFrameVehSpeed < (lastFrameVehSpeed * 0.75) and not damageDone then
                     if frameBodyChange > 18.0 then
                         if not seatbeltOn and not IsThisModelABike(currVehicle) then
-                            if math.random(math.ceil(lastFrameVehSpeed)) > 60 then
+                            if math.random(math.ceil(lastFrameVehSpeed)) > 100 then
                                 if not harnessOn then
                                     ejectFromVehicle()
                                 else
@@ -136,7 +136,7 @@ RegisterNetEvent('QBCore:Client:EnteredVehicle', function()
                         end
                     else
                         if not seatbeltOn and not IsThisModelABike(currVehicle) then
-                            if math.random(math.ceil(lastFrameVehSpeed)) > 60 then
+                            if math.random(math.ceil(lastFrameVehSpeed)) > 100 then
                                 if not harnessOn then
                                     ejectFromVehicle()
                                 else
@@ -270,4 +270,4 @@ RegisterCommand('toggleseatbelt', function()
     toggleSeatbelt()
 end, false)
 
-RegisterKeyMapping('toggleseatbelt', 'Toggle Seatbelt', 'keyboard', 'B')
+RegisterKeyMapping('toggleseatbelt', '[Voiture] Mettre / Enlever la ceinture', 'keyboard', 'B')

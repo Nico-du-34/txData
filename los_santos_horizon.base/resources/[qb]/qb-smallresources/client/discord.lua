@@ -10,7 +10,7 @@ CreateThread(function()
 
         if Config.Discord.showPlayerCount then
             QBCore.Functions.TriggerCallback('smallresources:server:GetCurrentPlayers', function(result)
-                SetRichPresence('Players: ' .. result .. '/' .. Config.Discord.maxPlayers)
+                SetRichPresence('Joueurs: ' .. result .. '/' .. Config.Discord.maxPlayers)
             end)
         end
 

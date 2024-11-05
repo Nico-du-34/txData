@@ -4,7 +4,6 @@ Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target in
 Config.PauseMapText = ''                                     -- Text shown above the map when ESC is pressed. If left empty 'FiveM' will appear
 Config.HarnessUses = 20
 Config.DamageNeeded = 100.0                                  -- amount of damage till you can push your vehicle. 0-1000
-Config.Logging = 'discord'                                   -- fivemanage
 
 Config.AFK = {
     ignoredGroups = {
@@ -13,12 +12,12 @@ Config.AFK = {
         ['god'] = true
     },
     secondsUntilKick = 1000000, -- AFK Kick Time Limit (in seconds)
-    kickInCharMenu = false      -- Set to true if you want to kick players for being AFK even when they are in the character menu.
+    kickInCharMenu = true      -- Set to true if you want to kick players for being AFK even when they are in the character menu.
 }
 
 Config.HandsUp = {
     command = 'hu',
-    keybind = 'X',
+    keybind = 'Y',
     controls = { 24, 25, 47, 58, 59, 63, 64, 71, 72, 75, 140, 141, 142, 143, 257, 263, 264 }
 }
 
@@ -50,59 +49,84 @@ Config.AIResponse = {
 
 -- To Set This Up visit https://forum.cfx.re/t/how-to-updated-discord-rich-presence-custom-image/157686
 Config.Discord = {
-    isEnabled = false,                                     -- If set to true, then discord rich presence will be enabled
-    applicationId = '00000000000000000',                   -- The discord application id
-    iconLarge = 'logo_name',                               -- The name of the large icon
-    iconLargeHoverText = 'This is a Large icon with text', -- The hover text of the large icon
-    iconSmall = 'small_logo_name',                         -- The name of the small icon
-    iconSmallHoverText = 'This is a Small icon with text', -- The hover text of the small icon
+    isEnabled = true,                                     -- If set to true, then discord rich presence will be enabled
+    applicationId = '1221109227062300692',                   -- The discord application id
+    iconLarge = 'Design sans titre (1)',                               -- The name of the large icon
+    iconLargeHoverText = 'Los Santos Horizon', -- The hover text of the large icon
+    iconSmall = 'Design sans titre (1)',                         -- The name of the small icon
+    iconSmallHoverText = 'Los Santos Horizon', -- The hover text of the small icon
     updateRate = 60000,                                    -- How often the player count should be updated
     showPlayerCount = true,                                -- If set to true the player count will be displayed in the rich presence
-    maxPlayers = 48,                                       -- Maximum amount of players
+    maxPlayers = 64,                                       -- Maximum amount of players
     buttons = {
         {
-            text = 'First Button!',
-            url = 'fivem://connect/localhost:30120'
-        },
-        {
-            text = 'Second Button!',
-            url = 'fivem://connect/localhost:30120'
+            text = 'Discord',
+            url = 'https://discord.gg/Q8xs5tpCJH'
         }
     }
 }
 
 Config.Density = {
-    parked = 0.8,
-    vehicle = 0.8,
-    multiplier = 0.8,
-    peds = 0.8,
-    scenario = 0.8
+    parked = 0.1,
+    vehicle = 0.6,
+    multiplier = 0.6,
+    peds = 0.6,
+    scenario = 0.4
 }
 
 Config.Disable = {
-    hudComponents = { 1, 2, 3, 4, 7, 9, 13, 14, 19, 20, 21, 22 }, -- Hud Components: https://docs.fivem.net/natives/?_0x6806C51AD12B83B8
+    hudComponents = { 1, 2, 3, 4, 7, 9, 13, --[[14,]] 19, 20, 21, 22 }, -- Hud Components: https://docs.fivem.net/natives/?_0x6806C51AD12B83B8
     controls = { 37 },                                            -- Controls: https://docs.fivem.net/docs/game-references/controls/
     displayAmmo = true,                                           -- false disables ammo display
-    ambience = false,                                             -- disables distance sirens, distance car alarms, flight music, etc
+    ambience = true,                                             -- disables distance sirens, distance car alarms, flight music, etc
     idleCamera = true,                                            -- disables the idle cinematic camera
     vestDrawable = false,                                         -- disables the vest equipped when using heavy armor
     pistolWhipping = true,                                        -- disables pistol whipping
-    driveby = false,                                              -- disables driveby
+    driveby = true,                                              -- disables driveby
 }
-
-Config.RelieveWeedStress = math.random(15, 20) -- stress relief amount (100 max)
 
 Config.Consumables = {
     eat = { -- default food items
         ['sandwich'] = math.random(35, 54),
         ['tosti'] = math.random(40, 50),
         ['twerks_candy'] = math.random(35, 54),
-        ['snikkel_candy'] = math.random(40, 50)
+        ['snikkel_candy'] = math.random(40, 50),
+        ['bigmac'] = math.random(15, 20),
+        ['mcchicken'] = math.random(15, 20),--
+        ['quarterpounder'] = math.random(15, 20),
+        ['dquarterpounder'] = math.random(15, 20),--
+        ['filet_o_fish'] = math.random(15, 20),--
+        ['bigmac_meal'] = math.random(15, 20),--
+        ['mcchicken_meal'] = math.random(25, 40),--
+        ['quarterpounder_meal'] = math.random(25, 40),
+        ['dquarterpounder_meal'] = math.random(25, 40),
+        ['filet_o_fish_meal'] = math.random(25, 40),
+        ['cheeseburger'] = math.random(25, 40),
+        ['dcheeseburger'] = math.random(25, 40),
+        ['tcheeseburger'] = math.random(15, 20),
+        ['sixpnuggets'] = math.random(15, 20),
+        ['dixpnuggets'] = math.random(15, 20),
+        ['vingtpnuggets'] = math.random(15, 20),
+        ['cheeseburger_meal'] = math.random(15, 20),
+        ['dcheeseburger_meal'] = math.random(25, 40),
+        ['tcheeseburger_meal'] = math.random(25, 40),
+        ['sixpnuggets_meal'] = math.random(25, 40),
+        ['dixpnuggets_meal'] = math.random(25, 40),
+        ['vingtpnuggets_meal'] = math.random(25, 40),
+        ['sfries'] = math.random(5, 10),
+        ['mfries'] = math.random(15, 20),
+        ['lfries'] = math.random(20, 25),
+        ['hotapplepie'] = math.random(15, 20)
     },
     drink = { -- default drink items
         ['water_bottle'] = math.random(35, 54),
         ['kurkakola'] = math.random(35, 54),
-        ['coffee'] = math.random(40, 50)
+        ['coffee'] = math.random(40, 50),
+        ["ssconef"] = math.random(15, 20),
+        ["sscone"] = math.random(15, 20),
+        ["mflurryo "] = math.random(15, 20),
+        ["mflurrym "] = math.random(15, 20),
+        ["cocacola "] = math.random(20, 30)
     },
     alcohol = { -- default alcohol items
         ['whiskey'] = math.random(20, 30),
@@ -176,8 +200,6 @@ Config.BlacklistedVehs = {
     [`savage`] = true,
     [`titan`] = true,
     [`rhino`] = true,
-    [`firetruck`] = true,
-    [`mule`] = true,
     [`maverick`] = true,
     [`blimp`] = true,
     [`airtug`] = true,
@@ -227,6 +249,22 @@ Config.BlacklistedPeds = {
     [`s_m_y_hwaycop_01`] = true
 }
 
+Config.WeapDraw = {
+    variants = { 130, 122, 3, 6, 8 },
+    weapons = {
+        --'WEAPON_STUNGUN',
+        'WEAPON_PISTOL',
+        'WEAPON_PISTOL_MK2',
+        'WEAPON_COMBATPISTOL',
+        'WEAPON_APPISTOL',
+        'WEAPON_PISTOL50',
+        'WEAPON_REVOLVER',
+        'WEAPON_SNSPISTOL',
+        'WEAPON_HEAVYPISTOL',
+        'WEAPON_VINTAGEPISTOL'
+    }
+}
+
 Config.Objects = { -- for object removal
     { coords = vector3(266.09, -349.35, 44.74), heading = 0, length = 200, width = 200, model = 'prop_sec_barier_02b' },
     { coords = vector3(285.28, -355.78, 45.13), heading = 0, length = 200, width = 200, model = 'prop_sec_barier_02a' },
@@ -234,7 +272,7 @@ Config.Objects = { -- for object removal
 
 -- You may add more than 2 selections and it will bring up a menu for the player to select which floor be sure to label each section though
 Config.Teleports = {
-    [1] = {                   -- Elevator @ labs
+    --[[[1] = {                   -- Elevator @ labs
         [1] = {               -- up
             poly = { coords = vector3(3540.74, 3675.59, 20.99), heading = 167.5, length = 2, width = 2 },
             allowVeh = false, -- whether or not to allow use in vehicle
@@ -258,7 +296,7 @@ Config.Teleports = {
             allowVeh = false,
             label = '[E] Leave'
         }
-    }
+    }]]
 }
 
 Config.CarWash = {
@@ -271,4 +309,20 @@ Config.CarWash = {
         [4] = { coords = vector3(1362.69, 3591.81, 34.5), length = 6.4, width = 8, heading = 21 },     -- Sandy Shores
         [5] = { coords = vector3(-699.84, -932.68, 18.59), length = 11.8, width = 5.2, heading = 0 }   -- Little Seoul Gas Station
     }
+}
+
+
+Config.target = true -- Use target system for vehicle push (disables TextUI)
+Config.targetSystem = 'qb-target' -- Target System to use. ox_target, qtarget, qb-target
+Config.Usebones = true -- Use bones for vehicle push
+Config.PushKey = 'E' -- Key to push vehicle
+Config.TurnRightKey = 'Q' -- Keys to turn the vehicle while pushing it.
+Config.TurnLeftKey = 'A' -- Keys to turn the vehicle while pushing it.
+Config.TextUI = false -- Use Text UI for vehicle push
+Config.useOTSkills = false -- Use OT Skills for XP gain from pushing vehicles. Found here: https://otstudios.tebex.io
+Config.maxReward = 20 -- Max amount of xp that can be gained from pushing a vehicle per push, make sure this is the same or less than what is set for strength in your OT_skills config.
+Config.healthMin = 2000.0 -- Minimum health of vehicle to be able to push it.
+
+Config.blacklist = { -- blacklist vehicle models from being pushed.
+    [`phantom`] = true
 }

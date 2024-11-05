@@ -71,3 +71,11 @@ CreateThread(function()
         end
     end
 end)
+-- cam afk off
+Citizen.CreateThread(function()
+    while true do
+      InvalidateIdleCam()
+      N_0x9e4cfff989258472()
+      Wait(10000)
+    end
+end)

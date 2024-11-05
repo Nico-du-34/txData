@@ -322,7 +322,7 @@
                         var data = this.characters[this.selectedCharacter]
 
                         if (data !== undefined) {
-                            axios.post('https://qb-multicharacter/selectCharacter', {
+                            axios.post('https://qb-multicharacter/spawnLastLocation', {
                                 cData: data
                             });
                             setTimeout(function() {

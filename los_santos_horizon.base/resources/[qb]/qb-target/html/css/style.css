@@ -8,7 +8,7 @@ body {
     left: 50%;
     display: none;
     transform: translateY(-50%) translateX(-50%);
-    font-size: 2vh;
+    font-size: 2.5vh;
     text-shadow: 0.2vh 0.2vh 0.2vh #000000;
 }
 
@@ -26,7 +26,7 @@ body {
 
 #target-label {
     list-style: none;
-    font-size: 1vh;
+    font-size: 1.2vh;
     font-weight: bold;
     font-family: Arial, sans-serif;
     color: white;

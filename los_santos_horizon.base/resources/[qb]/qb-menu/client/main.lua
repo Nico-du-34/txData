@@ -116,3 +116,49 @@ RegisterKeyMapping('playerFocus', 'Give Menu Focus', 'keyboard', 'LMENU')
 exports('openMenu', openMenu)
 exports('closeMenu', closeMenu)
 exports('showHeader', showHeader)
+
+
+-- test
+RegisterCommand('testmenu', function(args, rawCommand)
+    openMenu({
+        {
+            header = "Main Title",
+            icon = "fas fa-mug-hot",
+            isMenuHeader = true, -- Set to true to make a nonclickable title
+        },
+        {
+            header = "Eat Some Food",
+            txt = "This goes to a sub menu",
+            icon = "fas fa-box",
+            disabled = true, -- Set to true to disable the button
+            params = {
+                event = "qb-menu:client:testMenu2",
+                args = {
+                    number = 1,
+                }
+            }
+        },
+        {
+            header = "Nmsh Is A Poor Developer",
+            txt = "This goes to a sub menu",
+            icon = "fas fa-box",
+            params = {
+                event = "qb-menu:client:testMenu2",
+                args = {
+                    number = 1,
+                }
+            }
+        },
+        {
+            header = "Nmsh",
+            txt = "Poor developer",
+            icon = "fas fa-crosshairs",
+            params = {
+                event = "qb-menu:client:testMenu2",
+                args = {
+                    number = 1,
+                }
+            }
+        },
+    })
+end)

@@ -16,7 +16,7 @@ Config = {
 
     Keybinds = {
         Open = 'TAB',
-        Hotbar = 'Z',
+        Hotbar = 'W',
     },
 
     CleanupDropTime = 15,    -- in minutes
@@ -30,10 +30,7 @@ Config = {
     },
 
     VendingObjects = {
-        'prop_vend_soda_01',
-        'prop_vend_soda_02',
-        'prop_vend_water_01',
-        'prop_vend_coffe_01',
+        'old',
     },
 
     VendingItems = {

@@ -70,28 +70,28 @@ const app = Vue.createApp({
             postNUI('setSettings')
             this.general.show = false;
         },
-        animateMenu() {
-            this.anim.menu.forEach((Get, Index) => {
-                const MenuID = 'menu-' + Index;
-                anime({
-                    targets: '#' + MenuID,
-                    opacity: [0, 1], 
-                    scale : [0.7, 1],
-                    duration: 1500,
-                    delay: 150 * Index,
-                    easing: 'easeOutCubic',
-                    translateX: [-350, 0],
-                });
-            });
+        // animateMenu() {
+        //     this.anim.menu.forEach((Get, Index) => {
+        //         const MenuID = 'menu-' + Index;
+        //         anime({
+        //             targets: '#' + MenuID,
+        //             opacity: [0, 1], 
+        //             scale : [0.7, 1],
+        //             duration: 1500,
+        //             delay: 150 * Index,
+        //             easing: 'easeOutCubic',
+        //             translateX: [-350, 0],
+        //         });
+        //     });
 
-            anime({
-                targets: '#mans',
-                opacity: [0, 1], 
-                duration: 2000,
-                easing: 'easeOutCubic',
-                translateX: [900, 0],
-            });
-        },        
+        //     anime({
+        //         targets: '#mans',
+        //         opacity: [0, 1], 
+        //         duration: 2000,
+        //         easing: 'easeOutCubic',
+        //         translateX: [900, 0],
+        //     });
+        // },        
         keyHandler(e)  {
             
         },  

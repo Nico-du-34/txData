@@ -1,6 +1,6 @@
 Config = {}
 Config.RequireJob = true                       -- do you need a mech job to use parts?
-Config.FuelResource = 'LegacyFuel'             -- supports any that has a GetFuel() and SetFuel() export
+Config.FuelResource = 'cdn-fuel'             -- supports any that has a GetFuel() and SetFuel() export
 
 Config.PaintTime = 5                           -- how long it takes to paint a vehicle in seconds
 Config.ColorFavorites = false                  -- add your own colors to the favorites menu (see bottom of const.lua)
@@ -85,10 +85,10 @@ Config.Shops = {
         showBlip = true,
         blipSprite = 72,
         blipColor = 46,
-        blipCoords = vector3(-211.73, -1325.28, 30.89),
+        blipCoords = vector3(-233.92, -1328.05, 31.3),
         duty = vector3(-202.92, -1313.74, 31.70),
         stash = vector3(-199.58, -1314.65, 31.08),
-        paint = vector3(-202.42, -1322.16, 31.29),
+        paint = vector3(-192.29, -1315.01, 31.61),
         vehicles = {
             withdraw = vector3(0, 0, 0),
             spawn = vector4(-370.51, -107.88, 38.35, 72.56),

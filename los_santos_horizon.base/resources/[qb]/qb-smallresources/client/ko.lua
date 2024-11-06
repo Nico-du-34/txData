@@ -45,8 +45,8 @@ end)
 -- end]]
 local QBCore = exports['qb-core']:GetCoreObject()
 local knockedOut = false
-local wait = 15
-local count = 60
+local wait = 5
+local count = 30
 
 CreateThread(function()
     while true do
@@ -68,7 +68,7 @@ CreateThread(function()
             SetPedToRagdoll(myPed, 1000, 1000, 0, 0, 0, 0)
             ResetPedRagdollTimer(myPed)
             Wait(100)
-            DoScreenFadeOut(50)
+            DoScreenFadeOut(10)
             if wait >= 0 then
                 count = count - 1
                 if count == 0 then
@@ -78,7 +78,7 @@ CreateThread(function()
                 end
             else
                 Wait(100)
-                DoScreenFadeIn(50)
+                DoScreenFadeIn(10)
                 SetPlayerInvincible(PlayerId(), false)
                 knockedOut = false
             end

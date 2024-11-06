@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jg-advancedgarages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="bootstrap.css" rel="stylesheet" />
+    <style>
+      body {
+        background: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Admin: Change vehicle plate -->
+    <div
+      class="modal fade modal-change-vehicle-plate"
+      id="change-vehicle-plate-form"
+      tabindex="-1"
+      data-bs-backdrop="false"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <form
+          class="modal-content text-bg-dark"
+          onsubmit="onChangeVehiclePlate(event)"
+        >
+          <div class="modal-header">
+            <h5 class="modal-title">Change Vehicle Plate</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="cur-plate" class="form-label">Current Plate</label>
+              <input type="text" class="form-control" id="cur-plate" readonly disabled />
+            </div>
+            <div class="mb-3">
+              <label for="new-plate" class="form-label">New Plate</label>
+              <input type="text" class="form-control" id="new-plate" maxlength="8" />
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-between">
+            <button class="btn btn-success" type="submit">
+              Change Plate
+            </button>
+            <div class="badge bg-secondary text-muted">City RP</div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Impound: Form -->
+    <div
+      class="modal fade modal-impound-form"
+      id="impound-form"
+      tabindex="-1"
+      data-bs-backdrop="false"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <form
+          class="modal-content text-bg-dark"
+          onsubmit="onImpoundSubmit(event)"
+        >
+          <div class="modal-header">
+            <h5 class="modal-title">Mise en Fourriére</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="vehiclePlate" class="form-label">Plaque</label>
+              <input type="text" class="form-control" id="vehiclePlate" readonly disabled />
+            </div>
+            <div class="mb-3">
+              <label for="reason" class="form-label">Raison (optionel)</label>
+              <input type="text" class="form-control" id="reason" />
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="retrievable"
+                  onchange="impoundRetrievableChange(event)"
+                />
+                <label class="form-check-label" for="retrievable">
+                  Récupable par le propriétaire
+                </label>
+              </div>
+            </div>
+            <div id="impound-form-cost" style="display: none">
+              <div class="mb-3">
+                <label for="time" class="form-label">Temp de Fourriére</label>
+                <select class="form-select" id="time">
+                  <option value="0">Disponible immédiatement</option>
+                  <option value="1">1 heure</option>
+                  <option value="4">4 heure</option>
+                  <option value="12">12 heure</option>
+                  <option value="24">1 jour</option>
+                  <option value="72">3 jour</option>
+                  <option value="168">7 jour</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="retrievalCost" class="form-label">Coût</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="currencySymbol">€</span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="retrievalCost"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-between">
+            <button class="btn btn-success" type="submit">
+              Validé
+            </button>
+            <div class="badge bg-secondary text-muted">City RP</div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Impound: Show Vehicles -->
+    <div
+      class="modal fade modal-show-impounded-vehicles"
+      id="show-impounded-vehicles"
+      tabindex="-1"
+      data-bs-backdrop="false"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content text-bg-dark">
+          <div class="modal-header">
+            <h5 class="modal-title">Fourriére</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="accordion" id="impounded-vehicles-list"></div>
+          </div>
+          <div class="modal-footer">
+            <div class="badge bg-secondary text-muted">City RP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garage: Show Vehicles -->
+    <div
+      class="modal fade modal-show-garage-vehicles"
+      id="show-garage-vehicles"
+      tabindex="-1"
+      data-bs-backdrop="false"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content text-bg-dark">
+          <div class="modal-header">
+            <h5 class="modal-title" id="garage-name"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="accordion" id="garage-vehicles-list"></div>
+          </div>
+          <div class="modal-footer text-muted d-flex justify-content-between">
+            <div><span id="garage-vehicles-count">0</span> véhicule(s)</div>
+            <div class="badge bg-secondary text-muted">City RP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Private Garage Creator: Form -->
+    <div
+      class="modal fade modal-priv-garage-creator"
+      id="priv-garage-creator"
+      tabindex="-1"
+      data-bs-backdrop="false"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <form
+          class="modal-content text-bg-dark"
+          onsubmit="onPrivateGarageCreate(event)"
+        >
+          <div class="modal-header">
+            <h5 class="modal-title">Créer un garage privé</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-info">
+              <strong>La tête haute!</strong> Le garage sera créé et les véhicules apparaîtront à l'emplacement exact et à la direction que vous êtes actuellement debout.
+            </div>
+
+            <div class="mb-3">
+              <label for="garageName" class="form-label">Nom du garage</label>
+              <input type="text" class="form-control" id="garageName" required />
+            </div>
+            <div class="mb-3">
+              <label for="player" class="form-label">Joueur</label>
+              <select id="priv-garage-players-list" class="form-select"></select>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-between">
+            <button class="btn btn-success" type="submit">
+              Créer
+            </button>
+            <div class="badge bg-secondary text-muted">City RP</div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="js/vehicle.js"></script>
+    <script defer src="js/garage.js"></script>
+    <script defer src="js/private-garage.js"></script>
+    <script defer src="js/impound.js"></script>
+    <script defer src="js/main.js"></script>
+  </body>
+</html>

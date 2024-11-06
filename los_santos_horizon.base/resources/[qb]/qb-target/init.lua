@@ -81,11 +81,65 @@ Config.PolyZones = {
 }
 
 Config.TargetBones = {
-
+	["main"] = {
+        bones = {
+            "seat_dside_f",
+            "seat_pside_f",
+            "seat_dside_r",
+            "seat_pside_r",
+            "door_dside_f",
+            "door_dside_r",
+            "door_pside_f",
+            "door_pside_r",
+			"boot",
+        
+        },
+        options = {
+            {
+                type = "client",
+                event = 'police:client:PutPlayerInVehicle',
+                icon = "fas fa-user-plus",
+                label = "Assoir dans le véhicules",
+            },
+            {
+                type = "client",
+                event = "police:client:SetPlayerOutVehicle",
+                icon = "fas fa-user-minus",
+                label = "Sortir du véhicules",
+            },
+            {
+                type = "command",
+                event = "fourriere",
+                icon = "fas fa-car",
+                label = "Mettre en fourriére",
+                jobType = "leo",
+            },
+            {
+                type = "client",
+                event = "qb-trunk:client:GetIn",
+                icon = "fas fa-user-secret",
+                label = "Entrée dans le coffre",
+            },
+        },
+        distance = 3.0
+    },
 }
 
 Config.TargetModels = {
-
+	--[[["TrailerRental"] = {
+		models = {
+			`S_F_M_Autoshop_01`,
+		},
+		options = {
+			{
+				type = "client",
+				event = "az-trailer:openMenu",
+				icon = "fas fa-car",
+				label = "Rent Trailer",
+			},
+		},
+		distance = 4.0
+	},]]
 }
 
 Config.GlobalPedOptions = {
@@ -101,13 +155,91 @@ Config.GlobalObjectOptions = {
 }
 
 Config.GlobalPlayerOptions = {
+	options = {
+				{
+					type = "client",
+					event = "qs-smartphone:client:GiveContactDetails",
+					icon = 'fas fa-mobile-screen',
+					label = 'Partagé son numéro',
+					item = 'phone'
+				},{
+					type = "command",
+					event = "carry",
+					icon = 'fas fa-person',
+					label = 'Porter sur son épaule'
+				},{
+					event = "police:client:RobPlayer",
+					icon = "fas fa-user-secret",
+					label = "Voler la personne",
+				},{
+					type = "client",
+					event = "police:client:CuffPlayer",
+					icon = "fas fa-hands",
+					label = "Handfängsla",
+					jobType = "leo",
+					item = 'Menotter',
+				},{
+					type = "client",
+					event = "police:client:EscortPlayer",
+					icon = "fas fa-key",
+					label = "Escorter",
+				},{
+					type = "client",
+					event = "police:client:PutPlayerInVehicle",
+					icon = "fas fa-chevron-circle-left",
+					jobType = 'leo',
+					label = "Mettez dans le véhicule",
+				},{
+					type = "client",
+					event = "police:client:SetPlayerOutVehicle",
+					icon = "fas fa-chevron-circle-right",
+					jobType = 'leo',
+					label = "Sortir du véhicule",
+				},{
+					type = "client",
+					event = "police:client:SeizeDriverLicense",
+					icon = "fas fa-chevron-circle-right",
+					jobType = 'leo',
+					label = "Retirer le permis de conduire",
+				},{
+					type = "client",
+					event = "police:client:JailPlayer",
+					icon = "fas fa-chevron-circle-right",
+					jobType = 'leo',
+					label = "Mettre en prison",
+				},{
+					type = "client",
+					event = "police:server:SearchPlayer",
+					icon = "fas fa-chevron-circle-right",
+					jobType = 'leo',
+					label = "Fouiller la personne",
+				},{
+					type = "client",
+					event = "hospital:client:RevivePlayer",
+					icon = "fas fa-chevron-circle-right",
+					jobType = 'ambulance',
+					label = "Réanimer",
+				},{
+					type = "client",
+					event = "hospital:client:CheckStatus",
+					icon = "fas fa-chevron-circle-right",
+					jobType = 'ambulance',
+					label = "Voir la santer",
+				},{
+					type = "client",
+					event = "hospital:client:TreatWounds",
+					icon = "fas fa-chevron-circle-right",
+					jobType = 'ambulance',
+					label = "Traiter les blessures",
+				}
+			},
+			distance = 1.5,
 
 }
 
 Config.Peds = {
 
 }
-
 -------------------------------------------------------------------------------
 -- Functions
 -------------------------------------------------------------------------------

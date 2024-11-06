@@ -35,6 +35,7 @@ body {
     border-image-slice: 1;
 }
 
+
 /* Small font styling for server-id label */
 /* #server-id::after {
     content: 'ID';
@@ -160,8 +161,19 @@ body {
 #server-id i, #job-bar i, #cash-label i, #bank-label i, #ammo-label i, #gang-bar i {
     margin-left: 8px; /* Space between text and icon when on the right side */
     color: #045cff; /* Icon color matching the gradient */
-    font-size: 22px; /* Larger icon size */
     order: 2; /* Move icons to the end within the flex container */
+}
+
+/*// For 4k */
+@media (min-width: 2560px) {
+    #server-id i, #job-bar i, #cash-label i, #bank-label i, #ammo-label i, #gang-bar i {
+        font-size: 32px; 
+    }
+    #job-bar, #cash-label, #bank-label, #ammo-label, #gang-bar, #server-id {
+        padding: 10px 25px;
+        font-size: 20px;
+
+    }
 }
 
 #ammo-label i {

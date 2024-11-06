@@ -169,7 +169,7 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
             SimpleNotify(Config.Languages[lang]['refuseemote'])
         end
 
-        if IsControlJustPressed(1, 246) then
+        if IsControlJustPressed(1, 45) then
             isRequestAnim = false
 
             -- Check if the emote is shared or dance

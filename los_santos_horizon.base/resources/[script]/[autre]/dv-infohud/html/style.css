@@ -18,9 +18,6 @@ body {
 
 /* Positioning server-id as fixed */
 #server-id {
-    position: fixed; /* Fixed position to stay in the same spot on the screen */
-    top: 110px; /* Adjust this to move it up or down */
-    left: 1826px; /* Adjust this to move it left or right */
     padding: 3px 10px;
     border-radius: 8px;
     display: inline-flex;

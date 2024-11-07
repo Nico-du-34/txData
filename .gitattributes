@@ -1,9 +1,9 @@
-# *.ymt filter=lfs diff=lfs merge=lfs -text
-# *.ytd filter=lfs diff=lfs merge=lfs -text
-# *.ydr filter=lfs diff=lfs merge=lfs -text
-# *.ybn filter=lfs diff=lfs merge=lfs -text
-# *.ytyp filter=lfs diff=lfs merge=lfs -text
-# *.ycd filter=lfs diff=lfs merge=lfs -text
-# *.ymap filter=lfs diff=lfs merge=lfs -text
-# *.rel filter=lfs diff=lfs merge=lfs -text
-# los_santos_horizon.base/resources/\[addons\]/\[mapping\]/*.yfm filter=lfs diff=lfs merge=lfs -text
+*.ymt filter=lfs diff=lfs merge=lfs -text
+*.ytd filter=lfs diff=lfs merge=lfs -text
+*.ydr filter=lfs diff=lfs merge=lfs -text
+*.ybn filter=lfs diff=lfs merge=lfs -text
+*.ytyp filter=lfs diff=lfs merge=lfs -text
+*.ycd filter=lfs diff=lfs merge=lfs -text
+*.ymap filter=lfs diff=lfs merge=lfs -text
+*.rel filter=lfs diff=lfs merge=lfs -text
+los_santos_horizon.base/resources/\[addons\]/\[mapping\]/*.yfm filter=lfs diff=lfs merge=lfs -text

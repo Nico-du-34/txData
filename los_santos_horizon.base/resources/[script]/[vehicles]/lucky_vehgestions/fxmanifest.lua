@@ -7,7 +7,7 @@ discord 'discord.gg/luckymods'
 
 dependencies {
     'ox_lib',
-    'ox_target'
+    -- 'ox_target'
 }
 
 client_scripts {

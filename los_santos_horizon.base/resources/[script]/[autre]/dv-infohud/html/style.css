@@ -167,7 +167,7 @@ body {
 /*// For 4k */
 @media (min-width: 2560px) {
     #server-id i, #job-bar i, #cash-label i, #bank-label i, #ammo-label i, #gang-bar i {
-        font-size: 32px; 
+        font-size: 32px;
     }
     #job-bar, #cash-label, #bank-label, #ammo-label, #gang-bar, #server-id {
         padding: 10px 25px;

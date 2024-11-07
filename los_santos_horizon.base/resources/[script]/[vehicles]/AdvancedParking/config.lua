@@ -27,7 +27,7 @@ Config.cleanUpExplodedVehicles = false
 -- If set to true, it will delete outside vehicles with the same plate on update
 --   This is just a compatibility feature. You should still properly edit your scripts to prevent
 --   duplicate vehicles in the first place.
-Config.preventDuplicateVehicles = false
+Config.preventDuplicateVehicles = true
 
 -- another anti dupe setting. This will aggressively delete any vehicles that have been saved by AP 
 -- and another vehicle with the same plate is detected anywhere

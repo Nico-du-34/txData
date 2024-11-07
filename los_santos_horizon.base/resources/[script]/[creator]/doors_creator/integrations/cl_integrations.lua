@@ -8,8 +8,8 @@ iconData = {
         textureDict = "door_icon", -- Do not edit
         textureName = "unlocked", -- Do not edit
 
-        x = 0.03,
-        y = 0.04,
+        x = 0.02,
+        y = 0.03,
         
         color = { -- If all colors are to 255, the image will have the default color
             r = 255,

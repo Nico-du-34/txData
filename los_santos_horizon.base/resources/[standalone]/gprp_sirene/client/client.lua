@@ -33,7 +33,58 @@ local eModelsWithFireSrn =
 local eModelsWithGendarmerieSrn = --Police
 {
 	"lspd10char",
+	"lspd14char",
+	"lspd15exp",
+	"lspd16exp",
+	"lspd16expk9",
+	"lspd18char",
+	"lspd18tahoe",
+	"lspd18tahoek9",
+	"lspd20exp",
+	"lspd21f150",
+	"lspdcap",
+	"lspddur",
+	"lspdram",
 	"lspdtaur",
+	"lspdvet",
+	"lspdvic",
+	"policeb",
+	"nbc18durK9",
+	"nbc14tah",
+	"nbc21tah",
+	"nbc21tah",
+	"nbcporshe",
+	"nbcvic",
+	"nbctaurus",
+	"nbc23silv",
+	"nbc23silvk9",
+	"nbc08char",
+	"nbc14chark9",
+	"nbc14char",
+	"nbc18char",
+	"nbc18chark9",
+	"nbc17silv",
+	"nbc17silvk9",
+	"nbc21f150",
+	"nbc21f150k9",
+	"nbc18f150k9bed",
+	"nbc18f150bed",
+	"nbcram",
+	"nbcramk9",
+	"nbc16exp",
+	"nbc18f150k9",
+	"nbc18f150",
+	"nbc22expd",
+	"nbc20dur",
+	"nbc20durk9",
+	"nbc18tah",
+	"nbc18tahk9",
+	"nbc16expK9",
+	"nbc13expk9",
+	"nbc13exp",
+	"nbc20exp",
+	"nbc20expk9",
+	"nbc18dur",
 }
 --buit pompier
 local eModelsWithBrigadeSrn =
@@ -192,7 +243,7 @@ function SetLxSirenStateForVeh(veh, newstate)
 			if newstate == 1 then
 				if useGendarmerieSiren(veh) then
 					snd_lxsiren[veh] = GetSoundId()	
-					PlaySoundFromEntity(snd_lxsiren[veh], "SIREN_BRAVO", veh, "DLC_WMSIRENS_SOUNDSET", 0, 0)
+					PlaySoundFromEntity(snd_lxsiren[veh], "SIREN_GOLF", veh, "DLC_WMSIRENS_SOUNDSET", 0, 0)
 					TogMuteDfltSrnForVeh(veh, true)
 				else
 				if useBrigadeSiren(veh) then
@@ -220,7 +271,7 @@ function SetLxSirenStateForVeh(veh, newstate)
 			elseif newstate == 2 then
 			if useGendarmerieSiren(veh) then
 				snd_lxsiren[veh] = GetSoundId()
-				PlaySoundFromEntity(snd_lxsiren[veh], "SIREN_GOLF", veh, "DLC_WMSIRENS_SOUNDSET", 0, 0)
+				PlaySoundFromEntity(snd_lxsiren[veh], "SIREN_BRAVO", veh, "DLC_WMSIRENS_SOUNDSET", 0, 0)
 				TogMuteDfltSrnForVeh(veh, false)
 			else
 			if useEMSSiren(veh) then

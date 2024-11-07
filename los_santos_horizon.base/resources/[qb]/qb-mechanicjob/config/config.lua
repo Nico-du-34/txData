@@ -31,83 +31,51 @@ Config.WearableParts = { -- unused if Config.UseWearableParts is false (feel fre
 }
 
 Config.Shops = {
-    mechanic = { -- City location
-        managed = true,
-        shopLabel = 'LS Customs',
-        showBlip = true,
-        blipSprite = 72,
-        blipColor = 46,
-        blipCoords = vector3(-346.02, -130.68, 39.02),
-        duty = vector3(-348.18, -134.55, 39.59),
-        stash = vector3(-346.02, -130.68, 39.02),
-        paint = vector3(-324.11, -147.11, 39.10),
-        vehicles = {
-            withdraw = vector3(-369.30, -104.75, 38.38),
-            spawn = vector4(-369.65, -107.8, 38.65, 70.52),
-            list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
-        },
-    },
-    mechanic2 = { -- Harmony Location
-        managed = true,
-        shopLabel = 'LS Customs',
-        showBlip = true,
-        blipSprite = 72,
-        blipColor = 46,
-        blipCoords = vector3(1174.93, 2639.45, 37.75),
-        duty = vector3(1185.86, 2638.70, 38.93),
-        stash = vector3(1175.11, 2635.375, 37.78),
-        paint = vector3(1181.29, 2634.69, 37.80),
-        vehicles = {
-            withdraw = vector3(1185.63, 2646.01, 37.91),
-            spawn = vector4(1188.18, 2657.56, 37.79, 316.74),
-            list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
-        },
-    },
-    mechanic3 = { -- Airport Location
-        managed = true,
-        shopLabel = 'LS Customs',
-        showBlip = true,
-        blipSprite = 72,
-        blipColor = 46,
-        blipCoords = vector3(-1154.92, -2006.41, 13.18),
-        duty = vector3(-1149.17, -1998.27, 13.91),
-        stash = vector3(-1146.40, -2002.05, 13.19),
-        paint = vector3(-1170.60, -2014.90, 13.23),
-        vehicles = {
-            withdraw = vector3(-1142.04, -1994.58, 13.26),
-            spawn = vector4(-1137.42, -1993.26, 13.14, 226.07),
-            list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
-        },
-    },
-    bennys = { -- Default Bennys Location
+    bennys = {
         managed = true,
         shopLabel = 'Benny\'s Motorworks',
         showBlip = true,
         blipSprite = 72,
         blipColor = 46,
         blipCoords = vector3(-233.92, -1328.05, 31.3),
-        duty = vector3(-202.92, -1313.74, 31.70),
-        stash = vector3(-199.58, -1314.65, 31.08),
-        paint = vector3(-192.29, -1315.01, 31.61),
+        duty = vector3(0.0, 0.0, 0.0),
+        stash = vector3(0.0, 0.0, 0.0),
+        paint = vector3(-191.85, -1315.02, 31.27),
         vehicles = {
             withdraw = vector3(0, 0, 0),
-            spawn = vector4(-370.51, -107.88, 38.35, 72.56),
+            spawn = vector4(0.0, 0.0, 0.0, 0.0),
             list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
         },
     },
-    beeker = { -- Paleto Location
+    redlinegarage = {
         managed = true,
-        shopLabel = 'Beeker\'s Garage',
+        shopLabel = 'Red Line Garage',
         showBlip = true,
         blipSprite = 72,
         blipColor = 46,
-        blipCoords = vector3(109.95, 6627.34, 31.79),
-        duty = vector3(101.74, 6620.04, 32.95),
-        stash = vector3(107.00, 6629.88, 31.81),
-        paint = vector3(102.17, 6626.08, 31.79),
+        blipCoords = vector3(-233.92, -1328.05, 31.3),
+        duty = vector3(0.0, 0.0, 0.0),
+        stash = vector3(0.0, 0.0, 0.0),
+        paint = vector3(0.0, 0.0, 0.0),
         vehicles = {
-            withdraw = vector3(107.08, 6614.90, 31.96),
-            spawn = vector4(110.91, 6609.32, 31.81, 315.11),
+            withdraw = vector3(0, 0, 0),
+            spawn = vector4(0.0, 0.0, 0.0, 0.0),
+            list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
+        },
+    },
+    lscustom = {
+        managed = true,
+        shopLabel = 'Los Santos Customs',
+        showBlip = true,
+        blipSprite = 72,
+        blipColor = 46,
+        blipCoords = vector3(-233.92, -1328.05, 31.3),
+        duty = vector3(0.0, 0.0, 0.0),
+        stash = vector3(0.0, 0.0, 0.0),
+        paint = vector3(0.0, 0.0, 0.0),
+        vehicles = {
+            withdraw = vector3(0, 0, 0),
+            spawn = vector4(0.0, 0.0, 0.0, 0.0),
             list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
         },
     },

@@ -155,7 +155,7 @@ CreateThread(function()
             distance = 2.0
         })
 
-        exports['qb-target']:AddCircleZone(k .. '_paintbooth', v.paint, 0.5, {
+        exports['qb-target']:AddCircleZone(k .. '_paintbooth', v.paint, 3.5, {
             name = k .. '_paintbooth',
             debugPoly = false,
             useZ = true

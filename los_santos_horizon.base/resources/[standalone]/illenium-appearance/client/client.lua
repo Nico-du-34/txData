@@ -644,6 +644,8 @@ RegisterNetEvent("illenium-appearance:client:changeOutfit", function(data)
         local p = promise.new()
         lib.callback("illenium-appearance:server:getAppearance", false, function(appearance)
             BackupPlayerStats()
+            TriggerEvent("eraoutfits:client:getoutfit")
+            TriggerServerEvent("illenium-appearance:server:chargeCustomer", "clothing")
             if appearance then
                 client.setPlayerAppearance(appearance)
                 RestorePlayerStats()

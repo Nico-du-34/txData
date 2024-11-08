@@ -6,6 +6,7 @@ local hasDonePreloading = {}
 local function GiveStarterItems(source)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
+
     for _, v in pairs(QBCore.Shared.StarterItems) do
         local info = {}
         if v.item == "id_card" then
@@ -21,11 +22,11 @@ local function GiveStarterItems(source)
             info.birthdate = Player.PlayerData.charinfo.birthdate
             info.type = "Class C Driver License"
         end
-        exports['qb-inventory']:AddItem(src, v.item, v.amount, false, info, 'qb-multicharacter:GiveStarterItems')
+        Player.Functions.AddItem(v.item, v.amount, false, info)
     end
 end
 
-local function loadHouseData(src)
+--[[local function loadHouseData(src)
     local HouseGarages = {}
     local Houses = {}
     local result = MySQL.query.await('SELECT * FROM houselocations', {})
@@ -54,7 +55,7 @@ local function loadHouseData(src)
     end
     TriggerClientEvent("qb-garages:client:houseGarageConfig", src, HouseGarages)
     TriggerClientEvent("qb-houses:client:setHouseConfig", src, Houses)
-end
+end]]
 
 -- Commands
 
@@ -93,7 +94,7 @@ RegisterNetEvent('qb-multicharacter:server:loadUserData', function(cData)
         until hasDonePreloading[src]
         print('^2[qb-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has successfully loaded!')
         QBCore.Commands.Refresh(src)
-        loadHouseData(src)
+        -- loadHouseData(src)
         if Config.SkipSelection then
             local coords = json.decode(cData.position)
             TriggerClientEvent('qb-multicharacter:client:spawnLastLocation', src, coords, cData)
@@ -123,17 +124,16 @@ RegisterNetEvent('qb-multicharacter:server:createCharacter', function(data)
             SetPlayerRoutingBucket(src, randbucket)
             print('^2[qb-core]^7 '..GetPlayerName(src)..' has successfully loaded!')
             QBCore.Commands.Refresh(src)
-            loadHouseData(src)
+            -- loadHouseData(src)
             TriggerClientEvent("qb-multicharacter:client:closeNUI", src)
             TriggerClientEvent('apartments:client:setupSpawnUI', src, newData)
             GiveStarterItems(src)
         else
             print('^2[qb-core]^7 '..GetPlayerName(src)..' has successfully loaded!')
             QBCore.Commands.Refresh(src)
-            loadHouseData(src)
+            -- loadHouseData(src)
             TriggerClientEvent("qb-multicharacter:client:closeNUIdefault", src)
             GiveStarterItems(src)
-            TriggerEvent('apartments:client:SetHomeBlip', nil)
         end
     end
 end)
@@ -142,20 +142,6 @@ RegisterNetEvent('qb-multicharacter:server:deleteCharacter', function(citizenid)
     local src = source
     QBCore.Player.DeleteCharacter(src, citizenid)
     TriggerClientEvent('QBCore:Notify', src, Lang:t("notifications.char_deleted") , "success")
-end)
-
-RegisterNetEvent('qb-multicharacter:server:spawnLastLocation', function(cData)
-    local src = source
-    if QBCore.Player.Login(src, cData.citizenid) then
-        repeat
-            Wait(10)
-        until hasDonePreloading[src]
-        print('^2[qb-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has succesfully loaded!')
-        QBCore.Commands.Refresh(src)
-        loadHouseData(src)
-        local coords = json.decode(cData.position)
-        TriggerClientEvent('qb-multicharacter:client:spawnLastLocation', src, coords)
-    end
 end)
 
 -- Callbacks
@@ -209,10 +195,19 @@ QBCore.Functions.CreateCallback("qb-multicharacter:server:setupCharacters", func
     end)
 end)
 
+-- QBCore.Functions.CreateCallback("qb-multicharacter:server:getSkin", function(_, cb, cid)
+--     local result = MySQL.query.await('SELECT * FROM playerskins WHERE citizenid = ? AND active = ?', {cid, 1})
+--     if result[1] ~= nil then
+--         cb(result[1].model, result[1].skin)
+--     else
+--         cb(nil)
+--     end
+-- end)
+
 QBCore.Functions.CreateCallback("qb-multicharacter:server:getSkin", function(_, cb, cid)
     local result = MySQL.query.await('SELECT * FROM playerskins WHERE citizenid = ? AND active = ?', {cid, 1})
     if result[1] ~= nil then
-        cb(result[1].model, result[1].skin)
+        cb(json.decode(result[1].skin))
     else
         cb(nil)
     end
@@ -226,3 +221,18 @@ QBCore.Commands.Add("deletechar", Lang:t("commands.deletechar_description"), {{n
         TriggerClientEvent("QBCore:Notify", source, Lang:t("notifications.forgot_citizenid"), "error")
     end
 end, "god")
+
+RegisterNetEvent('qb-multicharacter:server:spawnLastLocation', function(cData) 
+    local src = source 
+    if QBCore.Player.Login(src, cData.citizenid) 
+    then repeat 
+        Wait(10) 
+    until 
+    hasDonePreloading[src] 
+    print('^2[qb-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has succesfully loaded!') 
+    QBCore.Commands.Refresh(src) 
+    -- loadHouseData(src) 
+    local coords = json.decode(cData.position) 
+    TriggerClientEvent('qb-multicharacter:client:spawnLastLocation', src, coords) 
+    end 
+end)

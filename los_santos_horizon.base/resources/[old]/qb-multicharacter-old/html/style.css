@@ -68,7 +68,7 @@
 .characters::-webkit-scrollbar-thumb {
     border-radius:20px;
     border:1px solid #000000;
-    background-color:#a90d2ca6;
+    background-color:#0d3ea9a6;
 }
 .character {
     position: relative;
@@ -85,8 +85,8 @@
 }
 
 .character:hover {
-    background-color: #a90d2ca6;
-    box-shadow: rgb(37 17 17 / 25%) 0px 30px 60px -12px inset, rgb(154 54 54 / 30%) 0px 18px 36px -18
+    background-color: #0d3ea9a6;
+    box-shadow: rgba(17 23 37 0.25) 0px 30px 60px -12px inset, rgba(54 89 154 0.3) 0px 18px 36px -18
 }
 
 .character>span {
@@ -107,8 +107,8 @@
 }
 
 .char-selected {
-    background-color: #a90d2ca6;
-    box-shadow: rgb(37 17 20 / 25%) 0px 30px 60px -12px inset, rgb(154 54 54 / 30%) 0px 18px 36px -18;
+    background-color: #0d3ea9a6;
+    box-shadow: rgba(17 22 37 0.25) 0px 30px 60px -12px inset, rgb(54 89 154 / 30%) 0px 18px 36px -18;
     transition: 250ms;
 }
 
@@ -143,7 +143,7 @@
 }
 
 #delete {
-    background-color: rgb(144 41 62);
+    background-color: rgb(144 41 41);
     border-radius: .3vh;
     transition: all 0.2s ease;
 }
@@ -315,7 +315,7 @@
 
 .material-symbols-outlined {
     color: #ededed;
-    background-color: #DC143C;
+    background-color: #1453dc;
     font-weight: 900;
     border-radius: .3vh;
     padding: .3vh;
@@ -530,7 +530,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .v-date-picker-table .v-btn--active {
-    background: #DC143C;
+    background: #1453dc;
 }
 
 .theme--light.v-picker__body {
@@ -542,7 +542,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .v-picker__title.primary {
-    background: #DC143C!important;
+    background: #1453dc!important;
 }
 
 .theme--light.v-date-picker-header .v-date-picker-header__value:not(.v-date-picker-header__value--disabled) button:not(:hover):not(:focus) {
@@ -559,7 +559,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 button.v-btn.v-date-picker-table__current.v-btn--rounded.v-btn--outlined.theme--light.accent--text {
-    border-color: #DC143C;
+    border-color: #1453dc;
 }
 
 .v-date-picker-years {

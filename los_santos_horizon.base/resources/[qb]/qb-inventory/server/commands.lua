@@ -6,44 +6,47 @@ QBCore.Commands.Add('giveitem', 'Give An Item (Admin Only)', { { name = 'id', he
     local amount = tonumber(args[3]) or 1
     local itemData = QBCore.Shared.Items[tostring(args[2]):lower()]
     if player then
-        if itemData then
-            -- check iteminfo
-            local info = {}
-            if itemData['name'] == 'id_card' then
-                info.citizenid = player.PlayerData.citizenid
-                info.firstname = player.PlayerData.charinfo.firstname
-                info.lastname = player.PlayerData.charinfo.lastname
-                info.birthdate = player.PlayerData.charinfo.birthdate
-                info.gender = player.PlayerData.charinfo.gender
-                info.nationality = player.PlayerData.charinfo.nationality
-            elseif itemData['name'] == 'driver_license' then
-                info.firstname = player.PlayerData.charinfo.firstname
-                info.lastname = player.PlayerData.charinfo.lastname
-                info.birthdate = player.PlayerData.charinfo.birthdate
-                info.type = 'Class C Driver License'
-            elseif itemData['type'] == 'weapon' then
-                amount = 1
-                info.serie = tostring(QBCore.Shared.RandomInt(2) .. QBCore.Shared.RandomStr(3) .. QBCore.Shared.RandomInt(1) .. QBCore.Shared.RandomStr(2) .. QBCore.Shared.RandomInt(3) .. QBCore.Shared.RandomStr(4))
-                info.quality = 100
-            elseif itemData['name'] == 'harness' then
-                info.uses = 20
-            elseif itemData['name'] == 'syphoningkit' then
-                info.gasamount = 0
-            elseif itemData['name'] == 'jerrycan' then
-                info.gasamount = 0
-            elseif itemData['name'] == 'markedbills' then
-                info.worth = math.random(5000, 10000)
-            elseif itemData['name'] == 'printerdocument' then
-                info.url = 'https://cdn.discordapp.com/attachments/870094209783308299/870104331142189126/Logo_-_Display_Picture_-_Stylized_-_Red.png'
-            end
+        -- if itemData then
+        --     -- check iteminfo
+        --     local info = {}
+        --     if itemData['name'] == 'id_card' then
+        --         info.citizenid = player.PlayerData.citizenid
+        --         info.firstname = player.PlayerData.charinfo.firstname
+        --         info.lastname = player.PlayerData.charinfo.lastname
+        --         info.birthdate = player.PlayerData.charinfo.birthdate
+        --         info.gender = player.PlayerData.charinfo.gender
+        --         info.nationality = player.PlayerData.charinfo.nationality
+        --     elseif itemData['name'] == 'driver_license' then
+        --         info.firstname = player.PlayerData.charinfo.firstname
+        --         info.lastname = player.PlayerData.charinfo.lastname
+        --         info.birthdate = player.PlayerData.charinfo.birthdate
+        --         info.type = 'Class C Driver License'
+        --     elseif itemData['type'] == 'weapon' then
+        --         amount = 1
+        --         info.serie = tostring(QBCore.Shared.RandomInt(2) .. QBCore.Shared.RandomStr(3) .. QBCore.Shared.RandomInt(1) .. QBCore.Shared.RandomStr(2) .. QBCore.Shared.RandomInt(3) .. QBCore.Shared.RandomStr(4))
+        --         info.quality = 100
+        --     elseif itemData['name'] == 'harness' then
+        --         info.uses = 20
+        --     elseif itemData['name'] == 'syphoningkit' then
+        --         info.gasamount = 0
+        --     elseif itemData['name'] == 'jerrycan' then
+        --         info.gasamount = 0
+        --     elseif itemData['name'] == 'markedbills' then
+        --         info.worth = math.random(5000, 10000)
+        --     elseif itemData['name'] == 'printerdocument' then
+        --         info.url = 'https://cdn.discordapp.com/attachments/870094209783308299/870104331142189126/Logo_-_Display_Picture_-_Stylized_-_Red.png'
+        --     end
 
-            if AddItem(id, itemData['name'], amount, false, info, 'give item command') then
-                QBCore.Functions.Notify(source, Lang:t('notify.yhg') .. GetPlayerName(id) .. ' ' .. amount .. ' ' .. itemData['name'] .. '', 'success')
-                TriggerClientEvent('qb-inventory:client:ItemBox', id, itemData, 'add', amount)
-                if Player(id).state.inv_busy then TriggerClientEvent('qb-inventory:client:updateInventory', id) end
-            else
-                QBCore.Functions.Notify(source, Lang:t('notify.cgitem'), 'error')
-            end
+        --     if AddItem(id, itemData['name'], amount, false, info, 'give item command') then
+        --         QBCore.Functions.Notify(source, Lang:t('notify.yhg') .. GetPlayerName(id) .. ' ' .. amount .. ' ' .. itemData['name'] .. '', 'success')
+        --         TriggerClientEvent('qb-inventory:client:ItemBox', id, itemData, 'add', amount)
+        --         if Player(id).state.inv_busy then TriggerClientEvent('qb-inventory:client:updateInventory', id) end
+        --     else
+        --         QBCore.Functions.Notify(source, Lang:t('notify.cgitem'), 'error')
+        --     end
+        -- else
+        if itemData['name'] == 'id_card' or itemData['name'] == 'driver_license' or itemData['name'] == 'weaponlicense' or itemData['name'] == 'lawyerpass' then
+            exports.bl_idcard:createLicense(source, itemData['name'])
         else
             QBCore.Functions.Notify(source, Lang:t('notify.idne'), 'error')
         end

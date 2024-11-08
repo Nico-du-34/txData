@@ -590,7 +590,7 @@ QBShared.Items = {
     finescale 					 = {name = 'finescale', 					label = 'Balance de précision', 			    weight = 200, 		type = 'item', 		image = 'finescale.png', 			unique = false, 	useable = false, 	shouldClose = false,   combinable = nil,   description = 'Balance utilisée pour les poudres et matériaux fins.'},
     coke_small_brick 		 	 = {name = 'coke_small_brick', 				label = 'Paquet de cocaïne', 			weight = 350, 		type = 'item', 		image = 'coke_small_brick.png', 	unique = false, 	useable = false, 	shouldClose = true,	   combinable = nil,   description = 'Petit paquet de cocaïne, principalement utilisé pour les transactions et prend beaucoup de place'},
 
-    --Farming
+    --Farming--Nourriture
     wheat_seed 					 = {name = "wheat_seed", 			  	  	label = "Graine de blé", 				weight = 10, 		type = "item", 		image = "wheat_seed.png", 			unique = false, 	useable = false, 	shouldClose = false, combinable = nil,   description = "Graine à planter" },
     tomato_seed 				 = {name = "tomato_seed", 			  	  	label = "Graine de Tomate", 				weight = 10, 		type = "item", 		image = "tomato_seed.png", 			unique = false, 	useable = false, 	shouldClose = false, combinable = nil,   description = "Graine à planter" },
     strawberry_seed 					 = {name = "strawberry_seed", 			  	  	label = "Graine de Fraise", 				weight = 10, 		type = "item", 		image = "strawberry_seed.png", 			unique = false, 	useable = false, 	shouldClose = false, combinable = nil,   description = "Graine à planter" },
@@ -609,6 +609,12 @@ QBShared.Items = {
     pineapple 					 = {name = "pineapple", 			  	  	label = "Ananas", 				weight = 10, 		type = "item", 		image = "cactus_seed.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Bien juteux" },
     strawberry 					 = {name = "strawberry", 			  	  	label = "Fraise", 				weight = 10, 		type = "item", 		image = "strawberry.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "On bien mûri au soleil" },
     cucumber 					 = {name = "cucumber", 			  	  	label = "Cocombre", 				weight = 10, 		type = "item", 		image = "cucumber.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Multifonctions" },
-    burger_fries 					 = {name = "burger_fries", 			  	  	label = "Frites", 				weight = 10, 		type = "item", 		image = "burger-fries.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Des Frites Des Frites Des Frites" },
+    broccoli 					 = {name = "broccoli", 			  	  	label = "brocoli", 				weight = 10, 		type = "item", 		image = "broccoli.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "5 fruits et légumes par jour" },
+    carrot 					 = {name = "carrot", 			  	  	label = "Carotte", 				weight = 10, 		type = "item", 		image = "carrot.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Bon pour les chevilles" },
+    potato_chips 					 = {name = "potato_chips", 			  	  	label = "Chips", 				weight = 10, 		type = "item", 		image = "potato_chips.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "ça croustille" },
+    bs_bun 					 = {name = "bs_bun", 			  	  	label = "Pain Hamburger", 				weight = 10, 		type = "item", 		image = "bs_bun.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Pain Hamburger" },
+    soup_broccoli 					 = {name = "soup_broccoli", 			  	  	label = "Soupe de Brocoli", 				weight = 10, 		type = "item", 		image = "soup_broccoli.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Pour Fan de légume" },
+    burger_fries 					 = {name = "burger_fries", 			  	  	label = "Frites", 				weight = 10, 		type = "item", 		image = "burger_fries.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Des Frites Des Frites" },
+    wheat 					 = {name = "wheat", 			  	  	label = "Blé", 				weight = 10, 		type = "item", 		image = "wheat.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Epi c'est tout" },
 }
 

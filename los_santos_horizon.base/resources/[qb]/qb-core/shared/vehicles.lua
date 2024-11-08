@@ -820,6 +820,14 @@ local Vehicles = {
     { model = 'nbc20exp',         name = 'nbc20exp',                           brand = 'nbc20exp',          price = 100000,  category = 'emergency',      type = 'automobile', shop = 'job' },
     { model = 'nbc20expk9',         name = 'nbc20expk9',                           brand = 'nbc20expk9',          price = 100000,  category = 'emergency',      type = 'automobile', shop = 'job' },
     { model = 'nbc18dur',         name = 'nbc18dur',                           brand = 'nbc18dur',          price = 100000,  category = 'emergency',      type = 'automobile', shop = 'job' },
+
+    -- Import Nico
+    { model = 'bmwm3e30',           name = 'BMW M3 E30',                           brand = 'bmwm3e30',          price = 1000000,  category = 'importnico',      type = 'automobile', shop = 'import' },
+    { model = 'c63w205',            name = 'Mercedes-AMG C63 S',                   brand = 'c63w205',          price = 1000000,  category = 'importnico',      type = 'automobile', shop = 'import' },
+        -- Import Martin
+    { model = 'pcarbo',                 name = 'Police pcarbo',                           brand = 'pcarbo',          price = 1000000,  category = 'importmartin',      type = 'automobile', shop = 'import' },
+
+
 }
 
 for i = 1, #Vehicles do

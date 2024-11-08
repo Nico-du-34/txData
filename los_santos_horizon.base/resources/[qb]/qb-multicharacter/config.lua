@@ -1,9 +1,9 @@
 Config = {}
-Config.Interior = vector3(-814.89, 181.95, 76.85) -- Interior to load where characters are previewed
-Config.DefaultSpawn = vector3(-1035.71, -2731.87, 12.86) -- Default spawn coords if you have start apartments disabled
-Config.PedCoords = vector4(-813.97, 176.22, 76.74, -7.5) -- Create preview ped at these coordinates
-Config.HiddenCoords = vector4(-812.23, 182.54, 76.74, 156.5) -- Hides your actual ped while you are in selection
-Config.CamCoords = vector4(-813.46, 178.95, 76.85, 174.5) -- Camera coordinates for character preview screen
+Config.Interior = vector3(-1279.32, -2345.68, 21.74) -- Interior to load where characters are previewed
+Config.DefaultSpawn = vector3(-1263.96, -2334.65, 14.12) -- Default spawn coords if you have start apartments disabled
+Config.PedCoords = vector4(-1280.7, -2315.88, 18.35, 65.88) -- Create preview ped at these coordinates
+Config.HiddenCoords = vector4(-1274.67, -2310.75, 18.41, 150.55) -- Hides your actual ped while you are in selection
+Config.CamCoords = vector4(-1283.36, -2314.6, 18.47, 240.53) -- Camera coordinates for character preview screen
 Config.EnableDeleteButton = true -- Define if the player can delete the character or not
 Config.customNationality = false -- Defines if Nationality input is custom of blocked to the list of Countries
 Config.SkipSelection = true -- Skip the spawn selection and spawns the player at the last location

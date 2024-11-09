@@ -387,7 +387,8 @@ QBShared.Items = {
     vehiclekey                   = { name = 'vehiclekey', label = 'Clée de Voiture', weight = 10, type = 'item', image = 'vehiclekeys.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = " " },
 
     cash = { name = 'cash',  label = 'Cash $',  weight = 0,  type = 'item',  image = 'cash.png',  unique = false, useable = false, shouldClose = true, combinable = nil, description = 'Tu a le droit a 10000€ sur toi' },
-    black_money = { name = 'black_money', label = 'Argent Noir', weight = 0, type = 'item', image = 'blackmoney.png', unique = false, useable = false, shouldClose = true, combinable = nil, description = '' },
+    black_money = { name = 'black_money', label = 'Argent Noir', weight = 0, type = 'item', image = 'black_money.png', unique = false, useable = false, shouldClose = true, combinable = nil, description = '' },
+    crypto = { name = 'crypto', label = 'Crypto', weight = 0, type = 'item', image = 'crypto.png', unique = false, useable = false, shouldClose = true, combinable = nil, description = 'Crypto' },
 
 	broken_handcuffs 			 = {name = 'broken_handcuffs', 			    label = 'Menottes cassées', 		weight = 100, 		type = 'item', 		image = 'broken_handcuffs.png', 	unique = false, 	useable = false, 	shouldClose = true,	   combinable = nil,   description = 'It\'s broken, maybe you can repair it?'},
 	cuffkeys 				 	 = {name = 'cuffkeys', 			    		label = 'Clés Menottes', 				weight = 75, 		type = 'item', 		image = 'cuffkeys.png', 			unique = false, 	useable = true, 	shouldClose = true,	   combinable = nil,   description = 'Set them free !'},

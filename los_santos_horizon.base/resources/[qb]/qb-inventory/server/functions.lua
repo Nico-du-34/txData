@@ -442,10 +442,39 @@ exports('CloseInventory', CloseInventory)
 -- Opens the inventory of a player by their ID.
 --- @param source number - The player's server ID.
 --- @param targetId number - The ID of the player whose inventory will be opened.
+--[[function OpenInventoryById(source, targetId)
+    local QBPlayer = QBCore.Functions.GetPlayer(source)
+    local TargetPlayer = QBCore.Functions.GetPlayer(tonumber(targetId))
+    if not QBPlayer or not TargetPlayer then return end
+    if Player(targetId).state.inv_busy then CloseInventory(targetId) end
+    local playerItems = QBPlayer.PlayerData.items
+    local targetItems = TargetPlayer.PlayerData.items
+    local formattedInventory = {
+        name = 'otherplayer-' .. targetId,
+        label = GetPlayerName(targetId),
+        maxweight = Config.MaxWeight,
+        slots = Config.MaxSlots,
+        inventory = targetItems
+    }
+    Wait(1500)
+    Player(targetId).state.inv_busy = true
+    TriggerClientEvent('qb-inventory:client:openInventory', source, playerItems, formattedInventory)
+end]]
 function OpenInventoryById(source, targetId)
     local QBPlayer = QBCore.Functions.GetPlayer(source)
     local TargetPlayer = QBCore.Functions.GetPlayer(tonumber(targetId))
     if not QBPlayer or not TargetPlayer then return end
+
+    if GetResourceState("mh-cashasitem") ~= 'missing' then
+        exports['mh-cashasitem']:UpdateItem(source, 'cash')
+        exports['mh-cashasitem']:UpdateItem(source, 'black_money')
+        exports['mh-cashasitem']:UpdateItem(source, 'crypto')
+
+        exports['mh-cashasitem']:UpdateItem(targetId, 'cash')
+        exports['mh-cashasitem']:UpdateItem(targetId, 'black_money')
+        exports['mh-cashasitem']:UpdateItem(targetId, 'crypto')
+    end
+
     if Player(targetId).state.inv_busy then CloseInventory(targetId) end
     local playerItems = QBPlayer.PlayerData.items
     local targetItems = TargetPlayer.PlayerData.items
@@ -538,7 +567,7 @@ exports('OpenShop', OpenShop)
 --- @param source number The player's server ID.
 --- @param identifier string|nil The identifier of the inventory to open.
 --- @param data table|nil Additional data for initializing the inventory.
-function OpenInventory(source, identifier, data)
+--[[function OpenInventory(source, identifier, data)
     if Player(source).state.inv_busy then return end
     local QBPlayer = QBCore.Functions.GetPlayer(source)
     if not QBPlayer then return end
@@ -565,6 +594,50 @@ function OpenInventory(source, identifier, data)
     inventory.maxweight = (data and data.maxweight) or (inventory and inventory.maxweight) or Config.StashSize.maxweight
     inventory.slots = (data and data.slots) or (inventory and inventory.slots) or Config.StashSize.slots
     inventory.label = (data and data.label) or (inventory and inventory.label) or identifier
+    inventory.isOpen = source
+
+    local formattedInventory = {
+        name = identifier,
+        label = inventory.label,
+        maxweight = inventory.maxweight,
+        slots = inventory.slots,
+        inventory = inventory.items
+    }
+    TriggerClientEvent('qb-inventory:client:openInventory', source, QBPlayer.PlayerData.items, formattedInventory)
+end]]
+function OpenInventory(source, identifier, data)
+    if Player(source).state.inv_busy then return end
+
+    local QBPlayer = QBCore.Functions.GetPlayer(source)
+    if not QBPlayer then return end
+    
+    if GetResourceState("mh-cashasitem") ~= 'missing' then
+        exports['mh-cashasitem']:UpdateItem(source, 'cash')
+        exports['mh-cashasitem']:UpdateItem(source, 'black_money')
+        exports['mh-cashasitem']:UpdateItem(source, 'crypto')
+    end
+    
+    if not identifier then
+        Player(source).state.inv_busy = true
+        TriggerClientEvent('qb-inventory:client:openInventory', source, QBPlayer.PlayerData.items)
+        return
+    end
+
+    if type(identifier) ~= 'string' then
+        print('Inventory tried to open an invalid identifier')
+        return
+    end
+
+    local inventory = Inventories[identifier]
+
+    if inventory and inventory.isOpen then
+        TriggerClientEvent('QBCore:Notify', source, 'Cet inventaire est actuellement utilisé', 'error')
+        return
+    end
+    if not inventory then inventory = InitializeInventory(identifier, data) end
+    inventory.maxweight = (inventory and inventory.maxweight) or (data and data.maxweight) or Config.StashSize.maxweight
+    inventory.slots = (inventory and inventory.slots) or (data and data.slots) or Config.StashSize.slots
+    inventory.label = (inventory and inventory.label) or (data and data.label) or identifier
     inventory.isOpen = source
 
     local formattedInventory = {

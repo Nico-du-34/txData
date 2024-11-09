@@ -877,13 +877,13 @@ end)
 RegisterNetEvent('hud:client:OnMoneyChange', function(type, amount, isMinus)
     cashAmount = PlayerData.money['cash']
     bankAmount = PlayerData.money['bank']
-    -- blackAmount = PlayerData.money['black_money']
+    blackAmount = PlayerData.money['black_money']
     cryptoAmount = PlayerData.money['crypto']
     SendNUIMessage({
         action = 'updatemoney',
         cash = Round(cashAmount),
         bank = Round(bankAmount),
-        -- blackmoney = Round(blackAmount),
+        blackmoney = Round(blackAmount),
         crypto = Round(cryptoAmount),
         amount = Round(amount),
         minus = isMinus,

@@ -580,9 +580,6 @@ $(".closeMenu").click(() => {
 });
 
 // MONEY HUD
-
-// MONEY HUD
-// MONEY HUD
 const moneyHud = Vue.createApp({
     data() {
         return {

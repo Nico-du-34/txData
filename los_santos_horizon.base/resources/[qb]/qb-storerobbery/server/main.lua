@@ -40,12 +40,15 @@ RegisterNetEvent('qb-storerobbery:server:takeMoney', function(register, isDone)
         return DropPlayer(src, 'Attempted exploit abuse')
     end
     if isDone then
-        local bags = math.random(1, 3)
+        -- local bags = math.random(1, 3)
         local info = {
             worth = math.random(cashA, cashB)
         }
-        exports['qb-inventory']:AddItem(src, 'markedbills', bags, false, info, 'qb-storerobbery:server:takeMoney')
-        TriggerClientEvent('qb-inventory:client:ItemBox', src, QBCore.Shared.Items['markedbills'], 'add')
+        local blackamount = math.random(1500, 4500) -- number
+        Player.Functions.AddMoney('black_money', blackamount) -- to add blackmoney
+        TriggerClientEvent('qb-inventory:client:ItemBox', src, QBCore.Shared.Items['black_money'], 'add')
+        -- exports['qb-inventory']:AddItem(src, 'markedbills', bags, false, info, 'qb-storerobbery:server:takeMoney')
+        -- TriggerClientEvent('qb-inventory:client:ItemBox', src, QBCore.Shared.Items['markedbills'], 'add')
         if math.random(1, 100) <= Config.stickyNoteChance then
             local code = SafeCodes[Config.Registers[register].safeKey]
             if Config.Safes[Config.Registers[register].safeKey].type == 'keypad' then

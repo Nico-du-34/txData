@@ -19,6 +19,7 @@ local function updateHUD()
     local gangLabel = playerData.gang and playerData.gang.label or "Inconnue"
     local gangGrade = playerData.gang and playerData.gang.grade and playerData.gang.grade.name or "Pas disponible"
     local cash = playerData.money and playerData.money.cash or 0
+    local black_money = playerData.money and playerData.money.black_money or 0
     local bank = playerData.money and playerData.money.bank or 0
     local serverId = GetPlayerServerId(PlayerId())
     local ammo, hasWeapon = getCurrentWeaponAmmo() -- Get current ammo count and check if a weapon is equipped
@@ -31,6 +32,7 @@ local function updateHUD()
         gangLabel = gangLabel,
         gangGrade = gangGrade,
         cash = cash,
+        black_money = black_money,
         bank = bank,
         serverId = serverId,
         ammo = ammo,

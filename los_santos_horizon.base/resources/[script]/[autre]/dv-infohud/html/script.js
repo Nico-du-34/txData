@@ -1,5 +1,6 @@
 let previousCash = null; // Variable to store the previous cash amount
 let previousBank = null; // Variable to store the previous bank amount
+let previousBlack_Money = null;
 
 window.addEventListener('message', function (event) {
     if (event.data.action === 'updateHUD') {
@@ -27,6 +28,21 @@ window.addEventListener('message', function (event) {
             );
         }
         previousCash = currentCash; // Update previous cash amount
+
+        // Update black_money amount with formatting and detect changes
+        const currentBlack_Money = event.data.black_money;
+        document.querySelector('#black_money-label span').textContent = '$' + currentBlack_Money.toLocaleString(); // Display black_money value only
+
+        // Show notification if Black_Money amount changes
+        if (previousBlack_Money !== null && previousBlack_Money !== currentBlack_Money) {
+            const black_moneyDifference = currentBlack_Money - previousBlack_Money;
+            showNotification(
+                `Black_Money ${(black_moneyDifference > 0 ? `+` : `-`)}$${Math.abs(black_moneyDifference).toLocaleString()}`, 
+                document.querySelector('#black_money-label'), // Wallet icon for black_money change
+                'Black_Money' // Add type as "black_money"
+            );
+        }
+        previousBlack_Money = previousBlack_Money; // Update previous black_money amount
 
         // Update bank amount with formatting and detect changes
         const currentBank = event.data.bank;

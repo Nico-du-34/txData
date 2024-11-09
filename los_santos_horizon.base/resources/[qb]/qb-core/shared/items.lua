@@ -225,6 +225,8 @@ QBShared.Items = {
     bank_card                    = { name = 'bank_card', label = 'Carte Bleu', weight = 0, type = 'item', image = 'bank_card.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Used to access ATM' },
     security_card_01             = { name = 'security_card_01', label = 'Carte Sécurité A', weight = 0, type = 'item', image = 'security_card_01.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'A security card... I wonder what it goes to' },
     security_card_02             = { name = 'security_card_02', label = 'Carte Sécurité B', weight = 0, type = 'item', image = 'security_card_02.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'A security card... I wonder what it goes to' },
+    rentalpapers				 = {name = "rentalpapers", 					label = "Papiers de location", 			weight = 0, 		type = "item", 		image = "rentalpapers.png", 		unique = true, 		useable = false, 	shouldClose = false, 	combinable = nil, 	description = "..."},
+    contrat				         = {name = "contrat", 					label = "Contrat de Vente", 			weight = 0, 		type = "item", 		image = "rentalpapers.png", 		unique = true, 		useable = true, 	shouldClose = true, 	combinable = nil, 	description = "..."},
 
     -- Eat ITEMS
     tosti                        = { name = 'tosti', label = 'Sandwich fromage', weight = 200, type = 'item', image = 'tosti.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Nice to eat' },

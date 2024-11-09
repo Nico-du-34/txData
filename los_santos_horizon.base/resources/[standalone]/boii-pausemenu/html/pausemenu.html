@@ -1,0 +1,158 @@
+<!---------------------------->
+<!---- BOII | DEVELOPMENT ---->
+<!---------------------------->
+
+<!doctype html>
+<html>
+    <head>
+        <!-- META -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>BOII | PAUSE MENU</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- ICONS -->
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <!-- FONT -->
+        <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+        <!-- CSS -->
+        <link rel="stylesheet" href="pausemenu.css">
+        <!-- JQUERY -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="main-container" class="hidden">
+            <div class="menu-overlay"></div>
+            <div class="header-container">
+                <h1 id="sv-name">LOS SANTOS HORIZON</h1>   
+                <div class="logo-container">
+                    <logo></logo>
+                </div>
+            </div>
+            <!-- <div id="news-container" class="hidden">
+                <h1 class="content-header">NOUVEAUTÉ</h1>
+                <div class="news-grid">
+                    <div><img src="img/news1.jpg" alt="1" class="news-img"><p class="content-text">Serveur en cours de construction n'hesitez pas à faire un ticket pour signaler le moindre bug.<br><br>Merci n'hesitez pas à voter sur le Top Serveur via Discord.</p></div>
+                    <br></br>
+                    <div><img src="img/news2.jpg" alt="2" class="news-img"><p class="content-text">Los Santos Horizon es un serveur FA RP avec des metiers legaux et illegaux, des activites, du mapping et plein d'autres choses pour que vous aillez le meilleure Game Play possible.</p></div>
+                    <br></br>
+                    <div><img src="img/news3.jpg" alt="3" class="news-img"><p class="content-text">MISE À JOUR : 08:57 07-11-2024</p></div>
+                    <br></br>
+                </div>
+            </div> -->
+            <!-- <div id="rules-container" class="hidden">
+                <h1 class="content-header">Règlement Los Santos Horizon</h1>
+                <br></br>
+                <h1 class="content-header">Règles Générales</h1>
+                <br></br>
+                <p class="content-text">⁍Respect et Fair-play : Tous les joueurs doivent se traiter avec respect. Les insultes, harcèlement ou comportements toxiques ne seront pas tolérés.</p>
+                <br></br>
+                <p class="content-text">⁍RP Réaliste : Le jeu doit rester réaliste. Évitez les actions irréalistes qui nuisent à l’immersion.</p>
+                <br>
+                <p class="content-text">⁍Utilisation de Voix : L'utilisation de la voix est obligatoire pour le RP. Le chat textuel doit être utilisé pour les messages privés ou non-RP.</p>
+                <br></br>
+                <h1 class="content-header">Règles Légales</h1>
+                <br></br>
+                <h1 class="content-header">Activités Légales</h1>
+                <br></br>
+                <p class="content-text">⁍RP Réaliste : Le jeu doit rester réaliste. Évitez les actions irréalistes qui nuisent à l’immersion.</p>
+                <p class="content-text">Métiers : Les joueurs doivent s'engager dans des métiers légaux pour gagner de l'argent (ex. : mécanicien, médecin, policier, etc.).
+                <p class="content-text">⁍RP Réaliste : Le jeu doit rester réaliste. Évitez les actions irréalistes qui nuisent à l’immersion.</p>
+                <p class="content-text">Interactions : Les joueurs doivent respecter les lois en vigueur. Les infractions peuvent entraîner des conséquences en RP.
+                <p class="content-text">⁍RP Réaliste : Le jeu doit rester réaliste. Évitez les actions irréalistes qui nuisent à l’immersion.</p>
+                <p class="content-text">Commerce : Les échanges commerciaux doivent être effectués en RP et selon les règles du marché.
+                <br></br>
+                <h1 class="content-header">Activités Illégales</h1>
+                <br></br>
+                <p class="content-text">Crime Organisé : Les joueurs peuvent s'engager dans des activités criminelles (ex. : vol, trafic de drogue), mais doivent respecter les conséquences en RP.</p>
+                <p class="content-text">Escroqueries et Fraude : Les escroqueries doivent être justifiées par un RP solide et ne pas être abusives.</p>
+                <p class="content-text">Interactions avec la Police : Les criminels doivent être préparés à des poursuites réalistes et à des affrontements avec les forces de l'ordre.</p>
+                <br></br>
+                <h1 class="content-header">Métiers</h1>
+                <br></br>
+                <h1 class="content-header">Gouvernement</h1>
+                <p class="content-text">Fonctionnaires : Les employés du gouvernement doivent respecter leurs responsabilités et agir en accord avec la loi.</p>
+                    <p class="content-text">Interactions : Les fonctionnaires doivent maintenir une image publique et traiter les citoyens avec équité.</p>
+                <br></br>
+                <h1 class="content-header">Police</h1>
+                <br></br>
+                <p class="content-text">Protocole d'Intervention : Les policiers doivent suivre des protocoles d'intervention réalistes (ex. : arrestations, enquêtes).</p>
+                <p class="content-text">Usage de la Force : L'usage de la force doit être justifié et proportionné à la situation.</p>
+                <p class="content-text">Corruption : La corruption au sein des forces de l'ordre n'est pas autorisée et doit être traitée en RP.</p>
+                <br></br>
+                <h1 class="content-header">EMS (Services Médicaux d'Urgence)</h1>
+                <br></br>
+                <p class="content-text">Urgences Médicales : Les EMS doivent répondre rapidement aux appels d'urgence et fournir des soins appropriés.</p>
+                    <p class="content-text">Professionnalisme : Les EMS doivent agir avec professionnalisme et respecter la vie privée des patients.</p>
+                <br></br>
+                <h1 class="content-header">Garage/Mécaniciens</h1>
+                <br></br>
+                <p class="content-text">Réparations : Les mécanos doivent fournir des réparations en RP et fixer des prix réalistes.</p>
+                    <p class="content-text">Vente de Véhicules : La vente de véhicules doit être réalisée de manière légale et enregistrée dans le système du serveur.</p>
+                <br></br>
+                <h1 class="content-header">Gestion des Conflits</h1>
+                <br></br>
+                <p class="content-text">Roleplay de Conflits : Les conflits doivent être résolus par le RP, pas par des comportements hors RP.</p>
+                    <p class="content-text">Rapports de Comportement : Tout comportement inapproprié doit être signalé aux modérateurs avec des preuves (captures d’écran, vidéos).</p>
+                <br></br>
+                <h1 class="content-header">Sanctions</h1>
+                <br></br>
+                <p class="content-text">Avertissements : Des avertissements peuvent être donnés pour des infractions mineures.</p>
+                <p class="content-text">Suspension : Des suspensions temporaires peuvent être appliquées pour des infractions répétées.</p>
+                <p class="content-text">Bannissement : Les comportements graves ou répétés peuvent entraîner un bannissement permanent.</p>
+                </div> -->
+            <div id="reports-container" class="hidden">
+                <h1 class="content-header">REPPORT</h1>
+                <br></br>
+                <div class="form-container">
+                    <label for="fname">Nom (Ton personnage):</label><br><br>
+                    <input type="text" id="fname" name="fname"><br><br>
+                    <label for="lname">Prénom (Ton personnage):</label><br><br>
+                    <input type="text" id="lname" name="lname"><br><br>
+                    <label for="reporttype">Type Report:</label><br><br>
+                    <select name="type" id="reporttype">
+                        <option value="Suggestion">Suggestion</option>
+                        <option value="Bug">Bug Report</option>
+                        <option value="Player">Player Report</option>
+                        <option value="Staff">Staff Report</option>#
+                        <!-- ADD MORE REPORT TYPES HERE -->
+                    </select><br><br>
+                    <label for="subject">Sujet:</label><br><br>
+                    <input type="text" id="subject" name="subject"><br><br>
+                    <label for="description">Description:</label><br><br>
+                    <textarea rows="4" cols="50" name="description" form="description" id="description"></textarea><br>
+                    <button type="submit" id="form-submit-btn">SOUMETTRE</button>
+                  </div>
+                  <div id="form-alert-container" class="hidden">VEUILLEZ VOUS ASSURER QUE TOUS LES CHAMPS SONT REMPLIS AVANT DE SOUMETTRE UN RAPPORT !
+                    <br>
+                    <button class="form-failed-btn">FERMER</button>
+                  </div>
+            </div>
+            <button class="content-btn1">FERMER</button>
+            <!-- <button class="content-btn2">NOUVEAUTÉ</button>
+            <button class="content-btn3">RÈGLEMENT</button> -->
+            <button class="content-btn2">REPPORT</button>
+            <button class="content-btn3">PARAMÈTRE</button>
+            <button class="content-btn4">MAP</button>
+            <button class="content-btn5">TOUCHE</button>
+            <button class="content-btn6">DÉCONNEXION</button>  
+            <button class="content-btn7">
+                <a href="https://discord.gg/fNGvQFBwFZ" target="_blank" rel="noopener noreferrer" onclick="window.invokeNative('openUrl', 'https://discord.gg/fNGvQFBwFZ');"><img src="img/Discord.png"></a>
+            </button>
+            <button class="content-btn8">
+                <a href="https://top-serveurs.net/gta/vote/los-santos-horizon" target="_blank" rel="noopener noreferrer" onclick="window.invokeNative('openUrl', 'https://top-serveurs.net/gta/vote/los-santos-horizon');"><img src="img/Site.png"></a>
+            </button>  
+        </div>
+        <!--Pub Discord et Top Serveur-->
+        <!-- <div class="discord">
+            <a href="https://discord.gg/fNGvQFBwFZ" target="_blank" rel="noopener noreferrer" onclick="window.invokeNative('openUrl', 'https://discord.gg/fNGvQFBwFZ');"><img src="img/Discord.png"></a>
+        </div>
+        
+        <div class="website">
+                <a href="https://top-serveurs.net/gta/vote/los-santos-horizon" target="_blank" rel="noopener noreferrer" onclick="window.invokeNative('openUrl', 'https://top-serveurs.net/gta/vote/los-santos-horizon');"><img src="img/Site.png"></a>
+        </div> -->
+        <!--Fin Pub Discord et Top Serveur-->
+        <!-- SCRIPT -->
+        <script src="pausemenu.js" type="text/javascript"></script>
+    </body>
+</html>

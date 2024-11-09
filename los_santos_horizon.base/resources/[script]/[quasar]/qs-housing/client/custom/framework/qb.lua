@@ -100,7 +100,7 @@ end
 
 function SendTextMessage(msg, type)
     if type == 'inform' then
-        QBCore.Functions.Notify(msg, 'info')
+        QBCore.Functions.Notify(msg, 'primary')
         -- lib.notify({
         --     title = 'Housing',
         --     description = msg,

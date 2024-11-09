@@ -44,7 +44,7 @@
     "serverDataPath": "/root/fivem/txData/los_santos_horizon.base/",
     "cfgPath": "/root/fivem/txData/los_santos_horizon.base/server.cfg",
     "commandLine": "",
-    "onesync": "on",
+    "onesync": "legacy",
     "autostart": true,
     "quiet": true
   },

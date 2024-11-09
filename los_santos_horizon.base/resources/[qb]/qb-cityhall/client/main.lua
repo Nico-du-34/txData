@@ -236,14 +236,14 @@ end)
 
 RegisterNetEvent('qb-cityhall:client:sendDriverEmail', function(charinfo)
     SetTimeout(math.random(2500, 4000), function()
-        local gender = Lang:t('email.mr')
+        local genre = 'M.'
         if PlayerData.charinfo.gender == 1 then
-            gender = Lang:t('email.mrs')
+            genre = 'Mme'
         end
-        TriggerServerEvent('qb-phone:server:sendNewMail', {
-            sender = Lang:t('email.sender'),
-            subject = Lang:t('email.subject'),
-            message = Lang:t('email.message', { gender = gender, lastname = charinfo.lastname, firstname = charinfo.firstname, phone = charinfo.phone }),
+        TriggerServerEvent('qs-smartphone:server:sendNewMail', {
+            sender = 'Mairie',
+            subject = 'Demande de leçons de conduite',
+            message =  'Bonjour '..genre..' '..charinfo.lastname..'<br /><br />Nous venons de recevoir un message indiquant que quelqu’un souhaite prendre des leçons de conduite<br />Si vous êtes disposé à enseigner, veuillez nous contacter :<br />Nom : <strong>'..charinfo.firstname..' '..charinfo.lastname..'</strong><br />Numéro de téléphone : <strong>'..charinfo.phone..'</strong><br/><br/>Cordialement,<br />Mairie de Los Santos',
             button = {}
         })
     end)

@@ -14,27 +14,27 @@ Config.AvailableJobs = {                                     -- Only used when n
 
 Config.Cityhalls = {
     { -- Cityhall 1
-        coords = vec3(-265.0, -963.6, 31.2),
+        coords = vec3(-1288.18, -569.32, 30.57),
         showBlip = true,
         blipData = {
             sprite = 487,
             display = 4,
-            scale = 0.65,
+            scale = 0.75,
             colour = 0,
-            title = 'City Services'
+            title = 'City Hall'
         },
         licenses = {
             ['id_card'] = {
-                label = 'ID Card',
+                label = 'Carte ID',
                 cost = 50,
             },
             ['driver_license'] = {
-                label = 'Driver License',
+                label = 'License Conduite',
                 cost = 50,
                 metadata = 'driver'
             },
             ['weaponlicense'] = {
-                label = 'Weapon License',
+                label = 'License Armes',
                 cost = 50,
                 metadata = 'weapon'
             },
@@ -51,7 +51,7 @@ Config.DrivingSchools = {
             display = 4,
             scale = 0.65,
             colour = 3,
-            title = 'Driving School'
+            title = 'Auto école'
         },
         instructors = {
             'DJD56142',
@@ -65,7 +65,7 @@ Config.Peds = {
     -- Cityhall Ped
     {
         model = 'a_m_m_hasjew_01',
-        coords = vec4(-262.79, -964.18, 30.22, 181.71),
+        coords = vec4(-1291.78, -572.55, 29.57, 311.89),
         scenario = 'WORLD_HUMAN_STAND_MOBILE',
         cityhall = true,
         zoneOptions = { -- Used for when UseTarget is false

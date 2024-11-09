@@ -139,7 +139,7 @@ local function spawnPeds()
             local opts = nil
             if current.drivingschool then
                 opts = {
-                    label = 'Take Driving Lessons',
+                    label = 'Prendre des cours de conduite',
                     icon = 'fa-solid fa-car-side',
                     action = function()
                         TriggerServerEvent('qb-cityhall:server:sendDriverTest', Config.DrivingSchools[closestDrivingSchool].instructors)
@@ -147,7 +147,7 @@ local function spawnPeds()
                 }
             elseif current.cityhall then
                 opts = {
-                    label = 'Open Cityhall',
+                    label = 'Ouvrir',
                     icon = 'fa-solid fa-city',
                     action = function()
                         inRangeCityhall = true
@@ -176,10 +176,10 @@ local function spawnPeds()
                         if inside then
                             if current.drivingschool then
                                 inRangeDrivingSchool = true
-                                exports['qb-core']:DrawText('[E] Take Driving Lessons')
+                                exports['qb-core']:DrawText('[E] Prendre des cours de conduite')
                             elseif current.cityhall then
                                 inRangeCityhall = true
-                                exports['qb-core']:DrawText('[E] Open Cityhall')
+                                exports['qb-core']:DrawText('[E] Ouvrir')
                             end
                         else
                             exports['qb-core']:HideText()
@@ -259,7 +259,7 @@ end)
 
 RegisterNUICallback('close', function(_, cb)
     setCityhallPageState(false, false)
-    if not Config.UseTarget and inRangeCityhall then exports['qb-core']:DrawText('[E] Open Cityhall') end -- Reopen interaction when you're still inside the zone
+    if not Config.UseTarget and inRangeCityhall then exports['qb-core']:DrawText('[E] Ouvrir') end -- Reopen interaction when you're still inside the zone
     cb('ok')
 end)
 

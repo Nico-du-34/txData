@@ -623,7 +623,7 @@ function QBCore.Player.CreateCitizenId()
 end
 
 function QBCore.Functions.CreateAccountNumber()
-    local AccountNumber = 'US0' .. math.random(1, 9) .. 'QBCore' .. math.random(1111, 9999) .. math.random(1111, 9999) .. math.random(11, 99)
+    local AccountNumber = 'US0' .. math.random(1, 9) .. 'LSH' .. math.random(1111, 9999) .. math.random(1111, 9999) .. math.random(11, 99)
     local result = MySQL.prepare.await('SELECT EXISTS(SELECT 1 FROM players WHERE JSON_UNQUOTE(JSON_EXTRACT(charinfo, "$.account")) = ?) AS uniqueCheck', { AccountNumber })
     if result == 0 then return AccountNumber end
     return QBCore.Functions.CreateAccountNumber()
@@ -644,7 +644,7 @@ function QBCore.Player.CreateFingerId()
 end
 
 function QBCore.Player.CreateWalletId()
-    local WalletId = 'QB-' .. math.random(11111111, 99999999)
+    local WalletId = 'LSH-' .. math.random(11111111, 99999999)
     local result = MySQL.prepare.await('SELECT EXISTS(SELECT 1 FROM players WHERE JSON_UNQUOTE(JSON_EXTRACT(metadata, "$.walletid")) = ?) AS uniqueCheck', { WalletId })
     if result == 0 then return WalletId end
     return QBCore.Player.CreateWalletId()

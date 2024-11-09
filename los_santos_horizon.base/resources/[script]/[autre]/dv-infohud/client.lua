@@ -14,10 +14,10 @@ end
 -- Function to update the HUD
 local function updateHUD()
     local playerData = QBCore.Functions.GetPlayerData()
-    local jobLabel = playerData.job and playerData.job.label or "Unknown"
-    local jobGrade = playerData.job and playerData.job.grade and playerData.job.grade.name or "Not available"
-    local gangLabel = playerData.gang and playerData.gang.label or "Unknown"
-    local gangGrade = playerData.gang and playerData.gang.grade and playerData.gang.grade.name or "Not available"
+    local jobLabel = playerData.job and playerData.job.label or "Inconnue"
+    local jobGrade = playerData.job and playerData.job.grade and playerData.job.grade.name or "Pas disponible"
+    local gangLabel = playerData.gang and playerData.gang.label or "Inconnue"
+    local gangGrade = playerData.gang and playerData.gang.grade and playerData.gang.grade.name or "Pas disponible"
     local cash = playerData.money and playerData.money.cash or 0
     local bank = playerData.money and playerData.money.bank or 0
     local serverId = GetPlayerServerId(PlayerId())

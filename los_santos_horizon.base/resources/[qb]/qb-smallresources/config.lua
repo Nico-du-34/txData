@@ -281,7 +281,7 @@ Config.CarWash = {
     }
 }
 
-
+-- Vehicles Push
 Config.target = true -- Use target system for vehicle push (disables TextUI)
 Config.targetSystem = 'qb-target' -- Target System to use. ox_target, qtarget, qb-target
 Config.Usebones = true -- Use bones for vehicle push
@@ -295,4 +295,41 @@ Config.healthMin = 2000.0 -- Minimum health of vehicle to be able to push it.
 
 Config.blacklist = { -- blacklist vehicle models from being pushed.
     [`phantom`] = true
+}
+
+-- Vending Machine
+Config.InvPath = "<img src=nui://qb-inventory/html/images/"
+
+Config.Shop = {
+    ['water_bottle'] = {
+        drinkLabel = 'Eau',
+        drinkPrice = 1,
+        drinkName = 'water_bottle' --item name not label
+    },
+
+    ['kurkakola'] = {
+        drinkLabel = 'CocaCola',
+        drinkPrice = 2,
+        drinkName = 'kurkakola'
+    },
+
+    ['coffee'] = {
+        drinkLabel = 'Caffé',
+        drinkPrice = 4,
+        drinkName = 'coffee'
+    }
+
+
+}
+
+Config.Machines = {
+    "prop_vend_soda_01",
+    "prop_vend_soda_02",
+    "prop_vend_snak_01",
+    "prop_vend_fridge01",
+    "prop_watercooler",
+    "prop_vend_snak_01_tu",
+    "prop_vend_coffe_01",
+    "prop_vend_water_01",
+    'molo_h_distri',
 }

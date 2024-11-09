@@ -11,7 +11,8 @@ shared_scripts {
     '@ox_lib/init.lua',
     'locales/en.lua',
     'locales/*.lua',
-    'config.lua'
+    'config.lua',
+    'config.vendingmachine.lua'
 }
 server_scripts {
     'server/*.lua',

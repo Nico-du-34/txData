@@ -1,7 +1,3 @@
-/*----------------------------*/
-/*---- BOII | DEVELOPMENT ----*/
-/*----------------------------*/
-
 * {
     padding: 0;
     margin: 0
@@ -154,8 +150,8 @@ body {
     position: fixed;
     top: 60%;
     left: 8%;
-    height: 5%;
-    width: 10%;
+    height: 4%;
+    width: 5%;
     border: 1px solid #ff9100; /* Edit border here */
     background-color: rgba(31, 30, 30, 1); /* Edit background colour here */
     box-shadow: rgba(255, 123, 0, 0.651) 0px 0px 5px 2px; /* Edit box shadow here */
@@ -205,7 +201,7 @@ body {
     box-shadow: rgba(255, 123, 0, 0.651) 0px 0px 15px 2px; /* Edit box shadow here */
 }
 .button:active {
-    colour: #4DCBC2; /* Edit colour here */
+    color: #ff9100; /* Edit colour here */
 }
 
 /* Content containers */

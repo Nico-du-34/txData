@@ -84,7 +84,7 @@ end)
 -- Events
 
 AddEventHandler('QBCore:Server:PlayerLoaded', function(Player)
-    Wait(1000) -- 1 second should be enough to do the preloading in other resources
+    Wait(2000) -- 1 second should be enough to do the preloading in other resources
     hasDonePreloading[Player.PlayerData.source] = true
 end)
 

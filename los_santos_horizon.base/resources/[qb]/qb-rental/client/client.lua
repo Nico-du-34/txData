@@ -194,6 +194,8 @@ AddEventHandler("qb-rental:vehiclespawn", function(car, price,garage, cb)
                 TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
                 TriggerServerEvent("qb-rental:purchase", price)
                 TriggerServerEvent("qb-rental:giverentalpaperServer",plate)
+                Wait(500)
+                Waypointcityhall()
             end, coords, true)
         else
             QBCore.Functions.Notify(Config.translations[Config.locale].error_all_emplacement_used, "error")
@@ -203,3 +205,9 @@ AddEventHandler("qb-rental:vehiclespawn", function(car, price,garage, cb)
         return
     end
 end)
+
+
+function Waypointcityhall()
+    SetNewWaypoint(-1288.18, -569.32)
+    QBCore.Functions.Notify('Ren toi au CityHall', 'primary', 8000)
+end

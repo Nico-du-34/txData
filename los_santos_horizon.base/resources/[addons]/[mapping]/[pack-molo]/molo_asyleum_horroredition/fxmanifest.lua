@@ -17,7 +17,7 @@ files {
 'audio/molo_asyleum_door_game.dat151.rel'
 }
 
-client_scripts {
-    'npc.lua'
-}
+-- client_scripts {
+--     'npc.lua'
+-- }
 dependency '/assetpacks'

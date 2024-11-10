@@ -4,12 +4,12 @@ games { 'gta5' }
 --Author : molo modding--
 
 this_is_a_map "yes"
-client_scripts {'client.lua'}
+-- client_scripts {'client.lua'}
 lua54 'yes'
 
-client_scripts {
-    'npc.lua'
-}
+-- client_scripts {
+--     'npc.lua'
+-- }
 
 data_file('DLC_ITYP_REQUEST')('stream/meta/int_club.ytyp')
 data_file 'AUDIO_GAMEDATA' 'audio/molo_casino_game.dat'

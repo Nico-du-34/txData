@@ -13,7 +13,7 @@ files {
 
 
 
-client_scripts {
-    'npc.lua'
-}
+-- client_scripts {
+--     'npc.lua'
+-- }
 dependency '/assetpacks'

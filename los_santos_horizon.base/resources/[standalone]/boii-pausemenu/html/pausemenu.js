@@ -39,24 +39,24 @@ $(document).ready(function(){
     //     $('#reports-container').fadeOut(250); 
     //     $('#rules-container').fadeIn(250);
     // });
+    // $('.content-btn2').click(function(){
+    //     $('#rules-container').fadeOut(250);
+    //     $('#news-container').fadeOut(250);
+    //     $('#reports-container').fadeIn(250);  
+    // });
     $('.content-btn2').click(function(){
-        $('#rules-container').fadeOut(250);
-        $('#news-container').fadeOut(250);
-        $('#reports-container').fadeIn(250);  
-    });
-    $('.content-btn3').click(function(){
         $('#rules-container').fadeOut();
         $.post('http://boii-pausemenu/Settings', JSON.stringify({}));
     });
-    $('.content-btn4').click(function(){
+    $('.content-btn3').click(function(){
         $('#rules-container').fadeOut();
         $.post('http://boii-pausemenu/Map', JSON.stringify({}));
     });
-    $('.content-btn5').click(function(){
+    $('.content-btn4').click(function(){
         $('#rules-container').fadeOut();
         $.post('http://boii-pausemenu/Keyboard', JSON.stringify({}));
     });
-    $('.content-btn6').click(function(){
+    $('.content-btn5').click(function(){
         $('#rules-container').fadeOut();
         $.post('http://boii-pausemenu/DropPlayer', JSON.stringify({}));
     });

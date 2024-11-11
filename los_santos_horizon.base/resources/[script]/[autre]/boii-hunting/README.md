@@ -37,7 +37,7 @@ QB-POLICEJOB -- https://github.com/qbcore-framework/qb-policejob
 
 ### HOW TO ADD HUNTING LICENSE ###
 
-1) `QB-POLICEJOB/SERVER/MAIN.LUA` search for `if args[2] == "driver" or args[2] == "weapon" then` and replace with the line below. 
+1) `QB-POLICEJOB/SERVER/MAIN.LUA` search for `if args[2] == "driver" or args[2] == "weapon" then` and replace with the line below.  
 
 	if args[2] == "driver" or args[2] == "weapon" or args[2] == "hunting" then
 	

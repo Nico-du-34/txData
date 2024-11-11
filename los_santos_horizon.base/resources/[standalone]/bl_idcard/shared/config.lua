@@ -19,6 +19,11 @@ return {
             prop = `prop_franklin_dl`,
             idType = 'weapon_license'
         },
+
+        ['huntinglicense'] = {
+            prop = `prop_franklin_dl`,
+            idType = 'hunting_license'
+        },
     },
 
     range = 2.0, -- Range to show the ped looking at
@@ -58,6 +63,24 @@ return {
             titleColour = '#ff4538',
 
             label = 'LICENSE ARME',
+        
+            stamp = true,
+            profileStamp = false,
+        
+            signature = true,
+        
+            bgColour = '#460000',
+            bgColourSecondary = '#E90000',
+        
+            textColour = '#FFF',
+        },
+
+        hunting_license = {
+            type = 'hunting_license',
+            title = 'Los Santos',
+            titleColour = '#ff4538',
+
+            label = 'LICENSE Chasse',
         
             stamp = true,
             profileStamp = false,

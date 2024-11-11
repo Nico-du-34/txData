@@ -85,7 +85,8 @@ QBConfig.Player.PlayerDefaults = {
         licences = {
             driver = true,
             business = false,
-            weapon = false
+            weapon = false,
+            hunting = false
         },
         inside = {
             house = nil,

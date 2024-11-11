@@ -1,7 +1,7 @@
 Config = {
     Framework = "qb", -- qb - esx
     Locale = "en",
-    Slots = 1,
+    Slots = 3,
     PayedSlots = 2,
     UseQbApartments = false,
     TebexLink = "https://atiysu.tebex.io/category/2281274",

@@ -24,11 +24,3 @@ files {
     'ui/**/*.*',
     'ui/*.*',
 }
-
-escrow_ignore {
-    'config.lua',
-    'cutscenes.lua',
-    'client/*.lua',
-    'server/*.lua',
-}
-dependency '/assetpacks'

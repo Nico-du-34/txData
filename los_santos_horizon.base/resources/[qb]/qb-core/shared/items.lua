@@ -619,5 +619,19 @@ QBShared.Items = {
     soup_broccoli 					 = {name = "soup_broccoli", 			  	  	label = "Soupe de Brocoli", 				weight = 10, 		type = "item", 		image = "soup_broccoli.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Pour Fan de légume" },
     burger_fries 					 = {name = "burger_fries", 			  	  	label = "Frites", 				weight = 10, 		type = "item", 		image = "burger_fries.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Des Frites Des Frites" },
     wheat 					 = {name = "wheat", 			  	  	label = "Blé", 				weight = 10, 		type = "item", 		image = "wheat.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Epi c'est tout" },
+    burgerpatty 					 = {name = "burgerpatty", 			  	  	label = "Steak Frais", 				weight = 10, 		type = "item", 		image = "burgerpatty.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Meilleur cuit"},
+    burgermeat 					 = {name = "burgermeat", 			  	  	label = "Steak cuit", 				weight = 10, 		type = "item", 		image = "burgermeat.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "."},
+    americancheese 					 = {name = "americancheese", 			  	  	label = "Fromage", 				weight = 10, 		type = "item", 		image = "americancheese.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Bon fromage a hamburger"},
+    burger_slicedonion 					 = {name = "burger_slicedonion", 			  	  	label = "Oignon rouge", 				weight = 10, 		type = "item", 		image = "burger-slicedonion.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Attention à la découpe"},
+    burger_moneyshot 					 = {name = "burger_moneyshot", 			  	  	label = "Hamburger", 				weight = 10, 		type = "item", 		image = "burger-moneyshot.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Délicieux"},
+
+    -- Peche
+    fishingrod 		 		 = {name = 'fishingrod', 				label = 'Canne à pêche', 				weight = 250, 		type = 'item', 		image = 'fishingrod.png', 			unique = false, 	useable = true, 	shouldClose = true,	   combinable = nil,   description = 'Use this with bait to catch fish.'},
+	fishbait 		 		 = {name = 'fishbait', 					label = 'Appâts de pêche', 				weight = 5, 		type = 'item', 		image = 'fishbait.png', 			unique = false, 	useable = false, 	shouldClose = true,	   combinable = true,   description = 'With a fishing rod this can catch some fish.'},
+	anchovy 		 		 = {name = 'anchovy', 					label = 'Anchois', 				weight = 35, 		type = 'item', 		image = 'anchovy.png', 			unique = false, 	useable = false, 	shouldClose = true,	   combinable = true,   description = 'A breed of fish.'},
+	trout 		 			 = {name = 'trout', 					label = 'Truite', 				weight = 85, 		type = 'item', 		image = 'trout.png', 			unique = false, 	useable = false, 	shouldClose = true,	   combinable = true,   description = 'A breed of fish.'},
+	salmon 		 			 = {name = 'salmon', 					label = 'Saumon', 				weight = 125, 		type = 'item', 		image = 'salmon.png', 			unique = false, 	useable = false, 	shouldClose = true,	   combinable = true,   description = 'A breed of fish.'},
+	tuna 		 			 = {name = 'tuna', 					    label = 'Thon', 				weight = 225, 		type = 'item', 		image = 'tuna.png', 			unique = false, 	useable = false, 	shouldClose = true,	   combinable = true,   description = 'A breed of fish.'},
+
 }
 

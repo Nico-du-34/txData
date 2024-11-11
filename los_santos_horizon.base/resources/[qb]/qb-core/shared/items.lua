@@ -624,6 +624,7 @@ QBShared.Items = {
     americancheese 					 = {name = "americancheese", 			  	  	label = "Fromage", 				weight = 10, 		type = "item", 		image = "americancheese.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Bon fromage a hamburger"},
     burger_slicedonion 					 = {name = "burger_slicedonion", 			  	  	label = "Oignon rouge", 				weight = 10, 		type = "item", 		image = "burger-slicedonion.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Attention à la découpe"},
     burger_moneyshot 					 = {name = "burger_moneyshot", 			  	  	label = "Hamburger", 				weight = 10, 		type = "item", 		image = "burger-moneyshot.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Délicieux"},
+    milk 					 = {name = "milk", 			  	  	label = "Lait", 				weight = 10, 		type = "item", 		image = "milk.png", 			unique = false, 	useable = true, 	shouldClose = false, combinable = nil,   description = "Bon lait"},
 
     -- Peche
     fishingrod 		 		 = {name = 'fishingrod', 				label = 'Canne à pêche', 				weight = 250, 		type = 'item', 		image = 'fishingrod.png', 			unique = false, 	useable = true, 	shouldClose = true,	   combinable = nil,   description = 'Use this with bait to catch fish.'},
@@ -633,5 +634,43 @@ QBShared.Items = {
 	salmon 		 			 = {name = 'salmon', 					label = 'Saumon', 				weight = 125, 		type = 'item', 		image = 'salmon.png', 			unique = false, 	useable = false, 	shouldClose = true,	   combinable = true,   description = 'A breed of fish.'},
 	tuna 		 			 = {name = 'tuna', 					    label = 'Thon', 				weight = 225, 		type = 'item', 		image = 'tuna.png', 			unique = false, 	useable = false, 	shouldClose = true,	   combinable = true,   description = 'A breed of fish.'},
 
+    -- Munitions
+    ammo_pistol                 = { name = 'ammo_pistol', label = 'Balles de Pistolet', weight = 50, type = 'ammo', ammotype = 'AMMO_PISTOL', image = 'ammo_pistol.png', unique = false, useable = true, description = 'Munitions pour pistolet' },
+    ammo_sniper                 = { name = 'ammo_sniper', label = 'Balles de Sniper', weight = 120, type = 'ammo', ammotype = 'AMMO_SNIPER', image = 'ammo_sniper.png', unique = false, useable = true, description = 'Munitions pour fusil de précision' },
+
+    -- Nourriture et Boissons
+    burger                      = { name = 'burger', label = 'Burger', weight = 200, type = 'food', image = 'burger.png', unique = false, useable = true, description = 'Un burger délicieux pour restaurer de l\'énergie' },
+    water                       = { name = 'water', label = 'Bouteille d\'Eau', weight = 500, type = 'drink', image = 'water.png', unique = false, useable = true, description = 'Une bouteille d\'eau pour rester hydraté' },
+
+    -- Armes et Accessoires
+    extended_clip_pistol        = { name = 'extended_clip_pistol', label = 'Chargeur Étendu pour Pistolet', weight = 100, type = 'attachment', image = 'extended_clip_pistol.png', unique = false, useable = true, description = 'Augmente la capacité du pistolet' },
+    weapon_knife                = { name = 'weapon_knife', label = 'Couteau', weight = 500, type = 'weapon', ammotype = nil, image = 'weapon_knife.png', unique = true, useable = true, description = 'Un couteau tranchant pour les combats rapprochés' },
+    weapon_pistol               = { name = 'weapon_pistol', label = 'Pistolet', weight = 1000, type = 'weapon', ammotype = 'AMMO_PISTOL', image = 'weapon_pistol.png', unique = true, useable = true, description = 'Pistolet standard pour défense personnelle' },
+    weapon_sniperrifle          = { name = 'weapon_sniperrifle', label = 'Fusil de précision', weight = 3000, type = 'weapon', ammotype = 'AMMO_SNIPER', image = 'weapon_sniperrifle.png', unique = true, useable = true, description = 'Fusil de précision pour les tirs longue distance' },
+
+    -- Peaux d'animaux
+    hide_boar                   = { name = 'hide_boar', label = 'Peau de Sanglier', weight = 1000, type = 'item', image = 'hide_boar.png', unique = false, useable = false, description = 'Peau de sanglier, utile pour la fabrication' },
+    hide_cow                    = { name = 'hide_cow', label = 'Peau de Vache', weight = 1200, type = 'item', image = 'hide_cow.png', unique = false, useable = false, description = 'Peau de vache, utile pour la fabrication' },
+    hide_coyote                 = { name = 'hide_coyote', label = 'Peau de Coyote', weight = 800, type = 'item', image = 'hide_coyote.png', unique = false, useable = false, description = 'Peau de coyote, utile pour la fabrication' },
+    hide_deer                   = { name = 'hide_deer', label = 'Peau de Cerf', weight = 1100, type = 'item', image = 'hide_deer.png', unique = false, useable = false, description = 'Peau de cerf, utile pour la fabrication' },
+    hide_dolphin                = { name = 'hide_dolphin', label = 'Peau de Dauphin', weight = 900, type = 'item', image = 'hide_dolphin.png', unique = false, useable = false, description = 'Peau de dauphin, rare et précieuse' },
+    hide_mtlion                 = { name = 'hide_mtlion', label = 'Peau de Lion des Montagnes', weight = 1000, type = 'item', image = 'hide_mtlion.png', unique = false, useable = false, description = 'Peau de lion des montagnes, précieuse' },
+    hide_pig                    = { name = 'hide_pig', label = 'Peau de Cochon', weight = 900, type = 'item', image = 'hide_pig.png', unique = false, useable = false, description = 'Peau de cochon, utile pour la fabrication' },
+    hide_rabbit                 = { name = 'hide_rabbit', label = 'Peau de Lapin', weight = 200, type = 'item', image = 'hide_rabbit.png', unique = false, useable = false, description = 'Petite peau de lapin' },
+    hide_rat                    = { name = 'hide_rat', label = 'Peau de Rat', weight = 100, type = 'item', image = 'hide_rat.png', unique = false, useable = false, description = 'Petite peau de rat' },
+    hide_shark                  = { name = 'hide_shark', label = 'Peau de Requin', weight = 1500, type = 'item', image = 'hide_shark.png', unique = false, useable = false, description = 'Peau de requin, rare et précieuse' },
+    hide_stingray               = { name = 'hide_stingray', label = 'Peau de Raie', weight = 1000, type = 'item', image = 'hide_stingray.png', unique = false, useable = false, description = 'Peau de raie, rare' },
+    hide_whale                  = { name = 'hide_whale', label = 'Peau de Baleine', weight = 3000, type = 'item', image = 'hide_whale.png', unique = false, useable = false, description = 'Peau de baleine, très rare' },
+
+    -- Viandes d'animaux
+    meat_boar                   = { name = 'meat_boar', label = 'Viande de Sanglier', weight = 1000, type = 'food', image = 'meat_boar.png', unique = false, useable = true, description = 'Viande de sanglier, bonne pour cuisiner' },
+    meat_chicken                = { name = 'meat_chicken', label = 'Viande de Poulet', weight = 300, type = 'food', image = 'meat_chicken.png', unique = false, useable = true, description = 'Viande de poulet crue' },
+    meat_chickenhawk            = { name = 'meat_chickenhawk', label = 'Viande de Poulet Sauvage', weight = 300, type = 'food', image = 'meat_chickenhawk.png', unique = false, useable = true, description = 'Viande de poulet sauvage' },
+    meat_cormorant              = { name = 'meat_cormorant', label = 'Viande de Cormoran', weight = 400, type = 'food', image = 'meat_cormorant.png', unique = false, useable = true, description = 'Viande de cormoran' },
+    meat_cow                    = { name = 'meat_cow', label = 'Viande de Vache', weight = 1200, type = 'food', image = 'meat_cow.png', unique = false, useable = true, description = 'Viande de bœuf crue' },
+    meat_coyote                 = { name = 'meat_coyote', label = 'Viande de Coyote', weight = 800, type = 'food', image = 'meat_coyote.png', unique = false, useable = true, description = 'Viande de coyote crue' },
+    meat_deer                   = { name = 'meat_deer', label = 'Viande de Cerf', weight = 1000, type = 'food', image = 'meat_deer.png', unique = false, useable = true, description = 'Viande de cerf crue' },
+    meat_dolphin                = { name = 'meat_dolphin', label = 'Viande de Dauphin', weight = 900, type = 'food', image = 'meat_dolphin.png', unique = false, useable = true, description = 'Viande rare de dauphin' },
+    meat_mtlion                 = { name = 'meat_mtlion', label = 'Viande de Lion des Montagnes', weight = 1000, type = 'food', image = 'meat_mtlion.png', unique = false, useable = true, description = 'Viande de lion des montagnes' },
 }
 

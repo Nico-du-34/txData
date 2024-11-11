@@ -46,7 +46,7 @@ end)
 local QBCore = exports['qb-core']:GetCoreObject()
 local knockedOut = false
 local wait = 5
-local count = 30
+local count = 10
 
 CreateThread(function()
     while true do
@@ -58,7 +58,7 @@ CreateThread(function()
                 SetPlayerInvincible(PlayerId(), true)
                 SetPedToRagdoll(myPed, 1000, 1000, 0, 0, 0, 0)
                 QBCore.Functions.Notify('Tu es KO !', 'error', 7500)
-                wait = 15
+                wait = 5
                 knockedOut = true
             end
         end
@@ -68,17 +68,17 @@ CreateThread(function()
             SetPedToRagdoll(myPed, 1000, 1000, 0, 0, 0, 0)
             ResetPedRagdollTimer(myPed)
             Wait(100)
-            DoScreenFadeOut(10)
+            DoScreenFadeOut(200)
             if wait >= 0 then
                 count = count - 1
                 if count == 0 then
-                    count = 60
+                    count = 10
                     wait = wait - 1
                     SetEntityHealth(myPed, GetEntityHealth(myPed)+2)
                 end
             else
                 Wait(100)
-                DoScreenFadeIn(10)
+                DoScreenFadeIn(200)
                 SetPlayerInvincible(PlayerId(), false)
                 knockedOut = false
             end

@@ -91,7 +91,8 @@ Config.Consumables = {
         ['tosti'] = math.random(40, 50),
         ['twerks_candy'] = math.random(35, 54),
         ['snikkel_candy'] = math.random(40, 50),
-        ['burger_fries'] = math.random(30, 60)
+        ['burger_fries'] = math.random(30, 60),
+        ['burger_moneyshot'] = math.random(30,60)
     },
     drink = { -- default drink items
         ['water_bottle'] = math.random(35, 54),

@@ -12,7 +12,7 @@ local menu2 = MenuV:CreateMenu(false, Lang:t('menu.admin_options'), menuLocation
 local menu3 = MenuV:CreateMenu(false, Lang:t('menu.manage_server'), menuLocation, 220, 20, 60, 'size-125', 'none', 'menuv', 'test3')
 local menu4 = MenuV:CreateMenu(false, Lang:t('menu.online_players'), menuLocation, 220, 20, 60, 'size-125', 'none', 'menuv', 'test4')
 local menu5 = MenuV:CreateMenu(false, Lang:t('menu.vehicle_options'), menuLocation, 220, 20, 60, 'size-125', 'none', 'menuv', 'test5')
-local menu6 = MenuV:CreateMenu(false, Lang:t('menu.dealer_list'), menuLocation, 220, 20, 60, 'size-125', 'none', 'menuv', 'test6')
+-- local menu6 = MenuV:CreateMenu(false, Lang:t('menu.dealer_list'), menuLocation, 220, 20, 60, 'size-125', 'none', 'menuv', 'test6')
 local menu7 = MenuV:CreateMenu(false, Lang:t('menu.developer_options'), menuLocation, 220, 20, 60, 'size-125', 'none', 'menuv', 'test7')
 
 --Sub Menus
@@ -68,12 +68,12 @@ menu1:AddButton({
 })
 
 --dealer list
-local menu1_dealer_list = menu1:AddButton({
-    icon = '💊',
-    label = Lang:t('menu.dealer_list'),
-    value = menu6,
-    description = Lang:t('desc.dealer_desc')
-})
+-- local menu1_dealer_list = menu1:AddButton({
+--     icon = '💊',
+--     label = Lang:t('menu.dealer_list'),
+--     value = menu6,
+--     description = Lang:t('desc.dealer_desc')
+-- })
 
 --developer options
 menu1:AddButton({
@@ -1199,57 +1199,57 @@ end)
 --[[
     Dealer List
 --]]
-local function OpenDealerMenu(dealer)
-    local EditDealer = MenuV:CreateMenu(false, Lang:t('menu.edit_dealer') .. dealer['name'], menuLocation, 220, 20, 60, 'size-125', 'none', 'menuv')
-    EditDealer:ClearItems()
-    MenuV:OpenMenu(EditDealer)
-    local elements = {
-        [1] = {
-            icon = '➡️',
-            label = Lang:t('info.go_to') .. ' ' .. dealer['name'],
-            value = 'goto',
-            description = Lang:t('desc.dealergoto_desc') .. ' ' .. dealer['name']
-        },
-        [2] = {
-            icon = '☠',
-            label = Lang:t('info.remove') .. ' ' .. dealer['name'],
-            value = 'remove',
-            description = Lang:t('desc.dealerremove_desc') .. ' ' .. dealer['name']
-        }
-    }
-    for _, v in ipairs(elements) do
-        EditDealer:AddButton({
-            icon = v.icon,
-            label = ' ' .. v.label,
-            value = v.value,
-            description = v.description,
-            select = function(btn)
-                local values = btn.Value
-                if values == 'goto' then
-                    TriggerServerEvent('QBCore:CallCommand', 'dealergoto', { dealer['name'] })
-                elseif values == 'remove' then
-                    TriggerServerEvent('QBCore:CallCommand', 'deletedealer', { dealer['name'] })
-                    EditDealer:Close()
-                    menu6:Close()
-                end
-            end
-        })
-    end
-end
+-- local function OpenDealerMenu(dealer)
+--     local EditDealer = MenuV:CreateMenu(false, Lang:t('menu.edit_dealer') .. dealer['name'], menuLocation, 220, 20, 60, 'size-125', 'none', 'menuv')
+--     EditDealer:ClearItems()
+--     MenuV:OpenMenu(EditDealer)
+--     local elements = {
+--         [1] = {
+--             icon = '➡️',
+--             label = Lang:t('info.go_to') .. ' ' .. dealer['name'],
+--             value = 'goto',
+--             description = Lang:t('desc.dealergoto_desc') .. ' ' .. dealer['name']
+--         },
+--         [2] = {
+--             icon = '☠',
+--             label = Lang:t('info.remove') .. ' ' .. dealer['name'],
+--             value = 'remove',
+--             description = Lang:t('desc.dealerremove_desc') .. ' ' .. dealer['name']
+--         }
+--     }
+--     for _, v in ipairs(elements) do
+--         EditDealer:AddButton({
+--             icon = v.icon,
+--             label = ' ' .. v.label,
+--             value = v.value,
+--             description = v.description,
+--             select = function(btn)
+--                 local values = btn.Value
+--                 if values == 'goto' then
+--                     TriggerServerEvent('QBCore:CallCommand', 'dealergoto', { dealer['name'] })
+--                 elseif values == 'remove' then
+--                     TriggerServerEvent('QBCore:CallCommand', 'deletedealer', { dealer['name'] })
+--                     EditDealer:Close()
+--                     menu6:Close()
+--                 end
+--             end
+--         })
+--     end
+-- end
 
-menu1_dealer_list:On('Select', function(_)
-    menu6:ClearItems()
-    QBCore.Functions.TriggerCallback('test:getdealers', function(dealers)
-        for _, v in pairs(dealers) do
-            menu6:AddButton({
-                label = v['name'],
-                value = v,
-                description = Lang:t('menu.dealer_name'),
-                select = function(btn)
-                    local select = btn.Value
-                    OpenDealerMenu(select)
-                end
-            })
-        end
-    end)
-end)
+-- menu1_dealer_list:On('Select', function(_)
+--     menu6:ClearItems()
+--     QBCore.Functions.TriggerCallback('test:getdealers', function(dealers)
+--         for _, v in pairs(dealers) do
+--             menu6:AddButton({
+--                 label = v['name'],
+--                 value = v,
+--                 description = Lang:t('menu.dealer_name'),
+--                 select = function(btn)
+--                     local select = btn.Value
+--                     OpenDealerMenu(select)
+--                 end
+--             })
+--         end
+--     end)
+-- end)

@@ -244,7 +244,9 @@ Config.DealershipLocations = {
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
     showroomJobWhitelist = {},
     showroomGangWhitelist = {},
-    societyPurchaseJobWhitelist = {},
+    societyPurchaseJobWhitelist = {
+      police = {0, 1, 2, 3, 9}
+    },
     societyPurchaseGangWhitelist = {},
     -- disableShowroomPurchase = true,
     -- job = "exotic", -- Owned dealerships only

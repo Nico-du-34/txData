@@ -101,8 +101,10 @@ function Framework.Server.SaveVehicleToGarage(src, purchaseType, society, societ
 
     if purchaseType == "society" then
       vehicleId = MySQL.insert.await(
-        "INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, financed, finance_data, job_vehicle, job_vehicle_rank, gang_vehicle, gang_vehicle_rank) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        {license, society, model, joaat(model), props, plate, financed, json.encode(financeData), societyType == "job" and 1 or 0, 0, societyType == "gang" and 1 or 0, 0}
+        -- "INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, financed, finance_data, job_vehicle, job_vehicle_rank, gang_vehicle, gang_vehicle_rank) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        -- {license, society, model, joaat(model), props, plate, financed, json.encode(financeData), societyType == "job" and 1 or 0, 0, societyType == "gang" and 1 or 0, 0}
+        "INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, financed, finance_data, job_vehicle, gang_vehicle) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        {society, citizenid, model, joaat(model), props, plate, financed, json.encode(financeData), societyType == "job" and 1 or 0, societyType == "gang" and 1 or 0}
       )
     else
       vehicleId = MySQL.insert.await(

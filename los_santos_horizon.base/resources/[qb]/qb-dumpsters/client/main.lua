@@ -15,7 +15,7 @@ RegisterNetEvent('qb-elecsearch:client:searchelec', function()
             local dist = GetDistanceBetweenCoords(pos.x, pos.y, pos.z, elecPos.x, elecPos.y, elecPos.z, true)
             if dist < 1.8 then
                 if searched[elec] ~= nil then
-                    QBCore.Functions.Notify("Already Searched", "error")
+                    QBCore.Functions.Notify("Déjà fouillé", "error")
                     return
                 end
                 local itemType = math.random(#Config.RewardTypes)
@@ -31,7 +31,7 @@ RegisterNetEvent('qb-elecsearch:client:progressbar', function(itemType, pEntity)
     print(pEntity)
     local pEntity = tostring(pEntity)
     local item = math.random(#Config.Rewardes[pEntity])
-    QBCore.Functions.Progressbar("elec_find", "Fouille..", math.random (5000, 10000), false, true, {
+    QBCore.Functions.Progressbar("elec_find", "Fouille ...", math.random (5000, 10000), false, true, {
         disableMovement = false,
         disableCarMovement = false,
         disableMouse = false,
@@ -42,21 +42,21 @@ RegisterNetEvent('qb-elecsearch:client:progressbar', function(itemType, pEntity)
         flags = 16,
     }, {}, {}, function() -- Done
         StopAnimTask(PlayerPedId(), "amb@prop_human_bum_bin@idle_b", "idle_d", 1.0)
-        if Config.RewardTypes[itemType].type == "rien" then 
-            QBCore.Functions.Notify("Found Nothing", "error")
+        if Config.RewardTypes[itemType].type == "nothing" then 
+            QBCore.Functions.Notify("Rien trouvé", "error")
             return
         end
         if Config.RewardTypes[itemType].type == "item" then
-            QBCore.Functions.Notify("Found Something", "success")
+            QBCore.Functions.Notify("J'ai trouvé quelque chose", "success")
             TriggerServerEvent('qb-elecsearch:server:recieveItem', Config.Rewardes[pEntity][item].item, math.random (Config.Rewardes[pEntity][item].minAmount, Config.Rewardes[pEntity][item].maxAmount))
             TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items[Config.Rewardes[pEntity][item].item], "add")
         elseif Config.RewardTypes[itemType].type == "money" then
-            QBCore.Functions.Notify("Found Some Money", "success")
+            QBCore.Functions.Notify("J'ai trouvé de l'argent", "success")
             TriggerServerEvent('qb-elecsearch:server:givemoney')
         end
     end, function() -- Cancel
         StopAnimTask(PlayerPedId(), "amb@prop_human_bum_bin@idle_b", "idle_d", 1.0)
-        QBCore.Functions.Notify("Stopped Searching", "error")
+        QBCore.Functions.Notify("Fouille arrêtée", "error")
     end)
 end)
 
@@ -68,7 +68,7 @@ CreateThread(function()
                     type = "client",
                     event = "qb-elecsearch:client:searchelec",
                     icon = "fas fa-pencil-ruler",
-                    label = "Search",
+                    label = "Fouille",
                 },
             },
             distance = 2.1

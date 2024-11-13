@@ -320,6 +320,19 @@ QBShared.Jobs = {
 			['5'] = { name = 'Directeur', isboss = true, payment = 50 },
 		},
 	},
+	au_siecle_dor = {
+		label = 'AU SIECLE D\'OR',
+		defaultDuty = false,
+		offDutyPay = false,
+		grades = {
+			['0'] = { name = 'Recrue', payment = 50 },
+			['1'] = { name = 'Novice', payment = 50 },
+			['2'] = { name = 'Employé', payment = 50 },
+			['3'] = { name = 'Expérimenté', payment = 50 },
+			['4'] = { name = 'Co-Directeur', isboss = true, payment = 50 },
+			['5'] = { name = 'Directeur', isboss = true, payment = 50 },
+		},
+	},
 	vineyard = {
 		label = 'Vigneron',
 		defaultDuty = false,

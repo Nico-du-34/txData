@@ -18,15 +18,18 @@ Config.RewardTypes = {
 --You can configer items you wanet for each object
 Config.Rewardes = {
     ['dumpstares'] = {
-        [1] = {item = "recyclablematerial", minAmount = 1, maxAmount = 5},
+        [1] = {item = "sandwich", minAmount = 1, maxAmount = 3}, 
         [2] = {item = "lockpick", minAmount = 1, maxAmount = 1},
         [3] = {item = "plastic", minAmount = 1, maxAmount = 1},
-        [4] = {item = "weed_nutrition", minAmount = 1, maxAmount = 1},
+        [4] = {item = "empty_weed_bag", minAmount = 1, maxAmount = 3},
+        [5] = {item = "weed_nutrition", minAmount = 1, maxAmount = 1},
     },
     ['aircon'] = {
-        [1] = {item = "sandwich", minAmount = 5, maxAmount = 8},
+        [1] = {item = "sandwich", minAmount = 1, maxAmount = 3}, 
         [2] = {item = "lockpick", minAmount = 1, maxAmount = 1},
         [3] = {item = "plastic", minAmount = 1, maxAmount = 1},
+        [4] = {item = "empty_weed_bag", minAmount = 1, maxAmount = 3},
+        [5] = {item = "weed_nutrition", minAmount = 1, maxAmount = 1},
     },
 }
 

@@ -4,12 +4,12 @@ Customize = {
     SpeedometerTypeKMH = true, -- kmh | mph
     AlwaysOnMinimap = true, -- Specifies whether the minimap should be visible outside the vehicle
     StreetDisplay = true,
-    ServerName = 'LSH ',
+    ServerName = 'LSH',
     MoneyType = '$',
     OnlinePlayersRefreshTime = 25000,
 
     GetVehFuel = function(Veh)
-        return GetVehicleFuelLevel(Veh) -- exports["LegacyFuel"]:GetFuel(Veh) - GetVehicleFuelLevel(Veh) - exports["uz_fuel"]:GetFuel(Veh)
+        return exports["cdn-fuel"]:GetFuel(Veh) --GetVehicleFuelLevel(Veh) -- exports["LegacyFuel"]:GetFuel(Veh) - GetVehicleFuelLevel(Veh) - exports["uz_fuel"]:GetFuel(Veh)
     end,
 
     Display = {
@@ -32,7 +32,7 @@ Customize = {
     },
 
 
-    Stress = true, -- true | false
+    Stress = false, -- true | false
     StressChance = 0.1, -- Default: 10% -- Percentage Stress Chance When Shooting (0-1)
     MinimumStress = 50, -- Minimum Stress Level For Screen Shaking
     MinimumSpeed = 100, -- Going Over This Speed Will Cause Stress

@@ -826,7 +826,14 @@ local Vehicles = {
     { model = 'c63w205',            name = 'Mercedes-AMG C63 S',                   brand = 'c63w205',          price = 1000000,  category = 'importnico',      type = 'automobile', shop = 'import' },
         -- Import Martin
     { model = 'pcarbo',                 name = 'Police pcarbo',                           brand = 'pcarbo',          price = 1000000,  category = 'importmartin',      type = 'automobile', shop = 'import' },
-
+    -- Import Job
+    { model = 'bahama',              name = 'Mercedes Bahamas',                  brand = 'Vito',          price = 1000000,  category = 'job',      type = 'automobile', shop = 'job' },
+    { model = 'lsc',                 name = 'Mercedes LS Custom',                brand = 'Vito',          price = 1000000,  category = 'job',      type = 'automobile', shop = 'job' },
+    { model = 'tabac',               name = 'Mercedes Tabac',                    brand = 'Vito',          price = 1000000,  category = 'job',      type = 'automobile', shop = 'job' },
+    { model = 'unicorn',             name = 'Mercedes Vanillia Unicorn',         brand = 'Vito',          price = 1000000,  category = 'job',      type = 'automobile', shop = 'job' },
+    { model = 'vigne',               name = 'Mercedes Vignoble',                 brand = 'Vito',          price = 1000000,  category = 'job',      type = 'automobile', shop = 'job' },
+    { model = 'redline',             name = 'Mercedes Redline Garage',           brand = 'Vito',          price = 1000000,  category = 'job',      type = 'automobile', shop = 'job' },
+    { model = 'bennys',              name = 'Mercedes Benny\'s',                 brand = 'Vito',          price = 1000000,  category = 'job',      type = 'automobile', shop = 'job' },
 
 }
 

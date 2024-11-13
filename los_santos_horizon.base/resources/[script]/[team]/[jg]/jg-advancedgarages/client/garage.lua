@@ -63,6 +63,7 @@ RegisterNetEvent("jg-advancedgarages:client:InsertVehicle", function(garageId)
 
       TriggerEvent("jg-advancedgarages:client:InsertVehicle:config", curVeh, vehicle)
       TriggerServerEvent('jg-advancedgarages:server:GarageInsertVehicle', plate, totalFuel, engineDamage, bodyDamage, garageId)
+      TriggerServerEvent('sna-vehiclekeys:server:RemoveKey', plate, GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicleEntity))))
 
       -- Take player(s) out of vehicle
       for i = -1, 5, 1 do
@@ -131,7 +132,8 @@ RegisterNUICallback("garageTakeOutVehicle", function(data, cb)
         TriggerEvent("jg-advancedgarages:client:TakeOutVehicle:config", veh, vehicle)
         TriggerServerEvent('jg-advancedgarages:server:GarageTakeOutVehicle', vehicle.plate, vehicle.in_garage)
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
-        TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
+        -- TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
+        TriggerServerEvent('sna-vehiclekeys:server:BuyVehicle', plate, GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(veh))))
         SetVehicleEngineOn(veh, true, true)
       end, coords, true)
     end, plate)

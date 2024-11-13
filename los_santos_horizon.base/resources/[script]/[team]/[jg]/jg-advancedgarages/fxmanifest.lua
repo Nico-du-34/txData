@@ -4,7 +4,7 @@ game 'gta5'
 
 shared_scripts {'config.lua', "fixDeleteVehicle.lua"}
 
-client_scripts {'@CircleZone/client.lua', 'client/main.lua', 'config-client.lua', 'client/impound.lua', 'client/garage.lua', 'client/job-garage.lua',
+client_scripts {'client/main.lua', 'config-client.lua', 'client/impound.lua', 'client/garage.lua', 'client/job-garage.lua',
                 'client/gang-garage.lua', 'client/private-garage.lua', 'client/vehicle.lua'}
 
 server_scripts {'@oxmysql/lib/MySQL.lua', 'server/main.lua', 'server/impound.lua', 'server/garage.lua', 'server/job-garage.lua',

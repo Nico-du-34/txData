@@ -153,7 +153,10 @@ function Framework.Client.VehicleGiveKeys(plate, vehicleEntity, origin)
   if not DoesEntityExist(vehicleEntity) then return false end
 
   if Config.VehicleKeys == "qb-vehiclekeys" then
-    TriggerEvent("vehiclekeys:client:SetOwner", plate)
+    -- TriggerEvent("vehiclekeys:client:SetOwner", plate)
+    local model = GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicleEntity)))
+    TriggerServerEvent('sna-vehiclekeys:server:BuyVehicle', plate, model)
+    print(plate..model)
   elseif Config.VehicleKeys == "jaksam-vehicles-keys" then
     TriggerServerEvent("vehicles_keys:selfGiveVehicleKeys", plate)
   elseif Config.VehicleKeys == "mk_vehiclekeys" then
@@ -179,6 +182,13 @@ function Framework.Client.VehicleGiveKeys(plate, vehicleEntity, origin)
     else
       exports["mx_carkeys"]:buyVehicle(vehicleEntity, plate, 2)
     end
+  elseif Config.VehicleKeys == "sna-vehiclekeys" then
+    if origin == "testDrive" then
+      TriggerServerEvent('sna-vehiclekeys:server:GiveTempKey', plate, GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicleEntity))))
+    else
+      Citizen.Wait(10)
+      TriggerServerEvent('sna-vehiclekeys:server:BuyVehicle', plate, GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicleEntity))))
+    end
   else
     -- Setup custom key system here...
   end
@@ -190,7 +200,10 @@ end
 function Framework.Client.VehicleRemoveKeys(plate, vehicleEntity, origin)
   if not DoesEntityExist(vehicleEntity) then return false end
 
-  if Config.VehicleKeys == "qs-vehiclekeys" then
+  if Config.VehicleKeys == "qb-vehiclekeys" then
+    local model = GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicleEntity)))
+    TriggerServerEvent('sna-vehiclekeys:server:RemoveKey', plate, model)
+  elseif Config.VehicleKeys == "qs-vehiclekeys" then
     local model = GetDisplayNameFromVehicleModel(GetEntityModel(vehicleEntity))
     exports["qs-vehiclekeys"]:RemoveKeys(plate, model)
   elseif Config.VehicleKeys == "wasabi_carlock" then
@@ -203,6 +216,8 @@ function Framework.Client.VehicleRemoveKeys(plate, vehicleEntity, origin)
     exports["Renewed-Vehiclekeys"]:removeKey(plate)
   elseif Config.VehicleKeys == "mx_carkeys" then
     exports["mx_carkeys"]:removeVehicleKey(vehicleEntity)
+  elseif Config.VehicleKeys == "sna-vehiclekeys" then
+    TriggerServerEvent('sna-vehiclekeys:server:RemoveKey', plate, GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicleEntity))))
   else
     -- Setup custom key system here...
   end

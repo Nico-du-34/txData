@@ -23,7 +23,7 @@ Citizen.CreateThread(function()
 			or IsEntityInZone(player, 'PALHIGH')
 			or IsEntityInZone(player, 'SANCHIA')
 			or IsEntityInZone(player, 'TONGVAH'))
-				and #animals < 10 then
+				and #animals < 20 then
 					RequestModel('a_c_deer')
 						while not HasModelLoaded('a_c_deer') or not HasCollisionForModelLoaded('a_c_deer') do
 					Wait(1)
@@ -67,7 +67,7 @@ Citizen.CreateThread(function()
 			or IsEntityInZone(player, 'PALFOR')
 			or IsEntityInZone(player, 'SANCHIA')
 			or IsEntityInZone(player, 'TONGVAH'))
-				and #animals < 5 then
+				and #animals < 20 then
 					RequestModel('a_c_boar')
 						while not HasModelLoaded('a_c_boar') or not HasCollisionForModelLoaded('a_c_boar') do
 					Wait(1)
@@ -111,7 +111,7 @@ Citizen.CreateThread(function()
 			or IsEntityInZone(player, 'PALFOR')
 			or IsEntityInZone(player, 'SANCHIA')
 			or IsEntityInZone(player, 'TONGVAH'))
-				and #animals < 5 then
+				and #animals < 20 then
 					RequestModel('a_c_coyote')
 						while not HasModelLoaded('a_c_coyote') or not HasCollisionForModelLoaded('a_c_coyote') do
 					Wait(1)
@@ -155,7 +155,7 @@ Citizen.CreateThread(function()
 			or IsEntityInZone(player, 'PALFOR')
 			or IsEntityInZone(player, 'SANCHIA')
 			or IsEntityInZone(player, 'TONGVAH'))
-				and #animals < 10 then
+				and #animals < 20 then
 					RequestModel('a_c_rabbit_01')
 						while not HasModelLoaded('a_c_rabbit_01') or not HasCollisionForModelLoaded('a_c_rabbit_01') do
 					Wait(1)
@@ -200,7 +200,7 @@ Citizen.CreateThread(function()
 			or IsEntityInZone(player, 'PALHIGH')
 			or IsEntityInZone(player, 'SANCHIA')
 			or IsEntityInZone(player, 'TONGVAH'))
-				and #animals < 5 then
+				and #animals < 20 then
 					RequestModel('a_c_mtlion')
 						while not HasModelLoaded('a_c_mtlion') or not HasCollisionForModelLoaded('a_c_mtlion') do
 					Wait(1)
@@ -246,7 +246,7 @@ Citizen.CreateThread(function()
 			or IsEntityInZone(player, 'SANDY')
 			or IsEntityInZone(player, 'SKID')
 			or IsEntityInZone(player, 'SLAB'))
-				and #animals < 10 then
+				and #animals < 20 then
 					RequestModel('a_c_rat')
 						while not HasModelLoaded('a_c_rat') or not HasCollisionForModelLoaded('a_c_rat') do
 					Wait(1)
@@ -286,7 +286,7 @@ Citizen.CreateThread(function()
 		local ground
 		if (IsEntityInZone(player, 'OCEANA')
 		or IsEntityInZone(player, 'PALCOV'))
-			and #animals < 10 then
+			and #animals < 20 then
 				RequestModel('a_c_sharkhammer')
 					while not HasModelLoaded('a_c_sharkhammer') or not HasCollisionForModelLoaded('a_c_sharkhammer') do
 				Wait(1)
@@ -316,7 +316,7 @@ Citizen.CreateThread(function()
 		local ground
 		if (IsEntityInZone(player, 'OCEANA')
 		or IsEntityInZone(player, 'PALCOV'))
-			and #animals < 10 then--how many animals to spawn
+			and #animals < 20 then--how many animals to spawn
 				RequestModel('a_c_sharktiger')
 					while not HasModelLoaded('a_c_sharktiger') or not HasCollisionForModelLoaded('a_c_sharktiger') do
 				Wait(1)
@@ -346,7 +346,7 @@ Citizen.CreateThread(function()
 		local ground
 		if (IsEntityInZone(player, 'OCEANA')
 		or IsEntityInZone(player, 'PALCOV'))
-			and #animals < 10 then--how many animals to spawn
+			and #animals < 20 then--how many animals to spawn
 				RequestModel('a_c_stingray')--model of animal, this is a deer
 					while not HasModelLoaded('a_c_stingray') or not HasCollisionForModelLoaded('a_c_stingray') do
 				Wait(1)
@@ -376,7 +376,7 @@ Citizen.CreateThread(function()
 		local ground
 		if (IsEntityInZone(player, 'OCEANA')
 		or IsEntityInZone(player, 'PALCOV'))
-			and #animals < 5 then--how many animals to spawn
+			and #animals < 10 then--how many animals to spawn
 				RequestModel('a_c_killerwhale')
 					while not HasModelLoaded('a_c_killerwhale') or not HasCollisionForModelLoaded('a_c_killerwhale') do
 				Wait(1)
@@ -406,7 +406,7 @@ Citizen.CreateThread(function()
 		local ground
 		if (IsEntityInZone(player, 'OCEANA')
 		or IsEntityInZone(player, 'PALCOV'))
-			and #animals < 5 then--how many animals to spawn
+			and #animals < 10 then--how many animals to spawn
 				RequestModel('a_c_humpback')
 					while not HasModelLoaded('a_c_humpback') or not HasCollisionForModelLoaded('a_c_humpback') do
 				Wait(1)

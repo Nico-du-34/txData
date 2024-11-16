@@ -847,11 +847,14 @@ function RemoveItem(identifier, item, amount, slot, reason)
     )
     return true
 end
-
+-- Expose la fonction RemoveItem
 exports('RemoveItem', RemoveItem)
 
+-- Exemple de fonction GetInventory
 function GetInventory(identifier)
+    -- Retourne l'inventaire de l'utilisateur par son identifiant
     return Inventories[identifier]
 end
 
+-- Expose la fonction GetInventory
 exports('GetInventory', GetInventory)

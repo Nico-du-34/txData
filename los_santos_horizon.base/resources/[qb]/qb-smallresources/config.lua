@@ -1,0 +1,382 @@
+Config = {}
+
+Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
+Config.PauseMapText = ''                                     -- Text shown above the map when ESC is pressed. If left empty 'FiveM' will appear
+Config.HarnessUses = 20
+Config.DamageNeeded = 100.0                                  -- amount of damage till you can push your vehicle. 0-1000
+
+Config.AFK = {
+    ignoredGroups = {
+        ['mod'] = true,
+        ['admin'] = true,
+        ['god'] = true
+    },
+    secondsUntilKick = 1000000, -- AFK Kick Time Limit (in seconds)
+    kickInCharMenu = true      -- Set to true if you want to kick players for being AFK even when they are in the character menu.
+}
+
+Config.HandsUp = {
+    command = 'hu',
+    keybind = 'Y',
+    controls = { 24, 25, 47, 58, 59, 63, 64, 71, 72, 75, 140, 141, 142, 143, 257, 263, 264 }
+}
+
+Config.Binoculars = {
+    zoomSpeed = 10.0,        -- camera zoom speed
+    storeBinocularsKey = 177 -- backspace by default
+}
+
+Config.AIResponse = {
+    wantedLevels = false, -- if true, you will recieve wanted levels
+    dispatchServices = {  -- AI dispatch services
+        [1] = false,      -- Police Vehicles
+        [2] = false,      -- Police Helicopters
+        [3] = false,      -- Fire Department Vehicles
+        [4] = false,      -- Swat Vehicles
+        [5] = false,      -- Ambulance Vehicles
+        [6] = false,      -- Police Motorcycles
+        [7] = false,      -- Police Backup
+        [8] = false,      -- Police Roadblocks
+        [9] = false,      -- PoliceAutomobileWaitPulledOver
+        [10] = false,     -- PoliceAutomobileWaitCruising
+        [11] = false,     -- Gang Members
+        [12] = false,     -- Swat Helicopters
+        [13] = false,     -- Police Boats
+        [14] = false,     -- Army Vehicles
+        [15] = false      -- Biker Backup
+    }
+}
+
+-- To Set This Up visit https://forum.cfx.re/t/how-to-updated-discord-rich-presence-custom-image/157686
+Config.Discord = {
+    isEnabled = true,                                     -- If set to true, then discord rich presence will be enabled
+    applicationId = '1221109227062300692',                   -- The discord application id
+    iconLarge = 'logo',                               -- The name of the large icon
+    iconLargeHoverText = 'Los Santos Horizon', -- The hover text of the large icon
+    iconSmall = 'logo',                         -- The name of the small icon
+    iconSmallHoverText = 'Los Santos Horizon', -- The hover text of the small icon
+    updateRate = 60000,                                    -- How often the player count should be updated
+    showPlayerCount = true,                                -- If set to true the player count will be displayed in the rich presence
+    maxPlayers = 64,                                       -- Maximum amount of players
+    buttons = {
+        {
+            text = 'Discord',
+            url = 'https://discord.gg/Q8xs5tpCJH'
+        }
+    }
+}
+
+Config.Density = {
+    parked = 0.1,
+    vehicle = 0.6,
+    multiplier = 0.6,
+    peds = 0.6,
+    scenario = 0.4
+}
+
+Config.Disable = {
+    hudComponents = { 1, 2, 3, 4, 7, 9, 13, --[[14,]] 19, 20, 21, 22 }, -- Hud Components: https://docs.fivem.net/natives/?_0x6806C51AD12B83B8
+    controls = { 37 },                                            -- Controls: https://docs.fivem.net/docs/game-references/controls/
+    displayAmmo = true,                                           -- false disables ammo display
+    ambience = true,                                             -- disables distance sirens, distance car alarms, flight music, etc
+    idleCamera = true,                                            -- disables the idle cinematic camera
+    vestDrawable = false,                                         -- disables the vest equipped when using heavy armor
+    pistolWhipping = true,                                        -- disables pistol whipping
+    driveby = true,                                              -- disables driveby
+}
+
+Config.Consumables = {
+    eat = { -- default food items
+        ['sandwich'] = math.random(35, 54),
+        ['tosti'] = math.random(40, 50),
+        ['twerks_candy'] = math.random(35, 54),
+        ['snikkel_candy'] = math.random(40, 50),
+        ['burger_fries'] = math.random(30, 60),  
+        ['burger_moneyshot'] = math.random(30,60),
+        ['sushi11'] = math.random(10,30),
+        ['laysblack'] = math.random(5,15),
+        ['laysgreen'] = math.random(5,15),
+        ['laysyellow'] = math.random(5,15),
+        ['bacon_cheese_fries'] = math.random(30,60),
+        ['apple_green'] = math.random(5,15),
+        ['apple_red'] = math.random(5,15),
+        ['chicken_strips'] = math.random(30,60),
+        ['cupcake2'] = math.random(5,15),
+        ['muffin'] = math.random(5,15),
+        ['cupcake'] = math.random(5,15)
+    },
+    drink = { -- default drink items
+        ['water_bottle'] = math.random(35, 54),
+        ['kurkakola'] = math.random(35, 54),
+        ['coffee'] = math.random(40, 50),
+        ['drpepper_cherry'] = math.random(5,15),
+        ['fanta_orange'] = math.random(5,15)
+    },
+    alcohol = { -- default alcohol items
+        ['whiskey'] = math.random(20, 30),
+        ['beer'] = math.random(30, 40),
+        ['vodka'] = math.random(20, 40),
+        ['congnac_bourgeoix'] = math.random(30, 60),  
+        ['bleuterd_champagne'] = math.random(30, 60),  
+        ['gin'] = math.random(20, 40),
+        ['tequila'] = math.random(20, 40),
+        ['shooter_tequila'] = math.random(5, 20),  
+        ['gin_and_tonic'] = math.random(5, 20),
+        ['whiskey_cola'] = math.random(20, 40),
+        ['whiskey'] = math.random(20, 40),
+
+    },
+    custom = { -- put any custom items here
+        -- ['newitem'] = {
+        --     progress = {
+        --         label = 'Using Item...',
+        --         time = 5000
+        --     },
+        --     animation = {
+        --         animDict = 'amb@prop_human_bbq@male@base',
+        --         anim = 'base',
+        --         flags = 8,
+        --     },
+        --     prop = {
+        --         model = false,
+        --         bone = false,
+        --         coords = false, -- vector 3 format
+        --         rotation = false, -- vector 3 format
+        --     },
+        --     replenish = {'''
+        --         type = 'Hunger', -- replenish type 'Hunger'/'Thirst' / false
+        --         replenish = math.random(20, 40),
+        --         isAlcohol = false, -- if you want it to add alcohol count
+        --         event = false, -- 'eventname' if you want it to trigger an outside event on use useful for drugs
+        --         server = false -- if the event above is a server event
+        --     }
+        -- }
+        ['redbull'] = {
+            progress = {
+                label = 'Boit un Redbull...',
+                time = 5000
+            },
+            animation = {
+                animDict = 'mp_player_intdrink',
+                anim = 'loop_bottle',
+                flags = 49,
+            },
+            prop = {
+                model = 'sf_p_sf_grass_gls_s_01a', -- Props a changé
+                bone = 60309,
+                coords = vec3(0.0, 0.0, -0.14),
+                rotation = vec3(0.0, 0.0, 9),
+            },
+            replenish = {
+                type = 'thirst',
+                replenish = math.random(20, 40),
+                isAlcohol = false,
+                event = false,
+                server = false
+            }
+        }
+    }
+}
+
+Config.Fireworks = {
+    delay = 5, -- time in s till it goes off
+    items = {  -- firework items
+        'firework1',
+        'firework2',
+        'firework3',
+        'firework4'
+    }
+}
+
+Config.BlacklistedScenarios = {
+    types = {
+        'WORLD_VEHICLE_MILITARY_PLANES_SMALL',
+        'WORLD_VEHICLE_MILITARY_PLANES_BIG',
+        'WORLD_VEHICLE_AMBULANCE',
+        'WORLD_VEHICLE_POLICE_NEXT_TO_CAR',
+        'WORLD_VEHICLE_POLICE_CAR',
+        'WORLD_VEHICLE_POLICE_BIKE'
+    },
+    groups = {
+        2017590552,
+        2141866469,
+        1409640232,
+        `ng_planes`
+    }
+}
+
+Config.BlacklistedVehs = {
+    [`shamal`] = true,
+    [`luxor`] = true,
+    [`luxor2`] = true,
+    [`jet`] = true,
+    [`lazer`] = true,
+    [`buzzard`] = true,
+    [`buzzard2`] = true,
+    [`annihilator`] = true,
+    [`savage`] = true,
+    [`titan`] = true,
+    [`rhino`] = true,
+    [`maverick`] = true,
+    [`blimp`] = true,
+    [`airtug`] = true,
+    [`camper`] = true,
+    [`hydra`] = true,
+    [`oppressor`] = true,
+    [`technical3`] = true,
+    [`insurgent3`] = true,
+    [`apc`] = true,
+    [`tampa3`] = true,
+    [`trailersmall2`] = true,
+    [`halftrack`] = true,
+    [`hunter`] = true,
+    [`vigilante`] = true,
+    [`akula`] = true,
+    [`barrage`] = true,
+    [`khanjali`] = true,
+    [`caracara`] = true,
+    [`blimp3`] = true,
+    [`menacer`] = true,
+    [`oppressor2`] = true,
+    [`scramjet`] = true,
+    [`strikeforce`] = true,
+    [`cerberus`] = true,
+    [`cerberus2`] = true,
+    [`cerberus3`] = true,
+    [`scarab`] = true,
+    [`scarab2`] = true,
+    [`scarab3`] = true,
+    [`rrocket`] = true,
+    [`ruiner2`] = true,
+    [`deluxo`] = true,
+    [`cargoplane2`] = true,
+    [`voltic2`] = true
+}
+
+Config.BlacklistedWeapons = {
+    [`WEAPON_RAILGUN`] = true,
+}
+
+Config.BlacklistedPeds = {
+    [`s_m_y_ranger_01`] = true,
+    [`s_m_y_sheriff_01`] = true,
+    [`s_m_y_cop_01`] = true,
+    [`s_f_y_sheriff_01`] = true,
+    [`s_f_y_cop_01`] = true,
+    [`s_m_y_hwaycop_01`] = true
+}
+
+Config.WeapDraw = {
+    variants = { 130, 122, 3, 6, 8 },
+    weapons = {
+        --'WEAPON_STUNGUN',
+        'WEAPON_PISTOL',
+        'WEAPON_PISTOL_MK2',
+        'WEAPON_COMBATPISTOL',
+        'WEAPON_APPISTOL',
+        'WEAPON_PISTOL50',
+        'WEAPON_REVOLVER',
+        'WEAPON_SNSPISTOL',
+        'WEAPON_HEAVYPISTOL',
+        'WEAPON_VINTAGEPISTOL'
+    }
+}
+
+Config.Objects = { -- for object removal
+    { coords = vector3(266.09, -349.35, 44.74), heading = 0, length = 200, width = 200, model = 'prop_sec_barier_02b' },
+    { coords = vector3(285.28, -355.78, 45.13), heading = 0, length = 200, width = 200, model = 'prop_sec_barier_02a' },
+}
+
+-- You may add more than 2 selections and it will bring up a menu for the player to select which floor be sure to label each section though
+Config.Teleports = {
+    --[[[1] = {                   -- Elevator @ labs
+        [1] = {               -- up
+            poly = { coords = vector3(3540.74, 3675.59, 20.99), heading = 167.5, length = 2, width = 2 },
+            allowVeh = false, -- whether or not to allow use in vehicle
+            label = false     -- set this to a string for a custom label or leave it false to keep the default. if more than 2 options, label all options
+
+        },
+        [2] = { -- down
+            poly = { coords = vector3(3540.74, 3675.59, 28.11), heading = 172.5, length = 2, width = 2 },
+            allowVeh = false,
+            label = false
+        }
+    },
+    [2] = { --Coke Processing Enter/Exit
+        [1] = {
+            poly = { coords = vector3(909.49, -1589.22, 30.51), heading = 92.24, length = 2, width = 2 },
+            allowVeh = false,
+            label = '[E] Enter Coke Processing'
+        },
+        [2] = {
+            poly = { coords = vector3(1088.81, -3187.57, -38.99), heading = 181.7, length = 2, width = 2 },
+            allowVeh = false,
+            label = '[E] Leave'
+        }
+    }]]
+}
+
+Config.CarWash = {
+    dirtLevel = 0.1,                                                                                   -- threshold for the dirt level to be counted as dirty
+    defaultPrice = 20,                                                                                 -- default price for the carwash
+    locations = {
+        [1] = { coords = vector3(174.81, -1736.77, 28.87), length = 7.0, width = 8.8, heading = 359 }, -- South Los Santos Carson Avenue
+        [2] = { coords = vector3(25.2, -1391.98, 28.91), length = 6.6, width = 8.2, heading = 0 },     -- South Los Santos Innocence Boulevard
+        [3] = { coords = vector3(-74.27, 6427.72, 31.02), length = 9.4, width = 8, heading = 315 },    -- Paleto Bay Boulevard
+        [4] = { coords = vector3(1362.69, 3591.81, 34.5), length = 6.4, width = 8, heading = 21 },     -- Sandy Shores
+        [5] = { coords = vector3(-699.84, -932.68, 18.59), length = 11.8, width = 5.2, heading = 0 }   -- Little Seoul Gas Station
+    }
+}
+
+-- Vehicles Push
+Config.target = true -- Use target system for vehicle push (disables TextUI)
+Config.targetSystem = 'qb-target' -- Target System to use. ox_target, qtarget, qb-target
+Config.Usebones = true -- Use bones for vehicle push
+Config.PushKey = 'E' -- Key to push vehicle
+Config.TurnRightKey = 'Q' -- Keys to turn the vehicle while pushing it.
+Config.TurnLeftKey = 'A' -- Keys to turn the vehicle while pushing it.
+Config.TextUI = false -- Use Text UI for vehicle push
+Config.useOTSkills = false -- Use OT Skills for XP gain from pushing vehicles. Found here: https://otstudios.tebex.io
+Config.maxReward = 20 -- Max amount of xp that can be gained from pushing a vehicle per push, make sure this is the same or less than what is set for strength in your OT_skills config.
+Config.healthMin = 2000.0 -- Minimum health of vehicle to be able to push it.
+
+Config.blacklist = { -- blacklist vehicle models from being pushed.
+    [`phantom`] = true
+}
+
+-- Vending Machine
+Config.InvPath = "<img src=nui://qb-inventory/html/images/"
+
+Config.Shop = {
+    ['water_bottle'] = {
+        drinkLabel = 'Eau',
+        drinkPrice = 1,
+        drinkName = 'water_bottle' --item name not label
+    },
+
+    ['kurkakola'] = {
+        drinkLabel = 'CocaCola',
+        drinkPrice = 2,
+        drinkName = 'kurkakola'
+    },
+
+    ['coffee'] = {
+        drinkLabel = 'Caffé',
+        drinkPrice = 4,
+        drinkName = 'coffee'
+    }
+
+
+}
+
+Config.Machines = {
+    "prop_vend_soda_01",
+    "prop_vend_soda_02",
+    "prop_vend_snak_01",
+    "prop_vend_fridge01",
+    "prop_watercooler",
+    "prop_vend_snak_01_tu",
+    "prop_vend_coffe_01",
+    "prop_vend_water_01",
+    'molo_h_distri',
+}

@@ -1,0 +1,90 @@
+[
+    {
+      "name": "nico_du-34",
+      "master": true,
+      "password_hash": "$2a$11$xm2js8HCKbJrz3FtBOr/ZO5SlnihO3MpQ7uY6ayowOaEOiPDJDiIG",
+      "providers": {
+        "citizenfx": {
+          "id": "nico_du-34",
+          "identifier": "fivem:7872032",
+          "data": {
+            "name": "nico_du-34",
+            "profile": "https://forum.cfx.re/u/nico_du-34",
+            "nameid": "https://forum.cfx.re/internal/user/7872032",
+            "picture": "https://forum.cfx.re/user_avatar/forum.cfx.re/nico_du-34/256/4169407_2.png"
+          }
+        },
+        "discord": {
+          "id": "1069568643496681562",
+          "identifier": "discord:1069568643496681562",
+          "data": {}
+        }
+      },
+      "permissions": [],
+      "$schema": 1
+    },
+    {
+      "$schema": 1,
+      "name": "Minescorpio",
+      "master": false,
+      "password_hash": "$2a$11$8Z81uy3jCwRp1VQ6cI.wSuUhCjn914f00EQaJ.o5F8Oe3YhMkprnu",
+      "providers": {
+        "discord": {
+          "id": "282593195962138625",
+          "identifier": "discord:282593195962138625",
+          "data": {}
+        },
+        "citizenfx": {
+          "id": "SteveMacdonald",
+          "identifier": "fivem:15413848",
+          "data": {}
+        }
+      },
+      "permissions": [
+        "all_permissions"
+      ]
+    },
+    {
+      "$schema": 1,
+      "name": "BebeToto14006",
+      "master": false,
+      "password_hash": "$2a$11$dv3VL34MIeUXDU6y5gyoh./aTq48IEijjS3Fl6uhavyElrTSbx4aW",
+      "providers": {
+        "citizenfx": {
+          "id": "BebeToto",
+          "identifier": "fivem:14546531",
+          "data": {}
+        },
+        "discord": {
+          "id": "445985107400982559",
+          "identifier": "discord:445985107400982559",
+          "data": {}
+        }
+      },
+      "permissions": [
+        "all_permissions"
+      ]
+    },
+    {
+      "$schema": 1,
+      "name": "ElPirato",
+      "master": false,
+      "password_hash": "$2a$11$l.ebd51J7AB0B0zLat9fVemt07cnxiYYhpZQg6nCEoe3mxmJudFcm",
+      "password_temporary": true,
+      "providers": {
+        "citizenfx": {
+          "id": "Voyage_Voyage",
+          "identifier": "fivem:8198044",
+          "data": {}
+        },
+        "discord": {
+          "id": "691704447339987016",
+          "identifier": "discord:691704447339987016",
+          "data": {}
+        }
+      },
+      "permissions": [
+        "all_permissions"
+      ]
+    }
+  ]

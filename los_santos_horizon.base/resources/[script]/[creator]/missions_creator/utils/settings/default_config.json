@@ -1,0 +1,28 @@
+{
+    "server": {
+        "canAlwaysCarryItem": false,
+        "acePermission": "missions_creator",
+        "areDiscordLogsActive": false,
+        "specificWebhooks": [],
+        "mainDiscordWebhook": "",
+        "canReceiveMultipleTimesTheSameItem": true,
+        "markMissionAsPlayedType": "end"
+    },
+
+    "shared": {
+        "locale": "en",
+        "debug": false
+    },
+
+    "client": {
+        "keys": {
+            "interact": 38,
+            "exit": 200,
+            "confirm": 176
+        },
+
+        "helpNotification": "none",
+
+        "showPanelsOnMissionCompletion": true
+    }
+}

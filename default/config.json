@@ -1,0 +1,52 @@
+{
+  "global": {
+    "serverName": "Los Santos Horizon",
+    "language": "fr",
+    "menuEnabled": false,
+    "menuAlignRight": false,
+    "menuPageKey": "CapsLock",
+    "hideDefaultAnnouncement": true,
+    "hideDefaultDirectMessage": true,
+    "hideDefaultWarning": true,
+    "hideDefaultScheduledRestartWarning": true,
+    "hideAdminInPunishments": true,
+    "hideAdminInMessages": true
+  },
+  "logger": {},
+  "monitor": {
+    "restarterSchedule": [
+      "05:00"
+    ],
+    "resourceStartingTolerance": 90
+  },
+  "playerDatabase": {
+    "onJoinCheckBan": true,
+    "whitelistMode": "guildRoles",
+    "whitelistedDiscordRoles": [
+      "1301291796210520146"
+    ],
+    "whitelistRejectionMessage": "Merci de rejoindre le discord : https://discord.gg/Q8xs5tpCJH\nPour pouvoir vous connecté !",
+    "requiredBanHwidMatches": 1,
+    "banRejectionMessage": "Rejoint le discord et crée un ticket pour te faire deban\nDiscord: https://discord.gg/Q8xs5tpCJH"
+  },
+  "webServer": {
+    "disableNuiSourceCheck": false
+  },
+  "discordBot": {
+    "enabled": true,
+    "token": "MTIyMTEwOTIyNzA2MjMwMDY5Mg.GEwX4v.7GVYGo_gSnZktNVCpEbQxDDNtHOCt08O3v5gxQ",
+    "guild": "1301124504348524594",
+    "announceChannel": "1301298526457827420",
+    "embedJson": "{\n  \"title\": \"{{serverName}}\",\n  \"url\": \"{{serverBrowserUrl}}\",\n  \"fields\": [\n    {\n      \"name\": \"> STATUS\",\n      \"value\": \"```\\n{{statusString}}\\n```\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"> JOUEURS\",\n      \"value\": \"```\\n{{serverClients}}/{{serverMaxClients}}\\n```\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"> F8 CONNECT\",\n      \"value\": \"```\\nconnect a venir\\n```\"\n    },\n    {\n      \"name\": \"> REBOOT\",\n      \"value\": \"```\\n{{nextScheduledRestart}}\\n```\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"> UPTIME\",\n      \"value\": \"```\\n{{uptime}}\\n```\",\n      \"inline\": true\n    }\n  ],\n  \"image\": {\n    \"url\": \"https://i.imgur.com/rvWDZOE.gif\"\n  },\n  \"thumbnail\": {\n    \"url\": \"https://i.imgur.com/DnnNJSa.png\"\n  }\n}",
+    "embedConfigJson": "{\n  \"onlineString\": \"🟢 En ligne\",\n  \"onlineColor\": \"#0BA70B\",\n  \"partialString\": \"🟡 Démarre\",\n  \"partialColor\": \"#FFF100\",\n  \"offlineString\": \"🔴 Hors ligne\",\n  \"offlineColor\": \"#A70B28\"\n}"
+  },
+  "fxRunner": {
+    "serverDataPath": "/root/fivem/txData/los_santos_horizon.base/",
+    "cfgPath": "/root/fivem/txData/los_santos_horizon.base/server.cfg",
+    "commandLine": "",
+    "onesync": "legacy",
+    "autostart": true,
+    "quiet": true
+  },
+  "banTemplates": []
+}

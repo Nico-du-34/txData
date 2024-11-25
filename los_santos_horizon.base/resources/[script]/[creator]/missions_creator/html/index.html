@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+
+<head>
+	<title>Missions Creator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<!-- Script CSS -->
+	<link href="index.css" rel="stylesheet" type="text/css" />
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
+	<link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
+	<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@700&display=swap" rel="stylesheet"> 	
+	
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- jQueryUI-->
+	<script src="assets/js/jquery-ui.min.js"></script>
+
+	<!-- Bootstrap icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Theme -->
+	<link rel="stylesheet" href="./assets/css/theme.bundle.css" id="stylesheetLTR">
+
+	<!-- Datatables -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.css"/>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.js"></script>
+
+	<!-- Notifications -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<!-- Rating -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rater-js@1.0.1/lib/style.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/rater-js@1.0.1/index.min.js"></script>
+
+	<!-- Chart.js -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js" integrity="sha256-bC3LCZCwKeehY6T4fFi9VfOU0gztUa+S4cnkIhVPZ5E=" crossorigin="anonymous"></script>
+</head>
+
+<body style="background-color: transparent !important;">
+	<div id="missions-creator" class="container-lg bg-white position-absolute top-50 start-50 translate-middle rounded" style="display: none;">
+        <div id="main-bar" class="d-inline-block col-12 text-center mt-2">
+			<p id="missions-creator-label" class="d-inline script-name">Missions Creator - <span id="missions-creator-version" class="d-inline script-name"></span></p>
+			
+			<button id="close-main-btn" type="button" class="btn-close btn-close-white float-end mt-2"></button>
+		</div>
+
+		<div class="d-flex align-items-start my-2 col-auto">
+			<div class="nav flex-column nav-pills me-3" role="tablist">
+				<button class="nav-link active" data-is-default="1" data-translation-id="menu:missions" id="missions-tab" data-bs-toggle="pill" data-bs-target="#missions" type="button" role="tab"><i class="text-success bi bi-car-front"></i>Missions</button>
+				<button class="nav-link" data-translation-id="menu:missions_tracker" id="missions-tracker-tab" data-bs-toggle="pill" data-bs-target="#missions-tracker" type="button" role="tab"><i class="bi bi-bar-chart-fill"></i> On going missions</button>
+				<button class="nav-link" data-translation-id="menu:statistics" id="statistics-tab" data-bs-toggle="pill" data-bs-target="#statistics" type="button" role="tab"><i class="bi bi-bar-chart-fill"></i> Statistics</button>
+				<button class="nav-link" id="nexus-tab" data-bs-toggle="pill" data-bs-target="#nexus" type="button" role="tab"><i class="bi bi-rocket-takeoff-fill"></i> Nexus</button>
+				<button class="nav-link" data-translation-id="menu:settings" id="settings-tab" data-bs-toggle="pill" data-bs-target="#settings" type="button" role="tab"><i class="bi bi-gear-fill"></i> Settings</button>
+			</div>
+
+			<div class="tab-content col">
+				<div class="tab-pane fade show active" data-is-default="1" id="missions" role="tabpanel">
+					<div class="d-inline-block col-12 my-2">
+						<button id="new-mission-btn" type="button" class="btn btn-success float-end" data-translation-id="menu:new_mission">New mission</button>
+					</div>
+
+					<table id="missions-container" class="table table-hover fs-4 mb-2">
+						<thead>
+							<tr>
+                                <th scope="col" data-translation-id="menu:id">ID</th>
+                                <th scope="col" data-translation-id="menu:label">Label</th>
+							</tr>
+						</thead>
+
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+
+				<div class="tab-pane fade" id="missions-tracker" role="tabpanel">
+					<div class="d-inline-block col-12 my-2">
+						<button id="refresh-missions-tracker-btn" type="button" class="btn btn-success float-end" data-translation-id="menu:refresh">Refresh</button>
+					</div>
+
+					<div id="missions-tracker-instances-div" class="elements-list">
+
+					</div>
+
+					<h2 class="no-elements-message text-center text-warning" data-translation-id="menu:there_are_no_missions_being_played"></h2>
+				</div>
+
+				<div class="tab-pane fade" id="statistics" role="tabpanel">
+					<div class="mb-3 d-flex justify-content-center">
+						<input type="radio" class="btn-check" name="missions-statistics-type" id="missions-statistics-likes-dislikes" value="likes-dislikes" autocomplete="off">
+						<label class="btn btn-light mx-1" data-translation-id="menu:likes_dislikes" for="missions-statistics-likes-dislikes">Likes/Dislikes</label>
+
+						<input type="radio" class="btn-check" name="missions-statistics-type" id="missions-statistics-success-failure" value="success-failure" autocomplete="off">
+						<label class="btn btn-light mx-1" data-translation-id="menu:success_failure" for="missions-statistics-success-failure">Success/Failure</label>
+					</div>
+
+					<canvas id="missions-statistics-canvas"></canvas>
+
+					<div class="d-flex justify-content-center gap-3">
+						<button class="btn btn-secondary" id="statistics-prev-page-btn" data-translation-id="menu:statistics:previous_page"></button>
+						<button class="btn btn-secondary" id="statistics-next-page-btn" data-translation-id="menu:statistics:next_page"></button>
+					</div>
+				</div>
+
+				<div class="tab-pane fade container" id="nexus" role="tabpanel" style="max-height: 90vh; overflow-y: auto;">
+					<div class="d-flex justify-content-center align-items-center" style="min-height:40vh">
+						<div id="nexus-login">
+							<button type="button" id="enter-in-nexus-btn" class="btn btn-success btn-lg">
+								<span class="spinner-border spinner-border-sm" style="display: none;"></span>
+								<span id="enter-in-nexus-label">Enter in nexus</span>
+							</button>						  
+						</div>
+	
+						<div id="nexus-container" class="container" style="display: none;">
+							<div class="d-inline-block col-12 my-2">
+								<button id="upload-to-nexus-btn" type="button" class="btn btn-success float-end" data-translation-id="menu:nexus:share">Share</button>
+							</div>
+		
+							<table id="nexus-table" class="table table-hover fs-4">
+								<thead>
+									<tr>
+										<th scope="col" data-translation-id="menu:nexus:name">Name</th>
+										<th scope="col" data-translation-id="menu:nexus:description">Description</th>
+										<th scope="col" data-translation-id="menu:nexus:stages">Stages</th>
+										<th scope="col" data-translation-id="menu:nexus:rating">Rating</th>
+										<th scope="col" data-translation-id="menu:nexus:votes">Votes</th>
+										<th scope="col"><i class="bi bi-cloud-arrow-down"></i></th>
+										<th scope="col" data-translation-id="menu:nexus:author">Author</th>
+										<th scope="col"></th>
+									</tr>
+								</thead>
+					
+								<tbody id="nexus-container-body">
+					
+								</tbody>
+							</table>			
+						</div>
+					</div>
+				</div>
+
+				<form class="tab-pane fade needs-validation" id="settings" role="tabpanel" novalidate>
+					<div class="container my-2 scrollbar" style="max-height: 60vh; overflow-y: auto">
+						<div>
+							<h3 class="text-center" data-translation-id="menu:settings:language">Language</h3>
+	
+							<select class="form-select" id="settings-locale">
+								<option value="en">English</option>
+								<option value="de">Deutsch</option>
+								<option value="es">Español</option>
+								<option value="fr">Français</option>
+							</select>
+						</div>
+
+						<hr>
+						
+						<div>
+							<h3 class="text-center" data-translation-id="menu:settings:generic">Generic</h3>
+
+							<div class="input-group my-3 fs-4">
+								<span class="input-group-text">ACE permission</span>
+								<input id="settings-ace-permission" type="text" class="form-control" required>
+							</div>
+
+							<div class="row align-items-center mt-2">
+								<p class="text-center translatable fs-4 my-auto" data-translation-id="menu:settings:help_notification" style="width:auto">Help notification</p>
+								
+								<select id="settings-help-notification-script" class="form-select w-25" data-select>
+									<option data-translation-id="menu:none" value="none">None</option>
+									<option value="esx_textui">ESX TextUI</option>
+								</select>
+							</div>
+
+							<div class="row align-items-center mt-2">
+								<div data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:mark_mission_as_played:description" style="width:auto">
+									<p class="text-center translatable fs-4 my-auto" data-translation-id="menu:mark_mission_as_played"></p>
+								</div>
+								
+								<select id="settings-mark-mission-as-played-type" class="form-select w-25" data-select>
+									<option data-translation-id="menu:on_mission_end" value="end">End</option>
+									<option data-translation-id="menu:on_mission_start" value="start">Start</option>
+								</select>
+							</div>
+
+							<div class="col-3 my-3" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:choose_player">
+								<button id="settings-reset-player-missions-progression-btn" type="button" class="btn btn-danger col-12" data-translation-id="menu:reset_player_missions_progression">Reset player missions progression</button>
+							</div>
+
+							<div class="form-check form-switch fs-3 my-3">
+								<input class="form-check-input" type="checkbox" role="switch" id="settings-can-always-carry">
+								<label class="form-check-label" data-translation-id="menu:can_always_carry_items" for="settings-can-always-carry">Can always carry</label>
+							</div>
+	
+							<div class="form-check form-switch fs-3 my-3">
+								<input id="settings-can-receive-multiple-same-item" class="form-check-input"  type="checkbox" role="switch" data-translation-id="menu:used_in_items_list" data-bs-toggle="tooltip" data-bs-placement="top">
+								<label class="form-check-label" data-translation-id="menu:can_receive_multiple_times_the_same_item" for="settings-can-receive-multiple-same-item">Can receive multiple times the same item</label>
+							</div>
+
+							<div class="form-check form-switch fs-3 my-3">
+								<input id="settings-show-panels-on-mission-completion" class="form-check-input" type="checkbox" role="switch">
+								<label class="form-check-label" data-translation-id="menu:show_panels_on_mission_completion" for="settings-show-panels-on-mission-completion">Show panels on mission completion</label>
+							</div>
+
+							<div class="form-check form-switch fs-3 my-3">
+								<input id="settings-debug-enabled" class="form-check-input"  type="checkbox" role="switch">
+								<label class="form-check-label" data-translation-id="menu:debug_enabled" for="settings-debug-enabled">Debug enabled</label>
+							</div>
+						</div>
+
+						<div class="mt-3">
+							<h2 class="text-center" data-translation-id="menu:keys">Keys</h2>
+
+							<div class="d-flex gap-3">
+								<div class="form-floating col">
+									<input id="settings-key-to-interact" type="number" data-dialog-type='control' class="form-control clickable" placeholder="Press to choose" required readonly>
+									<label data-translation-id="menu:key_to_interact"></label>
+								</div>
+
+								<div class="form-floating col">
+									<input id="settings-key-to-exit" type="number" data-dialog-type='control' class="form-control clickable" placeholder="Press to choose" required readonly>
+									<label data-translation-id="menu:key_to_exit"></label>
+								</div>
+
+								<div class="form-floating col">
+									<input id="settings-key-to-confirm" type="number" data-dialog-type='control' class="form-control clickable" placeholder="Press to choose" required readonly>
+									<label data-translation-id="menu:key_to_confirm"></label>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+						<div>
+							<h3 class="text-center" data-translation-id="menu:settings:discord">Discord</h3>
+
+							<div class="form-check form-switch fs-4 mt-4">
+								<input class="form-check-input" type="checkbox" role="switch" id="settings-areDiscordLogsActive">
+								<label class="form-check-label" data-translation-id="menu:settings:enable_discord_logs" for="settings-areDiscordLogsActive">Enable discord logs</label>
+							</div>
+		
+							<div>
+								<h4 class="mb-0" data-translation-id="menu:settings:discord_webhooks">Discord webhooks</h4>
+		
+								<div class="input-group mt-1 mb-3 fs-5" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:main_webhook_description">
+									<span class="input-group-text col-3" data-translation-id="menu:settings:main_webhook">Main webhook</span>
+									<input id="settings-mainDiscordWebhook" type="text" class="form-control" placeholder="https://discord.com/api/webhooks/USE_YOUR_WEBHOOK/YOUR_WEBHOOK">
+								</div>
+		
+								<h4 class="mb-0" data-translation-id="menu:settings:separated_webhooks">Separated webhooks</h4>
+	
+								<div id="settings-specific-webooks-div">
+									<div class="input-group my-1 fs-5">
+										<span class="input-group-text col-3" data-translation-id="menu:logs:not_ready"></span>
+										<input type="text" class="form-control" data-log-type="NOT_READY" placeholder="https://discord.com/api/webhooks/USE_YOUR_WEBHOOK/YOUR_WEBHOOK">
+									</div>
+								</div>
+							</div>	
+						</div>
+
+					</div>
+
+					<button type="submit" class="btn btn-success float-end" data-translation-id="menu:apply_changes">Apply changes</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Mission modal -->
+	<div id="mission-modal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+			<form id="mission-form" class="modal-content needs-validation" novalidate>
+				<div class="modal-header">
+					<h5 class="modal-title" data-translation-id="menu:mission">Mission</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+				<div class="modal-body scrollbar">
+					
+					<ul class="nav nav-pills mb-4 justify-content-center" role="tablist">
+                        <li class="nav-item" role="presentation">
+							<button class="nav-link show active" data-is-default="1" data-translation-id="menu:options" id="mission-options-tab" data-bs-toggle="pill" data-bs-target="#mission-options" type="button" role="tab">Options</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                        	<button class="nav-link" data-translation-id="menu:setup" id="mission-setup-tab" data-bs-toggle="pill" data-bs-target="#mission-setup" type="button" role="tab">Setup</button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content container">
+                        <div id="mission-options" class="tab-pane fade show active" data-is-default="1" role="tabpanel">
+
+							<div class="d-flex gap-3 justify-content-center align-items-center mb-5">
+								<div class="form-floating">
+									<input type="text" class="form-control" id="mission-label" placeholder="..." required>
+									<label for="mission-label" data-translation-id="menu:mission_label"></label>
+								</div>
+
+								<div class="form-floating col-2">
+									<textarea class="form-control" id="mission-description" placeholder="..." required style="overflow-y: hidden;"></textarea>
+									<label for="mission-description" data-translation-id="menu:mission_description"></label>
+								</div>
+
+								<div class="form-floating">
+									<input type="number" class="form-control" id="mission-minimum-players" min="1" placeholder="..." required>
+									<label for="mission-minimum-players" data-translation-id="menu:minimum_players"></label>
+								</div>
+
+								<div class="form-floating">
+									<input type="number" class="form-control" id="mission-maximum-players" min="1" placeholder="..." required>
+									<label for="mission-maximum-players" data-translation-id="menu:maximum_players"></label>
+								</div>
+							</div>
+
+							<div class="d-flex gap-3 justify-content-center align-items-center mb-5">
+								<div class="form-floating col-3" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:minutes_before_cleanup:description">
+									<input type="number" class="form-control" id="mission-minutes-before-cleanup" min="0" placeholder="..." required>
+									<label for="mission-minutes-before-cleanup" data-translation-id="menu:minutes_before_cleanup"></label>
+								</div>
+								
+								<div class="form-check my-auto" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:allow_multiple_sessions:description">
+									<input class="form-check-input" type="checkbox" value="" id="mission-allow-multiple-sessions">
+									<label class="form-check-label" for="mission-allow-multiple-sessions" data-translation-id="menu:allow_multiple_sessions"></label>
+								</div>
+
+								<div class="form-check my-auto" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:can_be_repeated:description">
+									<input class="form-check-input" type="checkbox" value="" id="mission-can-be-repeated">
+									<label class="form-check-label" for="mission-can-be-repeated" data-translation-id="menu:can_be_repeated"></label>
+								</div>
+
+								<div id="mission-cooldown-hours-div" class="form-floating" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:cooldown_hours:description">
+									<input type="number" class="form-control" id="mission-cooldown-hours" min="0" placeholder="..." required>
+									<label for="mission-cooldown-hours" data-translation-id="menu:cooldown_hours"></label>
+								</div>
+							</div>
+
+							<h3 class="text-center" data-translation-id="menu:requirements"></h3>
+
+							<div class="d-flex gap-3 justify-content-center align-items-center mb-5">
+								<div class="form-floating col-auto ms-2">
+									<input id="mission-minimum-police" type="number" class="form-control" min="0" placeholder="..." required>
+									<label for="mission-minimum-police" data-translation-id="menu:minimum_police"></label>
+								</div>
+
+								<div class="form-floating col-3 ms-2">
+									<input type="text" class="form-control" id="mission-allowed-jobs" placeholder="..." required disabled>
+									<label for="mission-allowed-jobs" data-translation-id="menu:allowed_jobs"></label>
+								</div>
+
+								<button id="mission-allowed-jobs-choose-btn" type="button" class="btn btn-secondary px-4" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:choose_jobs"><i class="bi bi-list-ul"></i></button>
+								
+								<div class="form-floating ms-2" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:required_missions:description">
+									<input type="text" class="form-control" id="mission-required-missions" placeholder="..." required disabled>
+									<label for="mission-required-missions" data-translation-id="menu:required_missions"></label>
+								</div>
+
+								<button id="mission-required-missions-choose-btn" type="button" class="btn btn-secondary px-4" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:choose_missions"><i class="bi bi-list-ul"></i></button>
+							</div>
+							
+							<h3 class="text-center" data-translation-id="menu:mission_start"></h3>
+
+							<div class="d-flex gap-3 justify-content-center align-items-center">
+								<div class="form-floating">
+									<input type="number" class="form-control" id="mission-start-coordinates-x" step="0.01" placeholder="..." required>
+									<label for="mission-start-coordinates-x" data-translation-id="menu:x"></label>
+								</div>
+
+								<div class="form-floating">
+									<input type="number" class="form-control" id="mission-start-coordinates-y" step="0.01" placeholder="..." required>
+									<label for="mission-start-coordinates-y" data-translation-id="menu:y"></label>
+								</div>
+
+								<div class="form-floating">
+									<input type="number" class="form-control" id="mission-start-coordinates-z" step="0.01" placeholder="..." required>
+									<label for="mission-start-coordinates-z" data-translation-id="menu:z"></label>
+								</div>
+
+								<button id="mission-start-choose-coords-btn" type="button" class="btn btn-secondary col-auto" data-bs-toggle="tooltip" data-bs-placement="top" data-translation-id="menu:choose_coords"><i class="bi bi-arrow-down-square"></i></button>							
+
+								<button id="mission-start-customize-blip-btn" type="button" class="btn btn-secondary px-4" data-translation-id="menu:customize_blip">Customize blip</button>
+								<button id="mission-start-customize-marker-btn" type="button" class="btn btn-secondary px-4" data-translation-id="menu:customize_marker">Customize marker</button>
+								<button id="mission-start-customize-ped-btn" type="button" class="btn btn-secondary px-4" data-translation-id="menu:customize_ped">Customize ped</button>
+							</div>
+
+                        </div>
+
+                        <div id="mission-setup" class="tab-pane fade" role="tabpanel">
+							<div id="mission-header-div" class="d-flex gap-2" style="min-height: 20vh; max-height: 20vh;">
+								<div class="col-3 scrollbar" style="overflow:auto">
+									<div id="stages-list" class="list-group text-center scrollbar">
+										<a href="#" class="list-group-item list-group-item-action active p-2">Stage 1</a>
+										<a href="#" class="list-group-item list-group-item-action p-2">Stage 2</a>
+										<a href="#" class="list-group-item list-group-item-action p-2">Stage 3</a>
+										<a href="#" class="list-group-item list-group-item-action p-2">Create new stage</a>
+									</div>
+								</div>
+
+								<div class="col-3 scrollbar" style="overflow:auto">
+									<div id="stage-workflow-types-selection-list" class="list-group text-center scrollbar">
+
+									</div>
+								</div>
+
+								<div class="col-3 scrollbar" style="overflow:auto">
+									<div id="stage-workflow-items-selection-list" class="list-group text-center scrollbar">
+										<a href="#" class="list-group-item list-group-item-action active p-2">Spawn ped</a>
+										<a href="#" class="list-group-item list-group-item-action p-2">Spawn ped</a>
+										<a href="#" class="list-group-item list-group-item-action p-2">Spawn ped</a>
+										<a href="#" class="list-group-item list-group-item-action p-2">Spawn object</a>
+									</div>
+								</div>
+							</div>
+
+							<hr>
+
+							<div id="stage-elements-container">
+
+							</div>
+                        </div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button id="delete-mission-btn" type="button" class="btn btn-danger me-auto" data-translation-id="menu:delete" data-bs-dismiss="modal">Delete</button>
+					<button type="button" class="btn btn-secondary" data-translation-id="menu:close" data-bs-dismiss="modal">Close</button>
+					<button id="save-mission-btn" type="submit" class="btn btn-success" data-translation-id="menu:create">Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="todo-list" class="mt-9" style="max-height:35vh; overflow:hidden; display: none;">
+		<div class="todo-info px-6">
+			<div class="content">
+			  <p class="fs-4 mb-0">
+				<span id="todo-stage-label"></span>
+				<span id="todo-stage-timer" class="fs-6"></span>
+			  </p>
+
+			  <p id="todo-stage-description" class="fs-6 mb-0"></p>
+			</div>
+			
+			<div class="background"></div>
+		</div>
+
+		<ul id="tasks-list-todo" class="tasks-list p-0 px-3 ms-6 col-3">
+
+		</ul>
+
+		<ul id="tasks-list-completed" class="tasks-list p-0 px-3 ms-6 col-3">
+
+		</ul>
+	</div>
+
+	<!-- Nexus modal -->
+	<div class="modal fade" id="nexus-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" style="z-index: 1070;">
+		<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+			<div class="modal-content needs-validation" novalidate>
+				<div class="modal-header">
+					<h5 class="modal-title" id="nexus-modal-title-text"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+				<div class="modal-body scrollbar">
+					<h1 class="text-center" id="nexus-modal-instance-listing-label"></h1>
+					
+					<div class="row mt-4">
+						<div class="container col-7">							
+							<div class="mt-3">
+								<h5>Description:</h5>
+								<p id="nexus-modal-instance-description"></p>
+							</div>
+						</div>
+
+						<div class="container col-5 fs-4">
+							<p>
+								<span id="nexus-modal-instance-average-rating"></span>
+								| 
+								<span><span id="nexus-modal-instance-total-votes"></span> <span data-translation-id="menu:nexus:votes"></span></span>
+							</p>
+
+							<p> <span class="fw-bold">Created by: </span> <span id="nexus-modal-instance-author"></span> </p>
+						</div>
+					</div>
+
+					<hr/>
+
+					<div class="d-flex justify-content-evenly">
+						<p><span class="fw-bold" data-translation-id="menu:nexus:content_type">Content type</span> - <span id="nexus-instance-content-type" class="font-monospace"></span></p>
+						<p><span class="fw-bold" data-translation-id="menu:nexus:stages">Stages</span> - <span id="nexus-instance-stages-amount" class="font-monospace"></span></p>    
+					</div>
+
+					<ol id="nexus-modal-instance-content" class="list-group list-group-numbered col-10 text-center mx-auto">
+
+					</ol>
+
+				</div>
+				<div class="modal-footer d-inline-block col-12">
+					<div class="float-start" id="vote-instance-rater"></div>
+					<button id="nexus-import-instance-btn" type="button" class="btn btn-primary float-end" data-translation-id="menu:nexus:import">Import</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="nexus-modal-upload" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" style="z-index: 1070;">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <form id="nexus-upload-form" class="modal-content needs-validation" novalidate>
+                <div class="modal-header">
+                    <h5 class="modal-title" data-translation-id="menu:nexus:data_to_share"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+					<div class="mb-3">
+						<label class="form-label" data-translation-id="menu:nexus:name"></label>
+						<input type="text" class="form-control" id="nexus-upload-label" required>
+					</div>
+
+					<div class="mb-3">
+						<label class="form-label" data-translation-id="menu:nexus:description"></label>
+						<textarea class="form-control" id="nexus-upload-description" rows="3" minlength="5" required></textarea>
+					</div>
+
+					<div class="form-check mt-3">
+						<input type="checkbox" id="nexus-upload-accept-tos" class="form-check-input" required>
+						<label class="form-check-label">I agree to the   <a href="https://documentation.jaksam-scripts.com/jaksams-scripts/nexus-terms" target="_blank" onclick='window.invokeNative("openUrl", "https://documentation.jaksam-scripts.com/jaksams-scripts/nexus-terms")'>Nexus Terms and Privacy Policy</a></label>
+					</div>
+				</div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translation-id="menu:close"></button>
+                    <button type="submit" class="btn btn-success" data-translation-id="menu:nexus:upload"></button>
+                </div>    
+            </form>
+        </div>
+    </div>
+
+	<script src="./assets/js/theme.bundle.js"></script>
+	<script src="index.js"></script>
+	<script src="todo_list.js"></script>
+	<script src="../utils/dialogs/dialogs.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.4.5/dist/vue.global.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+
+<body> 
+    <div id="app">
+      <div class="flex flex-col w-full h-[100vh] overflow-hidden bg-center bg-no-repeat" style="background-image: url(/src/assets/image/bg.png); background-size: 100% 100%;" v-if="this.general.show">
+      <div id="mans" class="absolute w-full h-[100vh] overflow-hidden bg-center bg-no-repeat" style="background-image: url(/src/assets/image/mans-bg.png); background-size: 100% 100%;"></div>
+        <div class="flex w-full h-[34.6296vh] z-50">
+          <div id="menu-0" @click="this.setMap()" class="hover:scale-105 flex flex-col w-[41.6667vh] h-[29.1667vh] ml-[4.7222vh] mt-[3.3333vh] bg-center bg-no-repeat" style="background-size: cover; background-image: url(/src/assets/image/gta-v-map-bg.png);">
+            <div class="flex flex-col w-[35.8333vh] h-[5.463vh] ml-[3.7037vh] mt-[2.037vh]">
+              <p class="w-[35vh] h-[3.2407vh] text-white" :style="setFont('Montserrat ExtraBold', 'normal', '800', '2.6306vh', '3.2407vh')">{{this.locales.gtav}} <span class="text-[#858585]" :style="setFont('Montserrat SemiBold', 'normal', '600', '2.6304vh', '3.2407vh')">{{this.locales.map}}</span></p>
+              <p class="w-[35.8333vh] h-[3.3333vh] text-[#858585]" :style="setFont('Montserrat Medium', 'normal', '500', '0.8768vh', '1.1111vh')">{{this.locales.map_description}}</p>
+            </div>
+          </div>
+
+          <div id="menu-1" class="hover:scale-105 flex flex-col w-[66.0185vh] h-[29.1509vh] ml-[2.5vh] mt-[3.5185vh] bg-center bg-no-repeat" style="background-size: cover; background-image: url(/src/assets/image/information-bg.png);">
+            <div class="flex flex-col w-[50.2778vh] h-[6.1111vh] ml-[3.7037vh] mt-[2.037vh]">
+              <p class="w-[50.2778vh] h-[3.2407vh] text-white" :style="setFont('Montserrat ExtraBold', 'normal', '800', '2.6306vh', '3.2407vh')">{{this.locales.character}} <span class="text-[#858585]" :style="setFont('Montserrat SemiBold', 'normal', '600', '2.6306vh', '3.2407vh')">{{this.locales.information}}</span></p>
+              <p class="w-[50.2778vh] h-[2.8704vh] text-[#858585]" :style="setFont('Montserrat Medium', 'normal', '500', '0.8769vh', '1.1111vh')">{{this.locales.charinfo_description}}</p>
+            </div>
+
+            <div class="flex flex-col w-[50.3583vh] h-[17.825vh] mt-[0.7407vh] ml-[3.6111vh]">
+              <div class="flex w-[50.3583vh] h-[5.0472vh] mb-[1.3417vh]">
+                <div class="w-[23.5991vh] h-[5.0472vh] bg-center bg-no-repeat" style="background-size: 100% 100%; background-image: url(/src/assets/image/player-name-bg.png);">
+                  <div class="flex flex-col w-[16.4815vh] h-[2.963vh] ml-[6.0185vh] mt-[1.0185vh]">
+                    <p class="w-[10.5556vh] h-[1.4815vh] text-[#7B7B7B]" :style="setFont('Montserrat Medium', 'normal', '500', '1.2324vh', '1.4815vh')">{{this.locales.name}}</p>
+                    <p class="w-[16.4815vh] h-[1.4815vh] text-[#D3D3D3]" :style="setFont('Montserrat SemiBold', 'normal', '600', '1.3639vh', '1.6667vh')">{{this.player.name}}</p>
+                  </div>
+                </div>
+
+                <div class="w-[23.5991vh] h-[5.0472vh] bg-center bg-no-repeat ml-[3.1602vh]" style="background-size: 100% 100%; background-image: url(/src/assets/image/player-job-bg.png);">
+                  <div class="flex flex-col w-[16.4815vh] h-[2.963vh] ml-[6.0185vh] mt-[1.0185vh]">
+                    <p class="w-[10.5556vh] h-[1.4815vh] text-[#7B7B7B]" :style="setFont('Montserrat Medium', 'normal', '500', '1.2324vh', '1.4815vh')">{{this.locales.job}}</p>
+                    <p class="w-[16.4815vh] h-[1.4815vh] text-[#D3D3D3]" :style="setFont('Montserrat SemiBold', 'normal', '600', '1.3639vh', '1.6667vh')">{{this.player.job}} - {{this.player.grade}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex w-[50.3583vh] h-[5.0472vh] mb-[1.3417vh]">
+                <div class="w-[23.5991vh] h-[5.0472vh] bg-center bg-no-repeat" style="background-size: 100% 100%; background-image: url(/src/assets/image/player-birthdate-bg.png);">
+                  <div class="flex flex-col w-[16.4815vh] h-[2.963vh] ml-[6.0185vh] mt-[1.0185vh]">
+                    <p class="w-[10.5556vh] h-[1.4815vh] text-[#7B7B7B]" :style="setFont('Montserrat Medium', 'normal', '500', '1.2324vh', '1.4815vh')">{{this.locales.birthday}}</p>
+                    <p class="w-[16.4815vh] h-[1.4815vh] text-[#D3D3D3]" :style="setFont('Montserrat SemiBold', 'normal', '600', '1.3639vh', '1.6667vh')">{{this.player.birthdate}}</p>
+                  </div>
+                </div>
+
+                <div class="w-[23.5991vh] h-[5.0472vh] bg-center bg-no-repeat ml-[3.1602vh]" style="background-size: 100% 100%; background-image: url(/src/assets/image/player-total-time-bg.png);">
+                  <div class="flex flex-col w-[16.4815vh] h-[2.963vh] ml-[6.0185vh] mt-[1.0185vh]">
+                    <p class="w-[10.5556vh] h-[1.4815vh] text-[#7B7B7B]" :style="setFont('Montserrat Medium', 'normal', '500', '1.2324vh', '1.4815vh')">{{this.locales.totaltime}}</p>
+                    <p class="w-[16.4815vh] h-[1.4815vh] text-[#D3D3D3]" :style="setFont('Montserrat SemiBold', 'normal', '600', '1.3639vh', '1.6667vh')">{{this.player.totaltime}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex w-[50.3583vh] h-[5.0472vh]">
+                <div class="w-[23.5991vh] h-[5.0472vh] bg-center bg-no-repeat" style="background-size: 100% 100%; background-image: url(/src/assets/image/player-gender-bg.png);">
+                  <div class="flex flex-col w-[16.4815vh] h-[2.963vh] ml-[6.0185vh] mt-[1.0185vh]">
+                    <p class="w-[10.5556vh] h-[1.4815vh] text-[#7B7B7B]" :style="setFont('Montserrat Medium', 'normal', '500', '1.2324vh', '1.4815vh')">{{this.locales.gender}}</p>
+                    <p class="w-[16.4815vh] h-[1.4815vh] text-[#D3D3D3]" :style="setFont('Montserrat SemiBold', 'normal', '600', '1.3639vh', '1.6667vh')">{{this.player.gender}}</p>
+                  </div>
+                </div>
+
+                <div class="flex w-[23.5991vh] h-[5.0472vh] bg-center bg-no-repeat ml-[3.1602vh]" style="background-size: 100% 100%; background-image: url(/src/assets/image/player-steam-bg.png);">
+                  <div class="flex w-[3.5vh] h-[3.6vh] items-center ml-[1.2vh] mt-[0.65vh] bg-center bg-no-repeat rounded-full" :style="'background-image: url(' + this.player.steamprofile + '); background-size: 100% 100%;'"></div>
+
+                  <div class="flex flex-col w-[16.4815vh] h-[2.963vh] ml-[1.2148vh] mt-[1.0185vh]">
+                    <p class="w-[10.5556vh] h-[1.4815vh] text-[#7B7B7B]" :style="setFont('Montserrat Medium', 'normal', '500', '1.2324vh', '1.4815vh')">{{this.locales.steam_account}}</p>
+                    <p class="w-[16.4815vh] h-[1.4815vh] text-[#D3D3D3]" :style="setFont('Montserrat SemiBold', 'normal', '600', '1.3639vh', '1.6667vh')">{{this.player.steam}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="menu-2" class="hover:scale-105 flex flex-col w-[31.3889vh] h-[15.7407vh] ml-[28.0556vh] mt-[2.5926vh]">
+            <div class="flex flex-col w-[31.3889vh] h-[10vh]">
+              <p class="w-[31.3889vh] h-[4.6296vh] text-[#B0F9F4] text-end" :style="setFont('Clash Display Bold', 'normal', '700', '6.5741vh', '5.0926vh')" style="text-shadow: 0vh 0vh 2.1389vh rgba(88, 255, 245, 0.35);">{{this.general.server}}</p>
+              <p class="w-[31.3889vh] h-[5.3704vh] text-white text-end" :style="setFont('Nature Beauty Regular', 'normal', '400', '4.0741vh', '172%')" style="text-shadow: 0vh 0vh 2.1389vh rgba(88, 255, 245, 0.35);">{{this.locales.pause_menu}}</p>
+            </div>
+            <div class="flex w-[22.6852vh] h-[0.2778vh] ml-[8.7037vh] mt-[0.7vh]" style="background: radial-gradient(50% 50% at 50% 50%, #58FFF5 0%, rgba(88, 255, 245, 0) 100%);"></div>
+            <div class="w-[14.9074vh] h-[4.2593vh] mt-[1.0185vh] ml-[14.2593vh] bg-center bg-no-repeat" style="background-size: 100% 100%; background-image: url(/src/assets/image/online-players-bg.png);">
+              <p class="w-[8.4259vh] h-[1.8519vh] ml-[4.7222vh] mt-[1.1vh] text-[#58FFF5] text-center" :style="setFont('Montserrat Bold', 'normal', '700', '1.4815vh', '1.8519vh')">{{this.general.online}} <span class="text-white text-opacity-50" :style="setFont('Montserrat SemiBold', 'normal', '600', '1.4815vh', '1.8519vh')">/ {{this.general.total}}</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex w-full h-[31.1111vh] z-50">
+          <div id="menu-3" @click="this.setSettings()" class="hover:scale-105 flex flex-col w-[41.6667vh] h-[29.1667vh] ml-[4.7222vh] bg-center bg-no-repeat" style="background-size: 100% 100%; background-image: url(/src/assets/image/gta-v-settings-bg.png);">
+            <div class="flex flex-col w-[35.8333vh] h-[5.463vh] ml-[3.7037vh] mt-[2.037vh]">
+              <p class="w-[35vh] h-[3.2407vh] text-white" :style="setFont('Montserrat ExtraBold', 'normal', '800', '2.6306vh', '3.2407vh')">{{this.locales.gtav}} <span class="text-[#858585]" :style="setFont('Montserrat SemiBold', 'normal', '600', '2.6304vh', '3.2407vh')">{{this.locales.settings}}</span></p>
+              <p class="w-[35.8333vh] h-[3.3333vh] text-[#858585]" :style="setFont('Montserrat Medium', 'normal', '500', '0.8768vh', '1.1111vh')">{{this.locales.settings_description}}</p>
+            </div>
+          </div>
+
+          <div id="menu-4" class="flex flex-col w-[53.7037vh] h-[29.1509vh] ml-[2.2222vh] bg-center bg-no-repeat z-50 hover:scale-125" style="background-size: 100% 100%; background-image: url(/src/assets/image/bank-bg.png);">
+            <div class="flex flex-col w-[44.3519vh] h-[5.463vh] ml-[3.7037vh] mt-[2.037vh]">
+              <p class="w-[44.3519vh] h-[3.2407vh] text-white" :style="setFont('Montserrat ExtraBold', 'normal', '800', '2.6306vh', '3.2407vh')">{{this.locales.money}} <span class="text-[#858585]" :style="setFont('Montserrat SemiBold', 'normal', '600', '2.6304vh', '3.2407vh')">{{this.locales.information2}}</span></p>
+              <p class="w-[44.3519vh] h-[2.2222vh] text-[#858585]" :style="setFont('Montserrat Medium', 'normal', '500', '0.8768vh', '1.1111vh')">{{this.locales.bank_description}}</p>
+            </div>
+
+            <div class="flex flex-col w-[20.9259vh] h-[10.9259vh] mt-[1.0185vh] ml-[3.7037vh]">
+              <div class="flex w-[20.9259vh] h-[5.0926vh] bg-center bg-no-repeat mb-[0.7407vh]" style="background-size: 100% 100%; background-image: url(/src/assets/image/player-bank-bg.png);">
+                <div class="flex flex-col w-[13.9815vh] h-[3.0556vh] ml-[6.0185vh] mt-[1.1111vh]">
+                  <p class="w-[13.9815vh] h-[1.4815vh] text-[#7B7B7B]" :style="setFont('Montserrat Medium', 'normal', '500', '1.2324vh', '1.4815vh')">{{this.locales.bank_amount}}</p>
+                  <p class="w-[13.9815vh] h-[1.4815vh] text-[#B5B5B5]" :style="setFont('Montserrat SemiBold', 'normal', '600', '1.3639vh', '1.6667vh')">$ {{this.player.bank}}</p>
+                </div>
+              </div>
+              <div class="flex w-[20.9259vh] h-[5.0926vh] bg-center bg-no-repeat" style="background-size: 100% 100%; background-image: url(/src/assets/image/player-wallet-bg.png);">
+                <div class="flex flex-col w-[13.9815vh] h-[3.0556vh] ml-[6.0185vh] mt-[1.1111vh]">
+                  <p class="w-[13.9815vh] h-[1.4815vh] text-[#7B7B7B]" :style="setFont('Montserrat Medium', 'normal', '500', '1.2324vh', '1.4815vh')">{{this.locales.wallet_amount}}</p>
+                  <p class="w-[13.9815vh] h-[1.4815vh] text-[#B5B5B5]" :style="setFont('Montserrat SemiBold', 'normal', '600', '1.3639vh', '1.6667vh')">$ {{this.player.wallet}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="flex w-full h-[34.2593vh] z-50">
+          <div id="menu-5" class="hover:scale-105 flex w-[85.1852vh] h-[29.1667vh] ml-[4.7222vh] bg-center bg-no-repeat" style="background-size: 100% 100%; background-image: url(/src/assets/image/annoucment-bg.png);">
+            <div class="grid grid-cols-2 w-[62vh] h-[21.0185vh] ml-[5.5556vh] mt-[3.9815vh] overflow-x-hidden overflow-y-scroll">
+              <div v-for="(Get, Index) in this.table" class="flex flex-col w-[28.7444vh] ml-[1.4407vh] mb-[1vh] h-[21.0185vh] bg-center bg-no-repeat" style="background-size: 100% 100%; background-image: url(/src/assets/image/annoucment-inline-bg.png);">
+                <div class="flex flex-col w-[19.025vh] h-[2.9463vh] ml-[6.7037vh] mt-[1.1361vh]">
+                  <p class="w-[19.025vh] h-[1.4815vh] text-[#58FFF5] ml-[0.6vh] mt-[0.55vh]" :style="setFont('Montserrat SemiBold', 'normal', '600', '1.25vh', '1.4815vh')">{{Get.title}}</p>
+                  <p class="w-[5.6481vh] h-[1.3889vh] text-[#858585] ml-[2.3vh] mt-[0.1vh]" :style="setFont('Montserrat Medium', 'normal', '500', '1.1361vh', '1.3889vh')">{{Get.date}}</p>
+                </div>
+
+                <p class="flex w-[24.7222vh] h-[12.963vh] text-[#828282] mt-[2.3148vh] ml-[2.3148vh]" :style="setFont('Montserrat Medium', 'normal', '500', '1.0222vh', '1.2037vh')">{{Get.text}}</p>
+              </div>
+
+            </div>
+          </div>
+
+          <p class="w-[30vh] h-[1.7593vh] text-white ml-[56.0185vh] mt-[29.3519vh]" :style="setFont('Montserrat Light', 'normal', '300', '1.4815vh', '121.21%')">Press the <span :style="setFont('Montserrat Bold', 'normal', '700', '1.4815vh', '121.21%')">ESC</span> Key to Continue the Game</p>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<CodeWalkerProject>
+  <Name>New CodeWalker Project</Name>
+  <Version value="1" />
+  <YmapFilenames>
+    <Item>ap1_occl_01.ymap</Item>
+    <Item>hei_ap1_01_a_long_1.ymap</Item>
+    <Item>hei_dt1_13_long_0.ymap</Item>
+    <Item>molo_airport_milo.ymap</Item>
+  </YmapFilenames>
+  <YtypFilenames>
+    <Item>molo_airport.ytyp</Item>
+    <Item>molo_airport_props.ytyp</Item>
+  </YtypFilenames>
+  <YbnFilenames />
+  <YndFilenames />
+  <YnvFilenames />
+  <TrainsFilenames />
+  <ScenarioFilenames />
+  <AudioRelFilenames />
+</CodeWalkerProject>

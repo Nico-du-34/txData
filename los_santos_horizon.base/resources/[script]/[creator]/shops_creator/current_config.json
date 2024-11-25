@@ -1,0 +1,1 @@
+{"client":{"targetingScript":"qb_target","helpNotification":"none"},"server":{"shopRobberiesHoursCooldown":2,"canAlwaysCarryItem":false,"specificWebhooks":[],"areDiscordLogsActive":false,"acePermission":"shops_creator","shopRobberiesReward":{"account":"black_money","type":"percentage","maxValue":5,"minValue":5},"mainDiscordWebhook":""},"shared":{"locale":"fr"}}

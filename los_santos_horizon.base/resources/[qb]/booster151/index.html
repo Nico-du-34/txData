@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card-wrapper {
+            perspective: 1000px;
+            opacity: 0;
+            animation: cardAppear 0.5s ease-out forwards;
+        }
+
+        .card {
+            width: 250px;
+            height: 350px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .cardfront, .cardback {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .cardback {
+            background: url('https://tcg.pokemon.com/assets/img/global/tcg-card-back-2x.jpg') center/cover;
+            transform: rotateY(0deg);
+        }
+
+        .cardfront {
+            background: url('https://images.pokemontcg.io/swsh12pt5/160_hires.png') center/cover;
+            transform: rotateY(180deg);
+        }
+
+        .shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                125deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 30%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.1) 70%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: translateX(-100%);
+            transition: transform 0.5s;
+        }
+
+        .card:hover .shine {
+            transform: translateX(100%);
+        }
+
+        body.visible {
+            display: flex;
+            opacity: 1;
+        }
+
+        @keyframes cardAppear {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-wrapper:nth-child(1) { animation-delay: 0.2s; }
+        .card-wrapper:nth-child(2) { animation-delay: 0.4s; }
+        .card-wrapper:nth-child(3) { animation-delay: 0.6s; }
+        .card-wrapper:nth-child(4) { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="cardback"></div>
+                <div class="cardfront">
+                    <div class="shine"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="cardback"></div>
+                <div class="cardfront">
+                    <div class="shine"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="cardback"></div>
+                <div class="cardfront">
+                    <div class="shine"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="cardback"></div>
+                <div class="cardfront">
+                    <div class="shine"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isOpen = false;
+
+        function closeUI() {
+            isOpen = false;
+            document.body.classList.remove('visible');
+            setTimeout(() => {
+                document.body.style.display = 'none';
+                fetch(`https://${GetParentResourceName()}/closeui`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                });
+            }, 500);
+        }
+
+        const cards = document.querySelectorAll('.card');
+        let flippedCards = 0;
+        let canFlip = false;
+
+        // Gestionnaire Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && isOpen) {
+                closeUI();
+            }
+        });
+
+        cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                if (!card.classList.contains('flipped') && canFlip) {
+                    card.classList.add('flipped');
+                    flippedCards++;
+
+                    fetch(`https://${GetParentResourceName()}/cardflipped`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            cardIndex: index
+                        })
+                    });
+
+                    if (flippedCards === 4) {
+                        setTimeout(closeUI, 3000);
+                    }
+                }
+            });
+        });
+
+        window.addEventListener('message', (event) => {
+            const data = event.data;
+            
+            if (data.type === 'openBooster') {
+                isOpen = true;
+                flippedCards = 0;
+                canFlip = false;
+                
+                cards.forEach(card => {
+                    card.classList.remove('flipped');
+                });
+                
+                document.body.style.display = 'flex';
+                requestAnimationFrame(() => {
+                    document.body.classList.add('visible');
+                    setTimeout(() => {
+                        canFlip = true;
+                    }, 1200);
+                });
+            }
+        });
+
+        document.addEventListener('contextmenu', (event) => event.preventDefault());
+    </script>
+</body>
+</html>

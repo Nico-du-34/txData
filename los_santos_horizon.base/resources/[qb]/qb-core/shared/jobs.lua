@@ -134,19 +134,6 @@ QBShared.Jobs = {
 			['5'] = { name = 'Directeur', isboss = true, payment = 50 },
 		},
 	},
-	concess = {
-		label = 'Luxury Auto',
-		defaultDuty = false,
-		offDutyPay = false,
-		grades = {
-			['0'] = { name = 'Recrue', payment = 50 },
-			['1'] = { name = 'Locations', payment = 50 },
-			['2'] = { name = 'Vendeur I', payment = 50 },
-			['3'] = { name = 'Vendeur II', payment = 50 },
-			['4'] = { name = 'Co-Directeur', isboss = true, payment = 50 },
-			['5'] = { name = 'Directeur', isboss = true, payment = 50 },
-		},
-	},
 	mosley = {
 		label = 'Mosley Auto',
 		defaultDuty = false,
@@ -229,6 +216,20 @@ QBShared.Jobs = {
 			['5'] = { name = 'Directeur', isboss = true, payment = 50 },
 		},
 	},
+	eastcustom = {
+		label = 'East Customs',
+		type = 'mechanic',
+		defaultDuty = false,
+		offDutyPay = false,
+		grades = {
+			['0'] = { name = 'Recrue', payment = 50 },
+			['1'] = { name = 'Novice', payment = 50 },
+			['2'] = { name = 'Employé', payment = 50 },
+			['3'] = { name = 'Expérimenté', payment = 50 },
+			['4'] = { name = 'Co-Directeur', isboss = true, payment = 50 },
+			['5'] = { name = 'Directeur', isboss = true, payment = 50 },
+		},
+	},
 	mcdonald = {
 		label = 'MC Donald',
 		defaultDuty = false,
@@ -242,8 +243,21 @@ QBShared.Jobs = {
 			['5'] = { name = 'Directeur', isboss = true, payment = 50 },
 		},
 	},
-	burgershot = {
-		label = 'BurgerShot',
+	lsburgershot = {
+		label = 'Los Santos BurgerShot',
+		defaultDuty = false,
+		offDutyPay = false,
+		grades = {
+			['0'] = { name = 'Recrue', payment = 50 },
+			['1'] = { name = 'Novice', payment = 50 },
+			['2'] = { name = 'Employé', payment = 50 },
+			['3'] = { name = 'Expérimenté', payment = 50 },
+			['4'] = { name = 'Co-Directeur', isboss = true, payment = 50 },
+			['5'] = { name = 'Directeur', isboss = true, payment = 50 },
+		},
+	},
+	ssburgershot = {
+		label = 'Sandy Shore BurgerShot',
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
@@ -321,7 +335,7 @@ QBShared.Jobs = {
 		},
 	},
 	au_siecle_dor = {
-		label = 'AU SIECLE D\'OR',
+		label = 'Au Siecle d\'or',
 		defaultDuty = false,
 		offDutyPay = false,
 		grades = {
@@ -372,9 +386,20 @@ QBShared.Jobs = {
 			['5'] = { name = 'Directeur', isboss = true, payment = 50 },
 		},
 	},
-}
-
-
+	pawnshop = {
+		label = 'Pawn Shop',
+		defaultDuty = false,
+		offDutyPay = false,
+		grades = {
+			['0'] = { name = 'Recrue', payment = 50 },
+			['1'] = { name = 'Novice', payment = 50 },
+			['2'] = { name = 'Employé', payment = 50 },
+			['3'] = { name = 'Expérimenté', payment = 50 },
+			['4'] = { name = 'Co-Directeur', isboss = true, payment = 50 },
+			['5'] = { name = 'Directeur', isboss = true, payment = 50 },
+		},
+	},
+},
 -- Jobs Creator integration (jobs_creator)
 RegisterNetEvent("jobs_creator:injectJobs", function(jobs)
     QBShared.Jobs = jobs

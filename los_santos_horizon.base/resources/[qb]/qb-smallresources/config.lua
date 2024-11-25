@@ -93,12 +93,24 @@ Config.Consumables = {
         ['snikkel_candy'] = math.random(40, 50),
         ['burger_fries'] = math.random(30, 60),  
         ['burger_moneyshot'] = math.random(30,60),
-        ['sushi11'] = math.random(10,30)
+        ['sushi11'] = math.random(10,30),
+        ['laysblack'] = math.random(5,15),
+        ['laysgreen'] = math.random(5,15),
+        ['laysyellow'] = math.random(5,15),
+        ['bacon_cheese_fries'] = math.random(30,60),
+        ['apple_green'] = math.random(5,15),
+        ['apple_red'] = math.random(5,15),
+        ['chicken_strips'] = math.random(30,60),
+        ['cupcake2'] = math.random(5,15),
+        ['muffin'] = math.random(5,15),
+        ['cupcake'] = math.random(5,15)
     },
     drink = { -- default drink items
         ['water_bottle'] = math.random(35, 54),
         ['kurkakola'] = math.random(35, 54),
-        ['coffee'] = math.random(40, 50)
+        ['coffee'] = math.random(40, 50),
+        ['drpepper_cherry'] = math.random(5,15),
+        ['fanta_orange'] = math.random(5,15)
     },
     alcohol = { -- default alcohol items
         ['whiskey'] = math.random(20, 30),
@@ -139,6 +151,30 @@ Config.Consumables = {
         --         server = false -- if the event above is a server event
         --     }
         -- }
+        ['redbull'] = {
+            progress = {
+                label = 'Boit un Redbull...',
+                time = 5000
+            },
+            animation = {
+                animDict = 'mp_player_intdrink',
+                anim = 'loop_bottle',
+                flags = 49,
+            },
+            prop = {
+                model = 'sf_p_sf_grass_gls_s_01a', -- Props a changé
+                bone = 60309,
+                coords = vec3(0.0, 0.0, -0.14),
+                rotation = vec3(0.0, 0.0, 9),
+            },
+            replenish = {
+                type = 'thirst',
+                replenish = math.random(20, 40),
+                isAlcohol = false,
+                event = false,
+                server = false
+            }
+        }
     }
 }
 

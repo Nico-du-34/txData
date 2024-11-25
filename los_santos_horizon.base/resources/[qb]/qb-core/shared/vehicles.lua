@@ -835,6 +835,262 @@ local Vehicles = {
     { model = 'redline',             name = 'Mercedes Redline Garage',           brand = 'Vito',          price = 1000000,  category = 'job',      type = 'automobile', shop = 'job' },
     { model = 'bennys',              name = 'Mercedes Benny\'s',                 brand = 'Vito',          price = 1000000,  category = 'job',      type = 'automobile', shop = 'job' },
 
+
+
+
+
+
+
+
+        -- Acura
+        { model = 'tltypes',        name = 'Acura TL Type-S',                           brand = 'Acura',    price = 24000,          category = 'sedans',         type = 'automobile', shop = 'pdm' },
+
+        -- Aston
+        { model = 'amdbx',          name = 'Aston Martin DBX Carbon Edition',           brand = 'Aston',    price = 24000,          category = 'sports',         type = 'automobile', shop = 'pdm' },
+        { model = 'ast',            name = '2013 Aston Martin Vanquish',                brand = 'Aston',    price = 24000,          category = 'sports',         type = 'automobile', shop = 'pdm' },
+    
+        -- Audi
+        { model = 'aaq4',           name = '2017 A4 Quattro ABT',                       brand = 'Audi',     price = 24000,          category = 'sedans',          type = 'automobile', shop = 'pdm' },
+        { model = 'q820',           name = '2020 Q8 50TDI',                             brand = 'Audi',     price = 15000,          category = 'suvs',          type = 'automobile', shop = 'pdm' },
+        { model = 'r820',           name = '2020 R8',                                   brand = 'Audi',     price = 55000,          category = 'sports',          type = 'automobile', shop = 'pdm' },
+        { model = 'r8ppi',          name = '2013 R8 V10',                               brand = 'Audi',     price = 19000,          category = 'sports',          type = 'automobile', shop = 'pdm' },
+        { model = 'rs6',            name = '2016 RS6 C7',                               brand = 'Audi',     price = 35000,          category = 'sedans',          type = 'automobile', shop = 'pdm' },
+        { model = 'rs72020',        name = '2020 RS7',                                  brand = 'Audi',     price = 28000,          category = 'sedans',          type = 'automobile', shop = 'pdm' },
+        { model = 'sq72016',        name = '2016 SQ7',                                  brand = 'Audi',     price = 30000,          category = 'suvs',          type = 'automobile', shop = 'pdm' },
+        { model = 'ttrs',           name = '2010 TT RS',                                brand = 'Audi',     price = 125000,         category = 'coupes',          type = 'automobile', shop = 'pdm' },
+    
+        -- Bentley
+        { model = 'bbentayga',      name = 'Bentayga',                                  brand = 'Bentley',  price = 20000,          category = 'suvs',       type = 'automobile', shop = 'pdm' },
+        { model = 'cgts',           name = '2020 Continental GT Convertible',           brand = 'Bentley',  price = 30000,          category = 'coupes',       type = 'automobile', shop = 'pdm' },
+    
+        -- BMW
+        { model = '760li04',        name = '2004 760Li Individual (E66/PFL)',           brand = 'BMW',      price = 40000,          category = 'sedans',           type = 'automobile', shop = 'pdm' },
+        { model = 'bmci',           name = '2018 M5 F90',                               brand = 'BMW',      price = 20000,          category = 'sedans',           type = 'automobile', shop = 'pdm' },
+        { model = 'i8',             name = '2015 i8 (I12)',                             brand = 'BMW',      price = 20000,          category = 'coupes',           type = 'automobile', shop = 'pdm' },
+        { model = 'm2',             name = '2016 M2',                                   brand = 'BMW',      price = 12500,          category = 'coupes',           type = 'automobile', shop = 'pdm' },
+        { model = 'm3e36',          name = '1997 M3 E36',                               brand = 'BMW',      price = 18000,          category = 'sedans',           type = 'automobile', shop = 'pdm' },
+        { model = 'm3e92',          name = '2008 M3 e92',                               brand = 'BMW',      price = 20000,          category = 'coupes',           type = 'automobile', shop = 'pdm' },
+        { model = 'm3f80',          name = '2015 M3 (F80)',                             brand = 'BMW',      price = 25000,          category = 'sedans',           type = 'automobile', shop = 'pdm' },
+        { model = 'm4f82',          name = '2015 M4 F82',                               brand = 'BMW',      price = 11500,          category = 'coupes',           type = 'automobile', shop = 'pdm' },
+        { model = 'm6f13',          name = 'M6 F13 Shadow Line',                        brand = 'BMW',      price = 16000,          category = 'sports',           type = 'automobile', shop = 'pdm' },
+        { model = 'x5e53',          name = 'X5 E53 2005 Sport Package',                 brand = 'BMW',      price = 20000,          category = 'suvs',           type = 'automobile', shop = 'pdm' },
+        { model = 'x6m',            name = 'X6M F16',                                   brand = 'BMW',      price = 20000,          category = 'suvs',           type = 'automobile', shop = 'pdm' },
+        { model = 'z419',           name = '2019 Z4 M40i',                              brand = 'BMW',      price = 14000,          category = 'coupes',           type = 'automobile', shop = 'pdm' },
+    
+        -- Bugatti
+        { model = 'bolide',         name = '2020 Bolide',                               brand = 'Bugatti',  price = 12500,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+    
+        -- Cadillac
+        { model = 'cats',           name = '2016 ATS-V Coupe',                          brand = 'Cadillac', price = 7200,           category = 'coupes',      type = 'automobile', shop = 'pdm' },
+        { model = 'cesc21',         name = '2021 Escalade',                             brand = 'Cadillac', price = 8000,           category = 'suvs',      type = 'automobile', shop = 'pdm' },
+    
+        -- Chevrolet
+        { model = '09tahoe',        name = '2009 Tahoe',                                brand = 'Chevrolet',price = 18000,          category = 'suvs',     type = 'automobile', shop = 'pdm' },
+        { model = '15tahoe',        name = '2015 Tahoe',                                brand = 'Chevrolet',price = 10000,          category = 'suvs',     type = 'automobile', shop = 'pdm' },
+        { model = '2020ss',         name = '2020 Camaro SS',                            brand = 'Chevrolet',price = 10000,          category = 'muscle',     type = 'automobile', shop = 'pdm' },
+        { model = 'c7',             name = '2014 Corvette C7 Stingray',                 brand = 'Chevrolet',price = 29000,          category = 'sports',     type = 'automobile', shop = 'pdm' },
+        { model = 'camrs17',        name = '2017 Camaro RS',                            brand = 'Chevrolet',price = 12000,          category = 'muscle',     type = 'automobile', shop = 'pdm' },
+        { model = 'corvettec5z06',  name = 'Corvette C5 Z06',                           brand = 'Chevrolet',price = 32000,          category = 'sports',     type = 'automobile', shop = 'pdm' },
+        { model = 'czr1',           name = '2009 Corvette ZR1',                         brand = 'Chevrolet',price = 19000,          category = 'sports',     type = 'automobile', shop = 'pdm' },
+        { model = 'stingray',       name = '2020 Corvette C8 Stingray',                 brand = 'Chevrolet',price = 42000,          category = 'sports',     type = 'automobile', shop = 'pdm' },
+        { model = 'tahoe21',        name = '2021 Tahoe RST',                            brand = 'Chevrolet',price = 45000,          category = 'suvs',     type = 'automobile', shop = 'pdm' },
+    
+        -- Dacia
+        { model = '1310',           name = '1310 2001',                                 brand = 'Dacia',    price = 12000,          category = 'compacts',         type = 'automobile', shop = 'pdm' },
+        { model = 'cutlass',        name = 'logan pickup ',                             brand = 'Dacia',    price = 12000,          category = 'compacts',         type = 'automobile', shop = 'pdm' },
+        { model = 'logan',          name = '2008 Logan',                                brand = 'Dacia',    price = 12000,          category = 'compacts',         type = 'automobile', shop = 'pdm' },
+        { model = 'sandero',        name = 'Sandero 2014',                              brand = 'Dacia',    price = 12000,          category = 'compacts',         type = 'automobile', shop = 'pdm' },
+        { model = 'stepway',        name = 'Sandero Stepway 2014',                      brand = 'Dacia',    price = 12000,          category = 'compacts',         type = 'automobile', shop = 'pdm' },
+    
+        -- Dodge
+        { model = '16challenger',   name = '2016 Challenger',                           brand = 'Dodge',    price = 12000,          category = 'coupes',         type = 'automobile', shop = 'pdm' },
+        { model = '16charger',      name = '2016 Charger',                              brand = 'Dodge',    price = 45000,          category = 'sedans',         type = 'automobile', shop = 'pdm' },
+        { model = '99viper',        name = '1999 Viper GTS ACR',                        brand = 'Dodge',    price = 6500,           category = 'sports',         type = 'automobile', shop = 'pdm' },
+        { model = 'chr20',          name = '2021 Charger Hellcat Widebody',             brand = 'Dodge',    price = 13000,          category = 'sports',         type = 'automobile', shop = 'pdm' },
+        { model = 'demon',          name = '2018 Challenger SRT Demon',                 brand = 'Dodge',    price = 18000,          category = 'sports',         type = 'automobile', shop = 'pdm' },
+        { model = 'raid',           name = 'Challenger Raid',                           brand = 'Dodge',    price = 35000,          category = 'offroad',         type = 'automobile', shop = 'pdm' },
+        { model = 'ram2500',        name = '2015 RAM 2500',                             brand = 'Dodge',    price = 19000,          category = 'offroad',         type = 'automobile', shop = 'pdm' },
+        { model = 'srt4',           name = 'Neon SRT-4',                                brand = 'Dodge',    price = 15000,          category = 'sedans',         type = 'automobile', shop = 'pdm' },
+        { model = 'trx',            name = '2017 RAM 1500 Rebel TRX',                   brand = 'Dodge',    price = 19500,          category = 'offroad',         type = 'automobile', shop = 'pdm' },
+    
+        -- Ferrari
+        { model = '488',            name = '488 Spider',                                brand = 'Ferrari',  price = 10800,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'f430s',          name = 'F430 Scuderia',                             brand = 'Ferrari',  price = 14500,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'f812',           name = '812 Superfast',                             brand = 'Ferrari',  price = 5500,           category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'fct',            name = 'California T',                              brand = 'Ferrari',  price = 55000,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'fxxk',           name = 'FXX-K Hybrid Hypercar',                     brand = 'Ferrari',  price = 8500,           category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'laferrari',      name = 'LaFerrari',                                 brand = 'Ferrari',  price = 12000,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'mig',            name = 'Enzo',                                      brand = 'Ferrari',  price = 6500,           category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'yFe458i1',       name = '458 Italia',                                brand = 'Ferrari',  price = 7500,           category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'yFe458i2',       name = '458 Speciale',                              brand = 'Ferrari',  price = 8000,           category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'yFe458s1',       name = '458 Spider',                                brand = 'Ferrari',  price = 14000,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'yFe458s2',       name = '458 Speciale Aperta',                       brand = 'Ferrari',  price = 5000,           category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'yFeF12A',        name = 'F60 America',                               brand = 'Ferrari',  price = 25000,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'yFeF12T',        name = 'F12 TRS Roadster',                          brand = 'Ferrari',  price = 90000,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+    
+        -- Ford
+        { model = 'f150',           name = '2012 F150 SVT Raptor R',                    brand = 'Ford',     price = 130000,         category = 'offroad',          type = 'automobile', shop = 'pdm' },
+        { model = 'fgt',            name = '2005 GT',                                   brand = 'Ford',     price = 30000,          category = 'sports',          type = 'automobile', shop = 'pdm' },
+        { model = 'gt17',           name = '2017 GT',                                   brand = 'Ford',     price = 4000,           category = 'sports',          type = 'automobile', shop = 'pdm' },
+        { model = 'raptor2017',     name = '2017 Raptor',                               brand = 'Ford',     price = 40000,          category = 'offroad',          type = 'automobile', shop = 'pdm' },
+        { model = 'wildtrak',       name = '2021 Bronco Wildtrak',                      brand = 'Ford',     price = 60000,          category = 'offroad',          type = 'automobile', shop = 'pdm' },
+    
+        -- Honda
+        { model = 'ap2',            name = 'S2000 AP2',                                 brand = 'Honda',    price = 45000,          category = 'coupes',         type = 'automobile', shop = 'pdm' },
+        { model = 'fk8',            name = '2018 Civic Type-R (FK8)',                   brand = 'Honda',    price = 60000,          category = 'sports',         type = 'automobile', shop = 'pdm' },
+        { model = 'honcrx91',       name = 'CRX SiR 1991',                              brand = 'Honda',    price = 55000,          category = 'coupes',         type = 'automobile', shop = 'pdm' },
+        { model = 'na1',            name = '1992 NSX-R (NA1)',                          brand = 'Honda',    price = 70000,          category = 'sports',         type = 'automobile', shop = 'pdm' },
+    
+        -- ItalDesign
+        { model = 'it18',           name = '2017 Zerouno',                              brand = 'ItalDesign',price = 17000,         category = 'supers',    type = 'automobile', shop = 'pdm' },
+    
+        -- Jaguar
+        { model = 'fpacehm',        name = 'F-pace 2017 Hamann Edition',                brand = 'Jaguar',   price = 50000,          category = 'suvs',        type = 'automobile', shop = 'pdm' },
+    
+        -- Jeep
+        { model = 'jeep2012',       name = '2012 Wrangler',                             brand = 'Jeep',     price = 47500,          category = 'suvs',          type = 'automobile', shop = 'pdm' },
+        { model = 'jeepreneg',      name = 'Renegade',                                  brand = 'Jeep',     price = 40000,          category = 'suvs',          type = 'automobile', shop = 'pdm' },
+        { model = 'srt8',           name = '2015 SRT-8',                                brand = 'Jeep',     price = 35000,          category = 'suvs',          type = 'automobile', shop = 'pdm' },
+        { model = 'trhawk',         name = '2018 Grand Cherokee',                       brand = 'Jeep',     price = 16000,          category = 'suvs',          type = 'automobile', shop = 'pdm' },
+    
+        -- Koenigsegg
+        { model = 'agerars',        name = '2017 Agera RS',                             brand = 'Koenigsegg',price = 40000,         category = 'supers',    type = 'automobile', shop = 'pdm' },
+        { model = 'regera',         name = 'Regera',                                    brand = 'Koenigsegg',price = 55000,         category = 'supers',    type = 'automobile', shop = 'pdm' },
+    
+        -- Lamborghini
+        { model = 'huracanst',      name = 'Huracan Super Trofeo',                      brand = 'Lamborghini',price = 29000,        category = 'supers',   type = 'automobile', shop = 'pdm' },
+        { model = 'lambose',        name = 'Sesto Elemento',                            brand = 'Lamborghini',price = 45000,        category = 'supers',   type = 'automobile', shop = 'pdm' },
+        { model = 'lp670sv',        name = '2009 Murcielago LP 670-4 SV',               brand = 'Lamborghini',price = 25000,        category = 'supers',   type = 'automobile', shop = 'pdm' },
+        { model = 'lp700r',         name = '2013 Aventador LP700-4 Roadster',           brand = 'Lamborghini',price = 32000,        category = 'supers',   type = 'automobile', shop = 'pdm' },
+        { model = 'svj63',          name = 'Aventador SVJ',                             brand = 'Lamborghini',price = 62000,        category = 'supers',   type = 'automobile', shop = 'pdm' },
+        { model = 'urus',           name = 'Urus',                                      brand = 'Lamborghini',price = 85000,        category = 'supers',   type = 'automobile', shop = 'pdm' },
+        { model = 'veneno',         name = 'Veneno',                                    brand = 'Lamborghini',price = 155000,       category = 'supers',   type = 'automobile', shop = 'pdm' },
+    
+        -- Land Rover
+        { model = 'lrrr',           name = '1973 Rover',                                brand = 'Landrover', price = 55000,         category = 'suvs',     type = 'automobile', shop = 'pdm' },
+    
+        -- Lexus
+        { model = 'gs350',          name = 'GS 350',                                    brand = 'Lexus',    price = 30000,          category = 'sedans',         type = 'automobile', shop = 'pdm' },
+        { model = 'is350mod',       name = '2014 IS 350',                               brand = 'Lexus',    price = 40000,          category = 'sedans',         type = 'automobile', shop = 'pdm' },
+        { model = 'rcf',            name = '2015 RCF',                                  brand = 'Lexus',    price = 12800,          category = 'coupes',         type = 'automobile', shop = 'pdm' },
+    
+        -- Lotus
+        { model = 'esprit02',       name = '2002 Esprit V8',                            brand = 'Lotus',    price = 20000,          category = 'sports',         type = 'automobile', shop = 'pdm' },
+    
+        -- Maserati
+        { model = 'levante',        name = 'Levante',                                   brand = 'Maserati', price = 75000,          category = 'suvs',      type = 'automobile', shop = 'pdm' },
+    
+        -- Mazda
+        { model = '84rx7k',         name = '1984 RX-7 Stanced Version',                 brand = 'Mazda',    price = 65000,          category = 'coupes',         type = 'automobile', shop = 'pdm' },
+        { model = 'dragfd',         name = '2002 RX-7 FD Drag',                         brand = 'Mazda',    price = 220000,         category = 'coupes',         type = 'automobile', shop = 'pdm' },
+        { model = 'fc3s',           name = 'RX7 FC3S',                                  brand = 'Mazda',    price = 12000,          category = 'coupes',         type = 'automobile', shop = 'pdm' },
+        { model = 'majfd',          name = 'RX-7 FD',                                   brand = 'Mazda',    price = 16000,          category = 'coupes',         type = 'automobile', shop = 'pdm' },
+        { model = 'miata3',         name = '1989 Miata NA',                             brand = 'Mazda',    price = 6500,           category = 'coupes',         type = 'automobile', shop = 'pdm' },
+        { model = 'na6',            name = 'MX-5 Miata (NA6C)',                         brand = 'Mazda',    price = 8500,           category = 'coupes',         type = 'automobile', shop = 'pdm' },
+    
+        -- McLaren
+        { model = '650s',           name = '650S Coupe',                                brand = 'Mclaren',  price = 45000,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = '675lt',          name = '2016 675LT Coupe',                          brand = 'Mclaren',  price = 120000,         category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = '720s',           name = '2017 720S',                                 brand = 'Mclaren',  price = 8000,           category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'gtr96',          name = '1996 F1 GTR',                               brand = 'Mclaren',  price = 45000,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'mcst',           name = '2020 Speedtail',                            brand = 'Mclaren',  price = 35000,          category = 'sports',       type = 'automobile', shop = 'pdm' },
+        { model = 'mp412c',         name = 'MP4-12C',                                   brand = 'Mclaren',  price = 55000,          category = 'supers',       type = 'automobile', shop = 'pdm' },
+        { model = 'senna',          name = '2019 Senna',                                brand = 'Mclaren',  price = 210000,         category = 'supers',       type = 'automobile', shop = 'pdm' },
+    
+        -- Mercedes
+        { model = 'c6320',          name = '2020 C63s',                                 brand = 'Mercedes', price = 80000,          category = 'coupes',      type = 'automobile', shop = 'pdm' },
+        { model = 'G65',            name = '2013 G65 AMG',                              brand = 'Mercedes', price = 55000,          category = 'suvs',      type = 'automobile', shop = 'pdm' },
+        { model = 'amggtrr20',      name = '2020 AMG GT-R Roadster',                    brand = 'Mercedes', price = 60000,          category = 'sports',      type = 'automobile', shop = 'pdm' },
+        { model = 'e400',           name = '2019 E400 Coupe 4matic (C238)',             brand = 'Mercedes', price = 32000,          category = 'coupes',      type = 'automobile', shop = 'pdm' },
+        { model = 'gl63',           name = 'GL63 AMG',                                  brand = 'Mercedes', price = 40000,          category = 'suvs',      type = 'automobile', shop = 'pdm' },
+        { model = 'mbc63',          name = '2012 C63 AMG Coupe Black Series',           brand = 'Mercedes', price = 42000,          category = 'coupes',      type = 'automobile', shop = 'pdm' },
+        { model = 's500w222',       name = '2014 S500 W222',                            brand = 'Mercedes', price = 55000,          category = 'sedans',      type = 'automobile', shop = 'pdm' },
+        { model = 'sl500',          name = '1995 SL500',                                brand = 'Mercedes', price = 38000,          category = 'coupes',      type = 'automobile', shop = 'pdm' },
+        { model = 'v250',           name = 'V-class 250 Bluetec LWB',                   brand = 'Mercedes', price = 35000,          category = 'vans',      type = 'automobile', shop = 'pdm' },
+        { model = 'lwc63',          name = 'C63 AMG LWB',                               brand = 'Mercedes', price = 35000,          category = 'sports',      type = 'automobile', shop = 'pdm' },
+    
+        -- Mitsubishi
+        { model = 'cp9a',           name = 'Lancer Evo VI T.M.E (CP9A)',                brand = 'Mitsubishi', price = 32000,        category = 'sedans',    type = 'automobile', shop = 'pdm' },
+        { model = 'fto',            name = 'FTO GP Version-R',                          brand = 'Nitsubishi', price = 40000,        category = 'coupes',    type = 'automobile', shop = 'pdm' },
+    
+        -- Nissan
+        { model = '180sx',          name = '180SX Type-X',                              brand = 'Nissan',   price = 95000,          category = 'coupes',        type = 'automobile', shop = 'pdm' },
+        { model = 'Safari97',       name = '1997 Patrol Super Safari Y60',              brand = 'Nissan',   price = 12000,          category = 'offroad',        type = 'automobile', shop = 'pdm' },
+        { model = 'gtr',            name = '2017 GTR',                                  brand = 'Nissan',   price = 125000,         category = 'sports',        type = 'automobile', shop = 'pdm' },
+        { model = 'gtrc',           name = '2017 R35 GTR Convertible',                  brand = 'Nissan',   price = 36000,          category = 'sports',        type = 'automobile', shop = 'pdm' },
+        { model = 'maj350',         name = 'Fairlady Z Z33',                            brand = 'Nissan',   price = 45000,          category = 'sports',        type = 'automobile', shop = 'pdm' },
+        { model = 'nis15',          name = 'Silvia S15 Spec-R',                         brand = 'Nissan',   price = 65000,          category = 'coupes',        type = 'automobile', shop = 'pdm' },
+        { model = 'nissantitan17',  name = '2017 Titan Warrior',                        brand = 'Nissan',   price = 80000,          category = 'offroad',        type = 'automobile', shop = 'pdm' },
+        { model = 'ns350',          name = '350z Stardast',                             brand = 'Nissan',   price = 60000,          category = 'sports',        type = 'automobile', shop = 'pdm' },
+        { model = 'nzp',            name = '370z Pandem',                               brand = 'Nissan',   price = 70000,          category = 'sports',        type = 'automobile', shop = 'pdm' },
+        { model = 's14',            name = '1998 Silvia K',                             brand = 'Nissan',   price = 55000,          category = 'coupes',        type = 'automobile', shop = 'pdm' },
+        { model = 'skyline',        name = 'Skyline GT-R (BNR34)',                      brand = 'Nissan',   price = 20000,          category = 'sports',        type = 'automobile', shop = 'pdm' },
+        { model = 'z32',            name = '300ZX Z32',                                 brand = 'Nissan',   price = 75000,          category = 'coupes',        type = 'automobile', shop = 'pdm' },
+    
+        -- Peugeot
+        { model = 'yPG205t16A',     name = '205 Rally',                                 brand = 'Peugeot',  price = 45000,          category = 'compacts',       type = 'automobile', shop = 'pdm' },
+        { model = 'yPG205t16B',     name = '205 Turbo 16',                              brand = 'Peugeot',  price = 45000,          category = 'compacts',       type = 'automobile', shop = 'pdm' },
+    
+        -- Porsche
+        { model = '718caymans',     name = '718 Cayman S',                              brand = 'Porsche',  price = 80000,          category = 'sports',       type = 'automobile', shop = 'pdm' },
+        { model = 'cgt',            name = '2003 Carrera GT (980)',                     brand = 'Porsche',  price = 38500,          category = 'coupes',       type = 'automobile', shop = 'pdm' },
+        { model = 'maj935',         name = '1978 935 Moby Dick',                        brand = 'Porsche',  price = 65000,          category = 'coupes',       type = 'automobile', shop = 'pdm' },
+        { model = 'pcs18',          name = '2018 Cayenne S',                            brand = 'Porsche',  price = 65000,          category = 'suvs',       type = 'automobile', shop = 'pdm' },
+        { model = 'pm19',           name = '2019 Macan Turbo',                          brand = 'Porsche',  price = 55000,          category = 'suvs',       type = 'automobile', shop = 'pdm' },
+        { model = 'taycan',         name = '2020 Taycan Turbo S',                       brand = 'Porsche',  price = 45000,          category = 'sports',       type = 'automobile', shop = 'pdm' },
+    
+        -- Quartz
+        { model = 'regalia',        name = 'Regalia 723',                               brand = 'Quartz',   price = 80000,          category = 'sedans',        type = 'automobile', shop = 'pdm' },
+    
+        -- Range Rover
+        { model = 'rrevoque',       name = 'Range Rover Evoque',                        brand = 'Rangerover',price = 40000,         category = 'suvs',    type = 'automobile', shop = 'pdm' },
+        { model = 'rrst',           name = 'Range Rover Vogue Startech',                brand = 'Rangerover',price = 65000,         category = 'suvs',    type = 'automobile', shop = 'pdm' },
+        { model = 'rsvr16',         name = '2016 Range Rover Sport SVR',                brand = 'Rangerover',price = 135000,        category = 'suvs',    type = 'automobile', shop = 'pdm' },
+    
+        -- Renault
+        { model = 'twingo',         name = 'Twingo I',                                  brand = 'Renault',  price = 45000,          category = 'coupes',       type = 'automobile', shop = 'pdm' },
+    
+        -- Rolls Royce
+        { model = 'dawnonyx',       name = '2016 Dawn Onyx',                            brand = 'Rollsroyce',price = 38000,         category = 'coupes',    type = 'automobile', shop = 'pdm' },
+        { model = 'rculi',          name = 'Rolls Royce Cullinan',                      brand = 'Rollsroyce',price = 40000,         category = 'suv',    type = 'automobile', shop = 'pdm' },
+        { model = 'rrphantom',      name = '2018 Phantom VIII',                         brand = 'Rollsroyce',price = 70000,         category = 'sedans',    type = 'automobile', shop = 'pdm' },
+        { model = 'wraith',         name = 'Wraith',                                    brand = 'Rollsroyce',price = 30000,         category = 'coupes',    type = 'automobile', shop = 'pdm' },
+    
+        -- Subaru
+        { model = 'subisti08',      name = '2008 WRX STi',                              brand = 'Subaru',   price = 65000,          category = 'sedans',        type = 'automobile', shop = 'pdm' },
+        { model = 'subwrx',         name = '2004 Impreza WRX STI',                      brand = 'Subaru',   price = 130000,         category = 'sedans',        type = 'automobile', shop = 'pdm' },
+        { model = 'svx',            name = '1996 Alcyone SVX',                          brand = 'Subaru',   price = 35000,          category = 'coupes',        type = 'automobile', shop = 'pdm' },
+    
+        -- Suzuki
+        { model = 'gsxr19',         name = '2019 GSX-R1000R',                           brand = 'Suzuki',   price = 28000,          category = 'motorcycles',        type = 'automobile', shop = 'pdm' },
+        { model = 'katana2',        name = '2019 Katana',                               brand = 'Suzuki',   price = 35000,          category = 'motorcycles',        type = 'automobile', shop = 'pdm' },
+    
+        -- Tesla
+        { model = 'models',         name = '2016 Model S P90D',                         brand = 'Tesla',    price = 39500,          category = 'sedans',         type = 'automobile', shop = 'pdm' },
+        { model = 'p90d',           name = 'Model X Performance',                       brand = 'Tesla',    price = 50000,          category = 'suvs',         type = 'automobile', shop = 'pdm' },
+        { model = 'teslapd',        name = '2017 Model S',                              brand = 'Tesla',    price = 40000,          category = 'sedans',         type = 'automobile', shop = 'pdm' },
+        { model = 'teslax',         name = '2016 Model X P90D',                         brand = 'Tesla',    price = 50000,          category = 'sedans',         type = 'automobile', shop = 'pdm' },
+        { model = 'tmodel',         name = '2018 Model 3',                              brand = 'Tesla',    price = 15000,          category = 'sedans',         type = 'automobile', shop = 'pdm' },
+        { model = 'tr22',           name = '2020 Roadster',                             brand = 'Tesla',    price = 45000,          category = 'sedans',         type = 'automobile', shop = 'pdm' },
+    
+        -- Toyota
+        { model = 'cam8tun',        name = '2018 Camry XSE',                            brand = 'Toyota',   price = 70000,          category = 'sedans',        type = 'automobile', shop = 'pdm' },
+        { model = 'mk2100',         name = 'Mark II JZX100',                            brand = 'Toyota',   price = 90000,          category = 'coupes',        type = 'automobile', shop = 'pdm' },
+        { model = 'toysupmk4',      name = '1998 Supra Turbo (A80)',                    brand = 'Toyota',   price = 255000,         category = 'coupes',        type = 'automobile', shop = 'pdm' },
+        { model = 'vxr',            name = '2016 Land Cruiser VXR',                     brand = 'Toyota',   price = 900000,         category = 'suvs',        type = 'automobile', shop = 'pdm' },
+    
+        -- Volkswagen
+        { model = 'amarok',         name = '2018 Amarok V6',                            brand = 'Volkswagen',price = 375000,        category = 'offroad',    type = 'automobile', shop = 'pdm' },
+        { model = 'golfgti7',       name = '2015 Golf GTI MK7',                         brand = 'Volkswagen',price = 375000,        category = 'coupes',    type = 'automobile', shop = 'pdm' },
+        { model = 'passat',         name = '2016 Passat B8',                            brand = 'Volkswagen',price = 375000,        category = 'sedans',    type = 'automobile', shop = 'pdm' },
+        { model = 'vwr',            name = 'Scirocco R 2011',                           brand = 'Volkswagen',price = 375000,        category = 'coupes',    type = 'automobile', shop = 'pdm' },
+    
+        -- Volvo
+        { model = 'xc90',           name = 'XC90 T8',                                   brand = 'Volvo',    price = 425000,         category = 'suvs',         type = 'automobile', shop = 'pdm' },
+    
+        -- W Motors
+        { model = 'lykan',          name = 'Lykan HyperSport',                          brand = 'WMotors',  price = 185000,         category = 'super',       type = 'automobile', shop = 'pdm' },
+        { model = 'wmfenyr',        name = 'Fenyr Supersport',                          brand = 'WMotors',  price = 220000,         category = 'super',       type = 'automobile', shop = 'pdm' },
 }
 
 for i = 1, #Vehicles do

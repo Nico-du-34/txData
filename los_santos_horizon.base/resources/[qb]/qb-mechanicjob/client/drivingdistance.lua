@@ -12,42 +12,60 @@ local function InitializeVehicleComponents()
     end
 end
 
-local function ApplyComponentEffect(component) -- add custom effects here for each component in config
+local function ApplyComponentEffect(component)
     if component == 'radiator' then
+        -- Dommages modérés au moteur
         local engineHealth = GetVehicleEngineHealth(vehicle)
-        SetVehicleEngineHealth(vehicle, engineHealth - 50)
+        SetVehicleEngineHealth(vehicle, engineHealth - 50) -- Réduit un peu la santé moteur
     elseif component == 'axle' then
-        for i = 0, 360 do
-            Wait(15)
-            SetVehicleSteeringScale(vehicle, i)
-        end
+        -- Dommages à la direction (réduction de la maniabilité)
+        local steering = math.random(5, 10)
+        SetVehicleSteeringScale(vehicle, steering)
     elseif component == 'brakes' then
+        -- Dommages aux freins
         SetVehicleHandbrake(vehicle, true)
-        Wait(5000)
+        Wait(2000)
         SetVehicleHandbrake(vehicle, false)
     elseif component == 'clutch' then
+        -- Dommages à l'embrayage (ralentit la conduite)
         SetVehicleEngineOn(vehicle, false, false, true)
         SetVehicleUndriveable(vehicle, true)
-        Wait(5000)
+        Wait(3000)
         SetVehicleEngineOn(vehicle, true, false, true)
         SetVehicleUndriveable(vehicle, false)
     elseif component == 'fuel' then
+        -- Consommation de carburant plus rapide
         local fuel = exports[Config.FuelResource]:GetFuel(vehicle)
-        exports[Config.FuelResource]:SetFuel(vehicle, fuel - 10)
+        exports[Config.FuelResource]:SetFuel(vehicle, fuel - 5)
     end
 end
 
-local function DamageRandomComponent()
-    if not Config.UseWearableParts then return end
-    local componentKeys = {}
-    for component, _ in pairs(Config.WearableParts) do
-        componentKeys[#componentKeys + 1] = component
+-- local function DamageRandomComponent()
+--     if not Config.UseWearableParts then return end
+--     local componentKeys = {}
+--     for component, _ in pairs(Config.WearableParts) do
+--         componentKeys[#componentKeys + 1] = component
+--     end
+--     local componentToDamage = componentKeys[math.random(#componentKeys)]
+--     vehicleComponents[plate][componentToDamage] = math.max(0, vehicleComponents[plate][componentToDamage] - Config.WearablePartsDamage)
+--     if vehicleComponents[plate][componentToDamage] <= Config.DamageThreshold then
+--         ApplyComponentEffect(componentToDamage)
+--     end
+-- end
+local function GetDamageAmount(distance)
+    for _, tier in ipairs(Config.MinimalMetersForDamage) do
+        if distance >= tier.min and distance < tier.max then
+            return tier.damage
+        end
     end
-    local componentToDamage = componentKeys[math.random(#componentKeys)]
-    vehicleComponents[plate][componentToDamage] = math.max(0, vehicleComponents[plate][componentToDamage] - Config.WearablePartsDamage)
-    if vehicleComponents[plate][componentToDamage] <= Config.DamageThreshold then
-        ApplyComponentEffect(componentToDamage)
-    end
+    return 0
+end
+
+local function ApplyDamageBasedOnDistance(distance)
+    if not Config.UseDistanceDamage then return end
+    local damage = GetDamageAmount(distance)
+    local engineHealth = GetVehicleEngineHealth(vehicle)
+    SetVehicleEngineHealth(vehicle, engineHealth - damage) -- Applique des dégâts modérés au moteur
 end
 
 local function GetDamageAmount(distance)

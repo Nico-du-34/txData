@@ -3,11 +3,31 @@ local QBCore = exports['qb-core']:GetCoreObject()
 local searched = {}
 local canSearch = true
 
+-- Fonction utilitaire pour choisir un item en fonction de sa probabilité
+local function GetItemWithProbability(objectType)
+    local rewards = Config.Rewardes[objectType]
+    if not rewards then
+        print("No rewards configured for this object type: " .. tostring(objectType))
+        return nil
+    end
+
+    for _, reward in ipairs(rewards) do
+        local randomChance = math.random(1, 100) -- Génère un nombre entre 1 et 100
+        if randomChance <= reward.chance then
+            local amount = math.random(reward.minAmount, reward.maxAmount)
+            return {item = reward.item, amount = amount}
+        end
+    end
+
+    -- Si aucun objet n'est sélectionné, retourner nil
+    return nil
+end
+
 RegisterNetEvent('qb-elecsearch:client:searchelec', function()
     if canSearch then
-        local ped = GetPlayerPed(-1)
+        local ped = PlayerPedId()
         local pos = GetEntityCoords(ped)
-        local elecFound = falses
+        local elecFound = false
 
         for k, v in pairs(Config.Objects) do
             local elec = GetClosestObjectOfType(pos.x, pos.y, pos.z, 1.0, k, false, false, false)
@@ -18,20 +38,16 @@ RegisterNetEvent('qb-elecsearch:client:searchelec', function()
                     QBCore.Functions.Notify("Déjà fouillé", "error")
                     return
                 end
-                local itemType = math.random(#Config.RewardTypes)
-                TriggerEvent('qb-elecsearch:client:progressbar',itemType, Config.Objects[k])
                 searched[elec] = true
+                TriggerEvent('qb-elecsearch:client:progressbar', Config.Objects[k])
             end
         end
     end
 end)
 
-RegisterNetEvent('qb-elecsearch:client:progressbar', function(itemType, pEntity)
-	local src = source
-    print(pEntity)
-    local pEntity = tostring(pEntity)
-    local item = math.random(#Config.Rewardes[pEntity])
-    QBCore.Functions.Progressbar("elec_find", "Fouille ...", math.random (5000, 10000), false, true, {
+RegisterNetEvent('qb-elecsearch:client:progressbar', function(objectType)
+    local reward = GetItemWithProbability(objectType)
+    QBCore.Functions.Progressbar("elec_find", "Fouille ...", math.random(5000, 10000), false, true, {
         disableMovement = false,
         disableCarMovement = false,
         disableMouse = false,
@@ -42,17 +58,14 @@ RegisterNetEvent('qb-elecsearch:client:progressbar', function(itemType, pEntity)
         flags = 16,
     }, {}, {}, function() -- Done
         StopAnimTask(PlayerPedId(), "amb@prop_human_bum_bin@idle_b", "idle_d", 1.0)
-        if Config.RewardTypes[itemType].type == "nothing" then 
+        if reward then
+            -- Si un item est trouvé
+            QBCore.Functions.Notify("J'ai trouvé " .. reward.amount .. "x " .. reward.item, "success")
+            TriggerServerEvent('qb-elecsearch:server:recieveItem', reward.item, reward.amount)
+            TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items[reward.item], "add")
+        else
+            -- Si rien n'est trouvé
             QBCore.Functions.Notify("Rien trouvé", "error")
-            return
-        end
-        if Config.RewardTypes[itemType].type == "item" then
-            QBCore.Functions.Notify("J'ai trouvé quelque chose", "success")
-            TriggerServerEvent('qb-elecsearch:server:recieveItem', Config.Rewardes[pEntity][item].item, math.random (Config.Rewardes[pEntity][item].minAmount, Config.Rewardes[pEntity][item].maxAmount))
-            TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items[Config.Rewardes[pEntity][item].item], "add")
-        elseif Config.RewardTypes[itemType].type == "money" then
-            QBCore.Functions.Notify("J'ai trouvé de l'argent", "success")
-            TriggerServerEvent('qb-elecsearch:server:givemoney')
         end
     end, function() -- Cancel
         StopAnimTask(PlayerPedId(), "amb@prop_human_bum_bin@idle_b", "idle_d", 1.0)

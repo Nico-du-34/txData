@@ -11,53 +11,45 @@ Config.ShowCardsAfterReveal = true -- showing cameras on the players cards when 
 
 Config.Pokers = {
     [1] = {
-        Position = vector3(996.17, 51.69, 68.45), 
-        Heading = 318.91,
+        Position = vector3(976.27, 78.92, 79.92), 
+        Heading = 329.28,
         MaximumBet = 2500,
         MinimumBet = 50 
     },
     [2] = {
-        Position = vector3(1000.66, 50.88, 68.45),
-        Heading = 6.73,
+        Position = vector3(995.14, 49.46, 79.98), 
+        Heading = 254.22,
         MaximumBet = 2500,
-        MinimumBet = 50
+        MinimumBet = 50 
     },
     [3] = {
-        Position = vector3(984.97, 66.64, 69.25),
-        Heading = 3.39,
-        MaximumBet = 2000,
-        MinimumBet = 50
+        Position = vector3(993.79, 57.31, 79.99), 
+        Heading = 53.91,
+        MaximumBet = 2500,
+        MinimumBet = 50 
     },
     [4] = {
-        Position = vector3(998.44, 60.99, 68.45),
-        Heading = 191.77,
-        MaximumBet = 2000,
-        MinimumBet = 50
+        Position = vector3(997.37, 59.61, 79.99), 
+        Heading = 339.98,
+        MaximumBet = 2500,
+        MinimumBet = 50 
     },
     [5] = {
-        Position = vector3(994.89, 58.29, 68.45),
-        Heading = 237.13,
-        MaximumBet = 2000,
-        MinimumBet = 50
+        Position = vector3(953.22, 24.93, 74.63), 
+        Heading = 199.55,
+        MaximumBet = 2500,
+        MinimumBet = 50 
     },
     [6] = {
-        Position = vector3(988.45, 64.38, 69.25),
-        Heading = 278.52,
-        MaximumBet = 2000,
-        MinimumBet = 50
-    },
-    [7] = {
-        Position = vector3(991.56, 40.10, 69.25),
-        Heading = 200.84,
-        MaximumBet = 2000,
-        MinimumBet = 50
-    },
-    [8] = {
-        Position = vector3(993.20, 43.70, 69.25),
-        Heading = 279.25,
-        MaximumBet = 2000,
-        MinimumBet = 50
+        Position = vector3(922.81, 4.45, 74.89), 
+        Heading = 120.96,
+        MaximumBet = 2500,
+        MinimumBet = 50 
     }
+
+
+
+
 }
 
 -- DO NOT WORRY ABOUT DOWNSIDE

@@ -10,9 +10,9 @@ local gameOpen = false
 
 
 CreateThread(function()
-    local insideTrackZone = CircleZone:Create(vector3(955.619, 70.179, 70.433), 2.5, {
+    local insideTrackZone = CircleZone:Create(vector3(984.59, 67.45, 80.5), 4.5, {
         name="insideTrack",
-        heading=328.0,
+        heading=307.73,
         debugPoly=false,
         useZ=true,
     })
@@ -23,9 +23,9 @@ CreateThread(function()
             elseif Config.HorseBetPrompt == 'peek' then
                 text = '<b>The Diamond Casino & Resort Inside Track</b>'
 				exports['qb-core']:DrawText(text)
-                exports['qb-target']:AddCircleZone("Betting", vector3(956.121,70.185,70.433), 1.0, {
+                exports['qb-target']:AddCircleZone("Betting", vector3(989.82, 71.51, 80.5), 1.0, {
                     name="Betting",
-                    heading=160,
+                    heading=134.07,
                     debugPoly=false,
                     useZ=true,
                 }, {

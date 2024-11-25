@@ -2,7 +2,7 @@ Config = {}
 
 Config.PlayCasinoAmbientNoise = true
 Config.SetShowCarOnDisplay = true
-Config.VehicleOnDisplay = `t20`
+Config.VehicleOnDisplay = `sultan`
 
 
 Config.SetAnimatedWalls = true

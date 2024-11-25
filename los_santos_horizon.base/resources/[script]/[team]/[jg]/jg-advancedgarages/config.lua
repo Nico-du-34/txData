@@ -126,39 +126,151 @@ Config.JobGarageSetVehicleCommand = "setjobvehicle" -- admin only
 Config.JobGarageRemoveVehicleCommand = "removejobvehicle" -- admin only
 Config.JobGarageUniqueBlips = false
 Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
-  ['LSPD'] = {
-    coords = vector3(12.31, -404.77, 39.44),
-    spawn = vector4(13.65, -404.65, 38.93, 351.3),
+  ['East Customs'] = {
+    coords = vector3(866.34, -2123.75, 30.53),
+    spawn = vector4(866.34, -2123.75, 30.53, 356.38),
     distance = 5,
-    job = "police",
+    job = "eastcustom",
     type = "car"
   },
-  ['SAMU'] = {
-    coords = vector3(-1842.09, -320.3, 49.14),
-    spawn = vector4(-1842.09, -320.3, 49.14, 70.95),
+  ['Pawn Shop'] = {
+    coords = vector3(441.92, -1489.68, 29.3),
+    spawn = vector4(441.92, -1489.68, 29.3, 106.77),
+    distance = 5,
+    job = "pawnshop",
+    type = "car"
+  },
+  ['Post\'OP'] = {
+    coords = vector3(1205.1, -3194.07, 6.03),
+    spawn = vector4(1205.1, -3194.07, 6.03, 188.21),
+    distance = 5,
+    job = "postop",
+    type = "car"
+  },
+  ['Weazel News'] = {
+    coords = vector3(-525.85, -888.09, 25.03),
+    spawn = vector4(-525.85, -888.09, 25.03, 138.45),
+    distance = 5,
+    job = "reporter",
+    type = "car"
+  },
+  ['Au Siecle d\'or'] = {
+    coords = vector3(-182.98, 318.63, 97.8),
+    spawn = vector4(-182.98, 318.63, 97.8, 174.71),
+    distance = 5,
+    job = "au_siecle_dor",
+    type = "car"
+  },
+  ['Yellow Jack'] = {
+    coords = vector3(2008.07, 3048.46, 47.21),
+    spawn = vector4(2008.07, 3048.46, 47.21, 334.22),
+    distance = 5,
+    job = "yellowjack",
+    type = "car"
+  },
+  ['Malibu Club'] = {
+    coords = vector3(-861.2, -1219.49, 6.02),
+    spawn = vector4(-861.2, -1219.49, 6.02, 308.88),
+    distance = 5,
+    job = "malibu",
+    type = "car"
+  },
+  ['Bahamas Mamas'] = {
+    coords = vector3(-1378.29, -584.39, 30.05),
+    spawn = vector4(-1378.29, -584.39, 30.05, 35.11),
+    distance = 5,
+    job = "bahamas",
+    type = "car"
+  },
+  ['Vanilla Unicorn'] = {
+    coords = vector3(136.55, -1300.99, 29.22),
+    spawn = vector4(136.55, -1300.99, 29.22, 211.92),
+    distance = 5,
+    job = "unicorn",
+    type = "car"
+  },
+  ['Los Santos BurgerShot'] = {
+    coords = vector3(-844.03, -787.35, 20.08),
+    spawn = vector4(-844.03, -787.35, 20.08, 178.57),
+    distance = 5,
+    job = "lsburgershot",
+    type = "car"
+  },
+  ['Sandy Shore BurgerShot'] = {
+    coords = vector3(1446.77, 3593.29, 35.81),
+    spawn = vector4(1446.77, 3593.29, 35.81, 110.63),
+    distance = 5,
+    job = "ssburgershot",
+    type = "car"
+  },
+  ['MC Donald'] = {
+    coords = vector3(116.23, 280.8, 109.97),
+    spawn = vector4(116.23, 280.8, 109.97, 67.75),
+    distance = 5,
+    job = "mcdonald",
+    type = "car"
+  },
+  ['Red Line Garage'] = {
+    coords = vector3(959.66, -180.11, 73.52),
+    spawn = vector4(959.66, -180.11, 73.52, 234.38),
+    distance = 5,
+    job = "redlinegarage",
+    type = "car"
+  },
+  ['Benny\'s Original Motor Works'] = {
+    coords = vector3(-242.72, -1313.89, 31.3),
+    spawn = vector4(-242.72, -1313.89, 31.3, 180.88),
+    distance = 5,
+    job = "bennys",
+    type = "car"
+  },
+  ['LS Customs'] = {
+    coords = vector3(-364.55, -145.55, 38.29),
+    spawn = vector4(-364.55, -145.55, 38.29, 23.52),
+    distance = 5,
+    job = "lscustom",
+    type = "car"
+  },
+  ['Taxi'] = {
+    coords = vector3(885.24, -149.31, 69.38),
+    spawn = vector4(885.24, -149.31, 69.38, 146.62),
+    distance = 5,
+    job = "taxi",
+    type = "car"
+  },
+  ['Dynasty 8'] = {
+    coords = vector3(-712.97, 276.39, 84.41),
+    spawn = vector4(-712.97, 276.39, 84.41, 290.41),
+    distance = 5,
+    job = "realestate",
+    type = "car"
+  },
+  ['Gouvernement'] = {
+    coords = vector3(-1321.05, -544.61, 20.8),
+    spawn = vector4(-1321.05, -544.61, 20.8, 232.72),
+    distance = 5,
+    job = "gouv",
+    type = "car"
+  },
+  ['EMS'] = {
+    coords = vector3(362.92, -595.68, 28.67),
+    spawn = vector4(362.92, -595.68, 28.67, 333.34),
     distance = 5,
     job = "ambulance",
     type = "car"
   },
-  ['Mechanic'] = {
-    coords = vector3(157.86, -3005.9, 7.03),
-    spawn = vector4(165.26, -3014.94, 5.9, 268.8),
+  ['LSPD'] = {
+    coords = vector3(12.08, -403.5, 39.44),
+    spawn = vector4(12.08, -403.5, 39.44, 344.42),
     distance = 5,
-    job = "mechanic",
+    job = "police",
     type = "car"
   },
-  ['Brinks'] = {
-    coords = vector3(-5.39, -671.05, 32.23),
-    spawn = vector4(-5.39, -671.05, 32.23, 187.38),
+  ['Shérif'] = {
+    coords = vector3(-460.25, 6042.17, 31.34),
+    spawn = vector4(-460.25, 6042.17, 31.34, 138.81),
     distance = 5,
-    job = "brinks",
-    type = "car"
-  },
-  ['Norauto'] = {
-    coords = vector3(-356.72, -160.73, 38.5),
-    spawn = vector4(-364.7, -147.05, 38.12, 30.24),
-    distance = 5,
-    job = "norauto",
+    job = "sherif",
     type = "car"
   }
 }

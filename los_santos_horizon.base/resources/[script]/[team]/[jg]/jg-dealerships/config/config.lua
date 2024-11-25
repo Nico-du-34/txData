@@ -118,15 +118,12 @@ Config.DealershipLocations = {
       positions = {5.0, 8.0, 12.0, 8.0}
     },
     categories = {
-      "sportsclassics",
       "sedans",
       "compacts",
-      "super",
       "offroad",
       "coupes",
       "muscle",
       "vans",
-      "sports",
       "suvs",
       "commercial",
       "cycles",
@@ -175,18 +172,8 @@ Config.DealershipLocations = {
     },
     categories = {
       "sportsclassics",
-      "sedans",
-      "compacts",
       "super",
-      "offroad",
-      "coupes",
-      "muscle",
-      "vans",
-      "sports",
-      "suvs",
-      "commercial",
-      "cycles",
-      "industrial",
+      "sports"
     },
     enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
     sellVehiclePercent = 0.6,  -- 60% of current sale price
@@ -251,62 +238,6 @@ Config.DealershipLocations = {
     -- disableShowroomPurchase = true,
     -- job = "exotic", -- Owned dealerships only
     -- directSaleDistance = 5,
-  },
-  ["concess"] = {
-    type = "owned", -- or "owned", "self-service"
-    openShowroom = {
-      coords = vector3(-2198.91, -404.04, 14.23),
-      size = 1
-    },
-    openManagement = {
-      coords = vector3(-2217.07, -390.5, 19.76),
-      size = 1
-    },
-    sellVehicle = {
-      coords = vector3(-2212.74, -388.49, 14.23),
-      size = 1
-    },
-    purchaseSpawn = vector4(-2207.89, -384.28, 14.22, 50.91),
-    testDriveSpawn = vector4(-2719.48, 3269.88, 32.2, 239.42),
-    camera = {
-      name = "Car",
-      coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
-      positions = {5.0, 8.0, 12.0, 8.0}
-    },
-    categories = {
-      "sportsclassics",
-      "sedans",
-      "compacts",
-      "super",
-      "offroad",
-      "coupes",
-      "muscle",
-      "vans",
-      "sports",
-      "suvs",
-      "commercial",
-      "cycles",
-      "industrial",
-    },
-    enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
-    sellVehiclePercent = 0.6,  -- 60% of current sale price
-    enableTestDrive = true,
-    enableFinance = true,
-    hideBlip = false,
-    blip = {
-      id = 523,
-      color = 2,
-      scale = 0.6
-    },
-    hideMarkers = false,
-    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
-    showroomJobWhitelist = {},
-    showroomGangWhitelist = {},
-    societyPurchaseJobWhitelist = {},
-    societyPurchaseGangWhitelist = {},
-    disableShowroomPurchase = true,
-    job = "concess", -- Owned dealerships only
-    directSaleDistance = 5,
   },
   ["boats"] = {
     type = "self-service", -- or "owned", "self-service"

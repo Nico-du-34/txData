@@ -12,35 +12,29 @@ Config.RouletteStart = 40 -- how many seconds to start the rulett after you sit 
 Config.RulettTables = {
     -- you can implement tables easily or delete them.
     [0] = {
-        position = vector3(1001.53, 56.479, 68.433), --Test Loc
-        rot = 102.133,
-        minBet = 10,
-        maxBet = 1000 
-    },
-    [1] = {
-        position = vector3(997.595, 55.573, 68.433),
-        rot = 280.612,
+        position = vector3(998.92, 52.54, 79.99), --Test Loc
+        rot = 254.22,
         minBet = 10,
         maxBet = 1000
     },
-    -- [3] = {
-    --     position = vector3(984.6, 56.603, 70.238),
-    --     rot = 162.406,
-    --     minBet = 250,
-    --     maxBet = 1000
-    -- },
-    -- [4] = {
-    --     position = vector3(986.43, 48.482, 70.238),
-    --     rot = 42.96,
-    --     minBet = 250,
-    --     maxBet = 1000
-    -- },
-    -- [5] = {
-    --     position = vector3(982.953, 52.36, 70.238),
-    --     rot = 103.648,
-    --     minBet = 250,
-    --     maxBet = 1000
-    -- }
+    [1] = {
+        position = vector3(972.25, 77.84, 79.94),
+        rot = 235.87,
+        minBet = 10,
+        maxBet = 1000
+    },
+    [2] = {
+        position = vector3(931.86, -1.68, 74.89),
+        rot = 243.48,
+        minBet = 10,
+        maxBet = 1000
+    },
+    [3] = {
+        position = vector3(928.49, 16.57, 74.89),
+        rot = 264.4,
+        minBet = 10,
+        maxBet = 1000
+    },
 }
 
 Config.ChairIds = {

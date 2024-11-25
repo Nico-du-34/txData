@@ -44,37 +44,46 @@ local cfg = {}
 cfg.blackjackTables = {
     --[id] = {x,y,z,heading}
     [0] = {
-        dealerPos = vector3(986.018, 59.759, 70.238),
-        dealerHeading = 10.804,
-        tablePos = vector3(985.9037, 60.55936, 69.23269),
-        tableHeading = 188.309,
+        dealerPos = vector3(1000.34, 57.19, 81.0),
+        dealerHeading = 116.74,
+        tablePos = vector3(999.57, 56.97, 79.99),
+        tableHeading = 284.22,
         distance = 1000.0,
         prop = "vw_prop_casino_blckjack_01b"
     },
     [1] = {
-        dealerPos = vector3(981.661, 62.706, 70.238),
-        dealerHeading = 282.591,
-        tablePos = vector3(982.48, 62.90, 69.32),
-        tableHeading =  103.309,
+        dealerPos = vector3(977.72, 73.51, 80.94),
+        dealerHeading = 56.83,
+        tablePos = vector3(977.07, 73.98, 79.92),
+        tableHeading = 235.87,
         distance = 1000.0,
         prop = "vw_prop_casino_blckjack_01b"
     },
-    [2] = { 
-        dealerPos = vector3(988.644, 46.497, 70.238),
-        dealerHeading = 199.665,
-        tablePos = vector3(989.93, 45.7245, 69.23),
-        tableHeading = 23.309,
+    [2] = {
+        dealerPos = vector3(966.42, 43.76, 75.66),
+        dealerHeading = 74.89,
+        tablePos = vector3(965.67, 44.06, 74.65),
+        tableHeading = 247.43,
         distance = 1000.0,
         prop = "vw_prop_casino_blckjack_01b"
     },
     [3] = {
-        dealerPos = vector3(986.486, 41.996, 70.238),
-        dealerHeading = 284.971,
-        tablePos = vector3(987.26, 42.203, 69.232),
-        tableHeading =  103.309,
+        dealerPos = vector3(949.88, 40.14, 75.66),
+        dealerHeading = 234.33,
+        tablePos = vector3(950.56, 39.7, 74.65),
+        tableHeading = 58.68,
         distance = 1000.0,
         prop = "vw_prop_casino_blckjack_01b"
     },
+    [4] = {
+        dealerPos = vector3(919.47, 15.59, 75.9),
+        dealerHeading = 275.89,
+        tablePos = vector3(920.29, 15.63, 74.89),
+        tableHeading = 91.4,
+        distance = 1000.0,
+        prop = "vw_prop_casino_blckjack_01b"
+    }
+    
 }
 
 --Use this command to get the coords you need for setting up new tables. 

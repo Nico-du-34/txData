@@ -297,3 +297,64 @@ end)
 
 
 
+local spinningObject = nil
+local spinningCar = nil
+
+function spinMeRightRoundBaby()
+  CreateThread(function()
+      -- Générer le véhicule dès le début
+      drawCarForWins()
+
+      while inCasino do
+          -- Vérifie et met à jour l'objet s'il existe
+          if not spinningObject or spinningObject == 0 or not DoesEntityExist(spinningObject) then
+              spinningObject = GetClosestObjectOfType(935.432, 42.5611, 72.14, 10.0, -1561087446, 0, 0, 0)
+          end
+
+          -- Rotation de l'objet
+          if spinningObject and spinningObject ~= 0 then
+              local curHeading = GetEntityHeading(spinningObject)
+              if curHeading >= 360 then
+                  curHeading = 0.0
+              end
+              SetEntityHeading(spinningObject, curHeading + 0.075)
+          end
+
+          -- Rotation du véhicule
+          if spinningCar and spinningCar ~= 0 then
+              local curHeadingCar = GetEntityHeading(spinningCar)
+              if curHeadingCar >= 360 then
+                  curHeadingCar = 0.0
+              end
+              SetEntityHeading(spinningCar, curHeadingCar + 0.075)
+          end
+
+          Wait(0)
+      end
+
+      spinningObject = nil
+  end)
+end
+
+function drawCarForWins()
+  if DoesEntityExist(spinningCar) then
+      DeleteEntity(spinningCar)
+  end
+
+  RequestModel(Config.VehiclePrize)
+  while not HasModelLoaded(Config.VehiclePrize) do
+      Wait(0)
+  end
+  SetModelAsNoLongerNeeded(Config.VehiclePrize)
+
+  -- Création du véhicule
+  spinningCar = CreateVehicle(Config.VehiclePrize, 919.02, 13.94, 80.75, 0.0, false, false)
+  
+  -- Propriétés du véhicule
+  SetVehicleDirtLevel(spinningCar, 0.0)
+  SetVehicleOnGroundProperly(spinningCar)
+  FreezeEntityPosition(spinningCar, true) -- Gèle le véhicule pour éviter qu'il se déplace
+end
+
+-- Lancer la fonction principale
+spinMeRightRoundBaby()

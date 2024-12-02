@@ -1,7 +1,0 @@
-Citizen.CreateThread(function()
-  	AddTextEntryByHash(`airbus`, "Isuzu airbus 12 [Transdev]")
-  	AddTextEntryByHash(`bus`, "Isuzu airbus 12 [MIBO]")
-  	AddTextEntryByHash(`coach`, "Isuzu airbus 12 [Transdev] (Remondis)")
-  	AddTextEntryByHash(`rentalbus`, "Isuzu airbus 12 [Transdev] (VRM)")
-  	AddTextEntryByHash(`tourbus`, "Isuzu airbus 12 [Transdev] (Hocheifel)")
-end)

@@ -126,8 +126,11 @@
                 <!-- ADD MORE STAFF MEMBERS HERE -->
               </div>
         </div>
-        <audio controls autoplay>
+        <!-- <audio controls autoplay>
             <source src="./audio/Los-Santos-Horizon.mp3" id="track">
+        </audio> -->
+        <audio controls autoplay>
+            <source src="" id="track">
         </audio>
         <div>
         <div id="trailer-container" class="hidden">
@@ -151,4 +154,24 @@
     </div>
 <!--Fin Pub Discord et Top Serveur-->
     </body>
+    <script>
+        const musicList = [
+            './audio/Los-Santos-Horizon.mp3',
+            './audio/aleesia-high.mp3',
+            './audio/musique3.mp3',
+            './audio/musique4.mp3'
+        ];
+        
+        function playRandomMusic() {
+            const audioPlayer = document.querySelector('audio');
+            const randomIndex = Math.floor(Math.random() * musicList.length);
+            const track = document.getElementById('track');
+            track.src = musicList[randomIndex];
+            audioPlayer.load();
+            audioPlayer.play();
+        }
+        
+        // Lancer une musique aléatoire au chargement
+        window.onload = playRandomMusic;
+        </script>
 </html>

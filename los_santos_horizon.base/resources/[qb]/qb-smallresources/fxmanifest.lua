@@ -12,7 +12,8 @@ shared_scripts {
     'locales/en.lua',
     'locales/*.lua',
     'config.lua',
-    'config.vendingmachine.lua'
+    'config.vendingmachine.lua',
+    "fixDeleteVehicle.lua"
 }
 server_scripts {
     'server/*.lua',

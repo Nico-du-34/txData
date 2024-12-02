@@ -44,86 +44,84 @@ local basicCards = {
     'bulbizarre_166','herbizarre_167','salameche_168','reptincel_169',         
     'carapuce_170','carabaffe_171','chenipan_172','pikachu_173',           
     'nidoking_174','psykokwak_175','tetarte_176','machopeur_177',         
-    'saquedeneu_178','mmime_179','amonita_180','draco_181',
+    'saquedeneu_178','mmime_179','amonita_180','draco_181'
 }
 
 local rareCards = {
-    'nosferapti_41',
+    'nosferapti_41'
 }
 
 local ultraCards = {
-    'nosferapti_41',
+    'nosferapti_41'
 }
 
 local vmaxCards = {
-    'arbok_ex_24','feunard_ex_38','grodoudou_ex_40','alakazam_ex_65','grolem_ex_76','kangourex_ex_115','lippoutou_ex_124','electhor_ex_145','mew_ex_151',
-    'florizarre_ex_182','dracaufeu_ex_183','tortank_ex_184','arbok_ex_185','feunard_ex_186','grodoudou_ex_187','alakazam_ex_188','grolem_ex_189',
-    'feunard_ex_186','grodoudou_ex_187','alakazam_ex_188','grolem_ex_189','kangourex_ex_190','lippoutou_ex_191',
-    'electhor_ex_192','mew_ex_193','transfertdeleo_194','aidedenina_195','invitationderika_196','charismedegiovanni_197','florizarre_ex_198','dracaufeu_ex_199',
-    'tortank_ex_200','alakazam_ex_201','electhor_ex_202','invitationderika_203','charismedegiovanni_204',
+    'arbok_ex_24','feunard_ex_38','grodoudou_ex_40','alakazam_ex_65','grolem_ex_76',
+    'kangourex_ex_115','lippoutou_ex_124','electhor_ex_145','mew_ex_151',
+    'florizarre_ex_182','dracaufeu_ex_183','tortank_ex_184','arbok_ex_185','feunard_ex_186',
+    'grodoudou_ex_187','alakazam_ex_188','grolem_ex_189','kangourex_ex_190','lippoutou_ex_191',
+    'electhor_ex_192','mew_ex_193','transfertdeleo_194','aidedenina_195','invitationderika_196',
+    'charismedegiovanni_197','florizarre_ex_198','dracaufeu_ex_199','tortank_ex_200',
+    'alakazam_ex_201','electhor_ex_202','invitationderika_203','charismedegiovanni_204'
 }
 
 local rainbowCards = {
-    'mew_ex_gold_205','echange_gold_206','energiedebase_gold_207',
+    'mew_ex_gold_205','echange_gold_206','energiedebase_gold_207'
 }
 
--- Création d'un item utilisable pour ouvrir un booster
+-- Item utilisable
 QBCore.Functions.CreateUseableItem("booster151", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
-    TriggerClientEvent("Cards:Client:OpenPack", source)  -- Demander au client d'ouvrir le pack
-end)
-
--- Event pour retirer l'item du joueur après ouverture
-RegisterServerEvent('Cards:Server:RemoveItem')
-AddEventHandler('Cards:Server:RemoveItem', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    local pack = Player.Functions.GetItemByName("booster151")
-
-    if pack.amount == nil then
-        TriggerClientEvent('QBCore:Notify', src, 'Tu n\'as pas de booster151!')
-    else
-        Player.Functions.RemoveItem('booster151', 1)
+    if not Player then return end
+    
+    -- Vérifier si le joueur a le booster
+    if not Player.Functions.GetItemByName("booster151") then
+        TriggerClientEvent('QBCore:Notify', source, 'Tu n\'as pas de booster151!', 'error')
+        return
     end
+
+    -- Retirer l'item
+    Player.Functions.RemoveItem('booster151', 1)
+
+    -- Déclencher l'animation côté client
+    TriggerClientEvent('Cards:Client:OpenPack', source)
 end)
 
--- Event pour récompenser le joueur avec 4 cartes
-RegisterServerEvent('Cards:Server:RewardItem')
-AddEventHandler('Cards:Server:RewardItem', function()
+RegisterServerEvent('Cards:Server:CompleteCardOpen')
+AddEventHandler('Cards:Server:CompleteCardOpen', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-
+    if not Player then return end
+    
+    -- Générer les cartes
     local cardsReceived = {}
-
-    -- Générer 4 cartes aléatoires pour le joueur
+    
+    -- Générer 4 cartes aléatoires
     for i = 1, 4 do
         local randomChance = math.random(1, 1000)
         local card = ''
 
-        if randomChance <= 5 then 
-            card = rainbowCards[math.random(1, #rainbowCards)]         
-        elseif randomChance >= 6 and randomChance <= 19 then
+        if randomChance <= 1 then -- 0.01% de chance pour Rainbow (ultra méga rare)
+            card = rainbowCards[math.random(1, #rainbowCards)]
+        elseif randomChance >= 2 and randomChance <= 3 then -- 0.02% de chance pour VMAX
             card = vmaxCards[math.random(1, #vmaxCards)]
-        elseif randomChance >= 20 and randomChance <= 50 then
+        elseif randomChance >= 4 and randomChance <= 8 then -- 0.05% de chance pour Ultra
             card = ultraCards[math.random(1, #ultraCards)]
-        elseif randomChance >= 51 and randomChance <= 100 then
+        elseif randomChance >= 9 and randomChance <= 29 then -- 0.2% de chance pour Rare
             card = rareCards[math.random(1, #rareCards)]
-        else 
+        else -- 99.72% de chance pour Basic
             card = basicCards[math.random(1, #basicCards)]
         end
 
         table.insert(cardsReceived, card)
-    end
-
-    for _, card in ipairs(cardsReceived) do
-        TriggerClientEvent('Cards:Client:CardChoosed', src, card)
         Player.Functions.AddItem(card, 1)
     end
+
+    -- Envoyer les cartes au client
+    TriggerClientEvent('Cards:Client:ShowCards', src, cardsReceived)
 end)
 
-
-
-
+-- [Votre code pokemonbox reste inchangé]
 RegisterCommand('givepokemonbox', function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -141,8 +139,7 @@ RegisterCommand('givepokemonbox', function(source, args)
     TriggerClientEvent('QBCore:Notify', src, "Vous avez reçu une boîte Pokémon.", "success")
     Player.Functions.RemoveItem('cash', 50, false)
     exports['mh-cashasitem']:UpdateCash(src, 'cash', 50, "remove")
-end, false) 
-
+end, false)
 
 QBCore.Functions.CreateUseableItem('pokemonbox', function(source, item)
     local src = source

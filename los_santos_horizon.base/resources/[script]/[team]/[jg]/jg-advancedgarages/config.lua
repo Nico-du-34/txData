@@ -28,8 +28,8 @@ Config.GarageBlipScale = 0.5
 Config.GarageUniqueBlips = false
 Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
   ['Parking Central'] = { -- If you change the name of this garage from Legion Square, you must change the default value of `garage_id` to the same name in the SQL table `players_vehicles`
-    coords = vector3(221.58, -913.70, 29.60),
-    spawn = vector4(212.84, -916.22, 29.02, 338.92),
+    coords = vector3(26.57, -1737.13, 29.3),
+    spawn = vector4(26.57, -1737.13, 29.3, 50.9),
     distance = 8,
     type = "car"
   },
